@@ -1,0 +1,9 @@
+package Assignment;
+
+public class HelloAruna {
+ 	public static void main(String[] args){
+			System.out.println("Hello Aruna, Learning Java is so much fun.");
+			
+	}
+
+}
