@@ -1,0 +1,13 @@
+package Assignment;
+
+public class HelloWorld {
+
+		public static void main(String[] args){
+			System.out.println("Hello World");
+			System.out.println("India");
+			// to print "Hello World" and next line "India"
+		
+		}
+
+	}
+
