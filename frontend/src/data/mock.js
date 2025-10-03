@@ -53,6 +53,36 @@ export const books = [
   }
 ];
 
+export const bookTrailers = [
+  {
+    id: 1,
+    title: "Agarkas - The Future King of Satan",
+    description: "Watch the haunting trailer for the epic gothic horror that explores the thin veil between salvation and damnation.",
+    videoUrl: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/dr9wzb6u_Novi_20250917_00_48_39.mp4",
+    thumbnail: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/4lqwnq0d_copilot_image_1755341425711.jpeg",
+    duration: "2:15",
+    featured: true
+  },
+  {
+    id: 2,
+    title: "The Whisper That Named Me - Book Teaser",
+    description: "A glimpse into the psychological horror that haunts the corridors of faith and fear.",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
+    thumbnail: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/22nyrwpq_IMG-20250924-WA0060.jpg",
+    duration: "1:30",
+    featured: false
+  },
+  {
+    id: 3,
+    title: "Behind the Scenes: Writing Agarkas",
+    description: "Discover the inspiration and spiritual journey behind the creation of the gothic masterpiece.",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Placeholder
+    thumbnail: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=250&fit=crop",
+    duration: "5:45",
+    featured: false
+  }
+];
+
 export const newsArticles = [
   {
     id: 1,
