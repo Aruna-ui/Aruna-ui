@@ -213,6 +213,28 @@
     box-shadow: 0 0 10px hsl(var(--secondary) / 0.3);
   }
   
+  .book-action-btn.coming-soon {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    border: 1px solid #ff6b35;
+    animation: comingSoonGlow 2s ease-in-out infinite alternate;
+  }
+  
+  .book-action-btn.coming-soon:hover {
+    background: linear-gradient(135deg, #f7931e, #ff6b35);
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+    transform: translateY(-2px);
+  }
+  
+  @keyframes comingSoonGlow {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 107, 53, 0.3);
+    }
+    100% {
+      box-shadow: 0 0 20px rgba(255, 107, 53, 0.6), 0 0 30px rgba(255, 107, 53, 0.4);
+    }
+  }
+  
   /* About Section Styles */
   .about-section {
     background: linear-gradient(135deg, hsl(15 10% 6%), hsl(var(--background)));
