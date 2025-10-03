@@ -85,24 +85,24 @@ export const newsArticles = [
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah M.",
-    text: "Aruna.S weaves darkness and beauty in ways that haunt you long after the last page. The Shadowed Castle consumed my thoughts for weeks.",
+    name: "Literary Review Board",
+    text: "Aruna S. masterfully blends mythic horror with spiritual symbolism and psychological realism. The Agarkas Chronicles stands as a groundbreaking narrative in contemporary horror literature.",
     rating: 5,
-    book: "The Shadowed Castle"
+    book: "Agarkas, The Future King of Satan"
   },
   {
     id: 2,
-    name: "Marcus Chen",
-    text: "Each story in Whispers from the Void is a masterpiece of atmospheric horror. I couldn't put it down, even though it gave me chills.",
+    name: "International Critics",
+    text: "The Whisper That Named Me demonstrates exceptional narrative voice, merging poetic dread with theological symbolism. A unique contribution to the horror genre.",
     rating: 5,
-    book: "Whispers from the Void"
+    book: "The Whisper That Named Me"
   },
   {
     id: 3,
-    name: "Elena Rodriguez",
-    text: "Mirror of Sorrows made me believe in love that transcends death. Beautifully haunting and achingly romantic.",
+    name: "Abdul Kalam Award Committee",
+    text: "Recognized for visionary contribution to Indian literature, blending spiritual depth, psychological realism, and gothic horror in groundbreaking narratives.",
     rating: 5,
-    book: "Mirror of Sorrows"
+    book: "Literary Excellence"
   }
 ];
 
