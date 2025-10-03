@@ -23,12 +23,40 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission - would connect to backend later
-    console.log('Form submitted:', formData);
-    alert('Your message has been sent into the void... I will respond soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+      const API = `${BACKEND_URL}/api`;
+      
+      const response = await fetch(`${API}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setSubmitMessage(result.message);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitMessage(result.message || 'The ancient spirits are restless. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitMessage('The void seems unreachable. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
