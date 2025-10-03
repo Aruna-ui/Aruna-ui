@@ -245,6 +245,41 @@ async def get_contact_messages():
         logger.error(f"Error getting contact messages: {str(e)}")
         raise HTTPException(status_code=500, detail="Error retrieving messages")
 
+@api_router.post("/feedback")
+async def submit_feedback(feedback_data: ContactMessageCreate, http_request: Request):
+    try:
+        # Get client IP for spam prevention
+        client_ip = http_request.client.host
+        if "x-forwarded-for" in http_request.headers:
+            client_ip = http_request.headers["x-forwarded-for"].split(",")[0].strip()
+        
+        ip_hash = hash_ip(client_ip)
+        
+        # Create feedback message (using same structure as contact message)
+        feedback_message = ContactMessage(
+            name=feedback_data.name,
+            email=feedback_data.email or "anonymous@feedback.com",
+            subject=feedback_data.subject,
+            message=feedback_data.message,
+            status="feedback",
+            ip_address_hash=ip_hash
+        )
+        
+        # Save to database
+        await db.feedback_messages.insert_one(feedback_message.dict())
+        
+        return {
+            "success": True, 
+            "message": "Your whispers have reached the shadows... Thank you for sharing your thoughts."
+        }
+        
+    except Exception as e:
+        logger.error(f"Error submitting feedback: {str(e)}")
+        return {
+            "success": False, 
+            "message": "The ancient spirits are restless. Please try again later."
+        }
+
 # Include the router in the main app
 app.include_router(api_router)
 
