@@ -14,6 +14,8 @@ const Footer = () => {
       
       <div className="container">
         <div className="footer-content">
+          <VisitorCounter />
+          
           <div className="footer-main">
             <div className="footer-brand">
               <h3 className="footer-title">{authorInfo.name}</h3>
