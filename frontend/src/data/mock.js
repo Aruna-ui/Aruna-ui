@@ -99,6 +99,16 @@ export const bookTrailers = [
 export const newsArticles = [
   {
     id: 1,
+    title: "BREAKING: 'Echoes of the Forsaken' - New Gothic Masterpiece Coming Spring 2025",
+    excerpt: "After months in the shadowed depths of creation, Aruna.S announces her most ambitious work yet - a tale of lost souls seeking redemption in forgotten realms...",
+    content: "The whispers from the void have grown stronger, and I am thrilled to announce my upcoming novel 'Echoes of the Forsaken' - a haunting journey through landscapes both beautiful and terrifying. This new work represents a deeper exploration into the gothic realm, where forsaken souls wander through forgotten territories seeking redemption. Set for release in Spring 2025, this psychological thriller will push the boundaries of dark fantasy, weaving together themes of hope, despair, and the eternal struggle between light and shadow. Pre-orders will be available soon on Amazon, and I invite you to join me in this new descent into darkness.",
+    date: "December 28, 2024",
+    category: "New Release Announcement",
+    image: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/jjbmh3zi_1759490412941.jpg",
+    featured: true
+  },
+  {
+    id: 2,
     title: "Award Recognition: London Book & World Record",
     excerpt: "Grateful to receive international acclaim for The Agarkas Chronicles, earning recognition for excellence in mythic horror storytelling...",
     content: "I am deeply honored to have received the London Book & World Record Recognition for The Agarkas Chronicles. This international acclaim for excellence in literary writing and mythic horror storytelling validates my belief that stories born from spiritual conviction can resonate across borders and touch the hearts of readers worldwide.",
