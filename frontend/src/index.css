@@ -304,6 +304,39 @@
     margin-top: 2rem;
   }
   
+  .awards-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+  }
+  
+  .awards-title {
+    font-family: 'Cinzel', serif;
+    color: hsl(var(--accent));
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .awards-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .award-item {
+    font-size: 0.95rem;
+    color: hsl(var(--foreground));
+    padding: 0.75rem;
+    background: hsl(var(--muted));
+    border-left: 3px solid hsl(var(--primary));
+    border-radius: var(--radius);
+  }
+  
   .author-image-container {
     position: relative;
     display: flex;
