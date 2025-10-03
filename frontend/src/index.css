@@ -2049,6 +2049,11 @@
     100% { opacity: 0.3; transform: translateX(-50%) rotate(2deg); }
   }
   
+  @keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
   /* Coming Soon Popup Styles */
   .coming-soon-overlay {
     position: fixed;
