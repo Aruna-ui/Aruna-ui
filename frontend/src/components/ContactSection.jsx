@@ -136,9 +136,15 @@ const ContactSection = () => {
                   />
                 </div>
                 
-                <Button type="submit" className="gothic-submit-btn">
-                  Cast Your Message Into the Void
+                <Button type="submit" className="gothic-submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? 'Casting into the Void...' : 'Cast Your Message Into the Void'}
                 </Button>
+                
+                {submitMessage && (
+                  <div className={`submit-message ${submitMessage.includes('cast into the void') ? 'success' : 'error'}`}>
+                    {submitMessage}
+                  </div>
+                )}
               </form>
             </CardContent>
           </Card>
