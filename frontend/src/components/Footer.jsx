@@ -1,5 +1,6 @@
 import React from "react";
 import { authorInfo } from "../data/mock";
+import VisitorCounter from "./VisitorCounter";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
