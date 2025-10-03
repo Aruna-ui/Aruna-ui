@@ -46,7 +46,11 @@ const BookTrailersSection = () => {
           <div className="featured-trailer">
             <h3 className="subsection-title">Official Book Trailer Premiere</h3>
             <Card className={`featured-trailer-card ${featuredTrailer.isOfficialTrailer ? 'official-trailer' : ''}`}>
-              <div className="trailer-preview-container">
+              <div 
+                className="trailer-preview-container"
+                onClick={() => openTrailerModal(featuredTrailer)}
+                style={{ cursor: 'pointer' }}
+              >
                 <img 
                   src={featuredTrailer.thumbnail} 
                   alt={featuredTrailer.title}
@@ -55,7 +59,10 @@ const BookTrailersSection = () => {
                 <div className="trailer-overlay">
                   <div className="play-button-container">
                     <button 
-                      onClick={() => openTrailerModal(featuredTrailer)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openTrailerModal(featuredTrailer);
+                      }}
                       className="play-button-large"
                     >
                       <Play className="play-icon-large" />
