@@ -92,6 +92,159 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
+# Helper function to hash IP addresses for privacy
+def hash_ip(ip_address: str) -> str:
+    return hashlib.sha256(ip_address.encode()).hexdigest()[:16]
+
+# Initialize visitor stats if not exists
+async def get_or_create_visitor_stats():
+    stats = await db.visitor_stats.find_one()
+    if not stats:
+        initial_stats = VisitorStats()
+        await db.visitor_stats.insert_one(initial_stats.dict())
+        return initial_stats
+    return VisitorStats(**stats)
+
+@api_router.get("/visitor-stats")
+async def get_visitor_stats():
+    stats = await get_or_create_visitor_stats()
+    return {
+        "total_visits": stats.total_visits,
+        "unique_visitors": stats.unique_visitors,
+        "daily_visits": stats.daily_visits,
+        "weekly_visits": stats.weekly_visits,
+        "monthly_visits": stats.monthly_visits,
+        "last_updated": stats.updated_at
+    }
+
+@api_router.post("/track-visit")
+async def track_visit(request: TrackVisitRequest, http_request: Request):
+    try:
+        # Get client IP
+        client_ip = http_request.client.host
+        if "x-forwarded-for" in http_request.headers:
+            client_ip = http_request.headers["x-forwarded-for"].split(",")[0].strip()
+        
+        ip_hash = hash_ip(client_ip)
+        user_agent = http_request.headers.get("user-agent", "")
+        referrer = http_request.headers.get("referer", "")
+        
+        # Record page view
+        page_view = PageView(
+            page_path=request.page_path,
+            visitor_ip_hash=ip_hash,
+            user_agent=user_agent,
+            referrer=referrer
+        )
+        await db.page_views.insert_one(page_view.dict())
+        
+        # Update visitor stats
+        stats = await get_or_create_visitor_stats()
+        now = datetime.utcnow()
+        
+        # Check if it's a unique visitor (within last 24 hours)
+        recent_visit = await db.page_views.find_one({
+            "visitor_ip_hash": ip_hash,
+            "timestamp": {"$gte": now - timedelta(hours=24)}
+        }, sort=[("timestamp", -1)])
+        
+        is_unique_today = recent_visit is None or recent_visit["timestamp"] < (now - timedelta(hours=24))
+        
+        # Reset daily counts if it's a new day
+        if stats.last_reset_date.date() < now.date():
+            stats.daily_visits = 0
+            stats.last_reset_date = now
+            
+        # Reset weekly counts if it's a new week
+        if (now - stats.last_reset_date).days >= 7:
+            stats.weekly_visits = 0
+            
+        # Reset monthly counts if it's a new month
+        if stats.last_reset_date.month != now.month or stats.last_reset_date.year != now.year:
+            stats.monthly_visits = 0
+        
+        # Update counters
+        stats.total_visits += 1
+        stats.daily_visits += 1
+        stats.weekly_visits += 1
+        stats.monthly_visits += 1
+        
+        if is_unique_today:
+            stats.unique_visitors += 1
+            
+        stats.updated_at = now
+        
+        # Update in database
+        await db.visitor_stats.replace_one({}, stats.dict())
+        
+        return {"success": True, "message": "Visit tracked successfully"}
+        
+    except Exception as e:
+        logger.error(f"Error tracking visit: {str(e)}")
+        return {"success": False, "message": "Error tracking visit"}
+
+@api_router.get("/page-stats/{page_path}")
+async def get_page_stats(page_path: str):
+    try:
+        # Count total views for this page
+        total_views = await db.page_views.count_documents({"page_path": page_path})
+        
+        # Count unique visitors for this page
+        unique_visitors = len(await db.page_views.distinct("visitor_ip_hash", {"page_path": page_path}))
+        
+        return {
+            "page_path": page_path,
+            "total_views": total_views,
+            "unique_visitors": unique_visitors
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting page stats: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error retrieving page statistics")
+
+@api_router.post("/contact")
+async def submit_contact_message(message_data: ContactMessageCreate, http_request: Request):
+    try:
+        # Get client IP for spam prevention
+        client_ip = http_request.client.host
+        if "x-forwarded-for" in http_request.headers:
+            client_ip = http_request.headers["x-forwarded-for"].split(",")[0].strip()
+        
+        ip_hash = hash_ip(client_ip)
+        
+        # Create contact message
+        contact_message = ContactMessage(
+            name=message_data.name,
+            email=message_data.email,
+            subject=message_data.subject,
+            message=message_data.message,
+            ip_address_hash=ip_hash
+        )
+        
+        # Save to database
+        await db.contact_messages.insert_one(contact_message.dict())
+        
+        return {
+            "success": True, 
+            "message": "Your message has been cast into the void... The shadows will whisper back soon."
+        }
+        
+    except Exception as e:
+        logger.error(f"Error submitting contact message: {str(e)}")
+        return {
+            "success": False, 
+            "message": "The ancient spirits are restless. Please try again later."
+        }
+
+@api_router.get("/contact-messages")
+async def get_contact_messages():
+    try:
+        messages = await db.contact_messages.find().sort("created_at", -1).to_list(1000)
+        return [ContactMessage(**msg) for msg in messages]
+    except Exception as e:
+        logger.error(f"Error getting contact messages: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error retrieving messages")
+
 # Include the router in the main app
 app.include_router(api_router)
 
