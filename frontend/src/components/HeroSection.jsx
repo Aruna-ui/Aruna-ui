@@ -2,12 +2,34 @@ import React from "react";
 import { Button } from "./ui/button";
 
 const HeroSection = () => {
+  const [doorsOpen, setDoorsOpen] = React.useState(false);
+  const [hasEntered, setHasEntered] = React.useState(false);
+
   const scrollToBooks = () => {
     const booksSection = document.querySelector('#books');
     if (booksSection) {
       booksSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const handleEnterAbyss = () => {
+    setDoorsOpen(true);
+    setTimeout(() => {
+      setHasEntered(true);
+      scrollToBooks();
+    }, 2000);
+  };
+
+  React.useEffect(() => {
+    // Auto-open doors after 3 seconds if user hasn't interacted
+    const timer = setTimeout(() => {
+      if (!doorsOpen) {
+        setDoorsOpen(true);
+      }
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [doorsOpen]);
 
   return (
     <section className="hero-section">
@@ -16,7 +38,30 @@ const HeroSection = () => {
         <div className="hero-shadows"></div>
       </div>
       
-      <div className="hero-content">
+      {/* Mystical Doors */}
+      <div className={`mystical-doors ${doorsOpen ? 'doors-open' : ''}`}>
+        <div className="door door-left">
+          <div className="door-panel">
+            <div className="door-runes">
+              <span className="rune">◈</span>
+              <span className="rune">※</span>
+              <span className="rune">⟐</span>
+            </div>
+          </div>
+        </div>
+        <div className="door door-right">
+          <div className="door-panel">
+            <div className="door-runes">
+              <span className="rune">◈</span>
+              <span className="rune">※</span>
+              <span className="rune">⟐</span>
+            </div>
+          </div>
+        </div>
+        <div className="door-glow"></div>
+      </div>
+      
+      <div className={`hero-content ${hasEntered ? 'content-revealed' : ''}`}>
         <div className="hero-text">
           <h2 className="hero-welcome">Welcome</h2>
           <h3 className="hero-subtitle">Step into the Abyss</h3>
@@ -29,11 +74,11 @@ const HeroSection = () => {
         
         <div className="hero-cta">
           <Button 
-            onClick={scrollToBooks}
-            className="gothic-cta-button"
+            onClick={handleEnterAbyss}
+            className={`gothic-cta-button ${doorsOpen ? 'button-revealed' : ''}`}
             size="lg"
           >
-            Discover My Works
+            {doorsOpen ? 'Enter the Realm' : 'Open the Gates'}
           </Button>
         </div>
         
