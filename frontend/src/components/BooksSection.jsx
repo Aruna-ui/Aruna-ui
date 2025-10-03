@@ -109,6 +109,13 @@ const BooksSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Coming Soon Popup */}
+      <ComingSoonPopup 
+        book={selectedComingSoonBook}
+        isOpen={showComingSoonPopup}
+        onClose={closeComingSoonPopup}
+      />
     </section>
   );
 };
