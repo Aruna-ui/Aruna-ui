@@ -845,8 +845,18 @@ section {
     font-size: 2rem;
   }
   
-  .mystical-doors.doors-open .door-glow {
-    width: 50px;
+  .demon-image {
+    width: 250px;
+    height: 400px;
+  }
+  
+  .demon-glow {
+    width: 300px;
+    height: 450px;
+  }
+  
+  .mystical-doors.doors-open .door-light-beam {
+    width: 30px;
   }
   
   :root {
