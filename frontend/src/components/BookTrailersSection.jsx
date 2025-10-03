@@ -23,7 +23,7 @@ const BookTrailersSection = () => {
   const regularTrailers = bookTrailers.filter(trailer => !trailer.featured);
 
   return (
-    <section className="book-trailers-section">
+    <section id="trailers" className="book-trailers-section">
       <div className="section-background">
         <div className="film-grain"></div>
         <div className="spotlight-effect"></div>
