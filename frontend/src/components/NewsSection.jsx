@@ -21,7 +21,7 @@ const NewsSection = () => {
         
         <div className="news-grid">
           {newsArticles.map((article) => (
-            <Card key={article.id} className={`news-card ${article.featured ? 'featured-news' : ''}`}
+            <Card key={article.id} className={`news-card ${article.featured ? 'featured-news' : ''}`}>
               <div className="news-image-container">
                 <img 
                   src={article.image} 
