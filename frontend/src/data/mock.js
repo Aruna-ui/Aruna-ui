@@ -126,7 +126,7 @@ export const newsArticles = [
     image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop"
   },
   {
-    id: 3,
+    id: 5,
     title: "Mentorship & Creative Community",
     excerpt: "Guiding young writers and fostering a community of emerging storytellers through joy, gratitude, and emotional authenticity...",
     content: "Recently, I had the privilege of guiding young author Aparna Sriram in crafting her bio and acknowledgments for her third published book. Fostering a creative community of emerging writers brings me immense joy. I encourage all writers to embrace authenticity in their storytelling and find the sacred in the terrifying.",
