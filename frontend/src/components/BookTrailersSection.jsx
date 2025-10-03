@@ -44,8 +44,8 @@ const BookTrailersSection = () => {
         {/* Featured Trailer */}
         {featuredTrailer && (
           <div className="featured-trailer">
-            <h3 className="subsection-title">Featured Cinematic Experience</h3>
-            <Card className="featured-trailer-card">
+            <h3 className="subsection-title">Official Book Trailer Premiere</h3>
+            <Card className={`featured-trailer-card ${featuredTrailer.isOfficialTrailer ? 'official-trailer' : ''}`}>
               <div className="trailer-preview-container">
                 <img 
                   src={featuredTrailer.thumbnail} 
