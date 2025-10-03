@@ -69,29 +69,40 @@ const BooksSection = () => {
                 </div>
                 
                 <div className="book-actions">
-                  {book.purchaseLinks && (
+                  {book.comingSoon ? (
+                    <Button 
+                      className="book-action-btn coming-soon"
+                      onClick={() => handleComingSoonClick(book)}
+                    >
+                      Coming Soon - Notify Me!
+                    </Button>
+                  ) : (
                     <>
-                      {book.purchaseLinks.amazon && (
-                        <Button 
-                          className="book-action-btn primary"
-                          onClick={() => window.open(book.purchaseLinks.amazon, '_blank')}
-                        >
-                          Buy on Amazon
-                        </Button>
+                      {book.purchaseLinks && (
+                        <>
+                          {book.purchaseLinks.amazon && (
+                            <Button 
+                              className="book-action-btn primary"
+                              onClick={() => window.open(book.purchaseLinks.amazon, '_blank')}
+                            >
+                              Buy on Amazon
+                            </Button>
+                          )}
+                          {book.purchaseLinks.googlePlay && (
+                            <Button 
+                              className="book-action-btn primary"
+                              onClick={() => window.open(book.purchaseLinks.googlePlay, '_blank')}
+                            >
+                              Buy on Google Play
+                            </Button>
+                          )}
+                        </>
                       )}
-                      {book.purchaseLinks.googlePlay && (
-                        <Button 
-                          className="book-action-btn primary"
-                          onClick={() => window.open(book.purchaseLinks.googlePlay, '_blank')}
-                        >
-                          Buy on Google Play
-                        </Button>
-                      )}
+                      <Button variant="outline" className="book-action-btn secondary">
+                        Read Sample
+                      </Button>
                     </>
                   )}
-                  <Button variant="outline" className="book-action-btn secondary">
-                    Read Sample
-                  </Button>
                 </div>
               </CardContent>
             </Card>
