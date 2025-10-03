@@ -19,6 +19,7 @@ function App() {
       <HeroSection />
       <BooksSection />
       <BookTrailersSection />
+      <VideoTest />
       <AboutSection />
       <BlogSection />
       <NewsSection />
