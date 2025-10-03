@@ -33,8 +33,17 @@ const Header = () => {
       <nav className="header-nav">
         <div className="nav-container">
           <div className="author-logo">
-            <h1 className="author-name">Aruna.S</h1>
-            <p className="author-tagline">Weaving Tales from the Abyss</p>
+            <div className="logo-container">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/munlgj82_Gemini_Generated_Image_gtl3kngtl3kngtl3.png" 
+                alt="Aruna.S Logo" 
+                className="author-logo-image"
+              />
+              <div className="logo-text">
+                <h1 className="author-name">Aruna.S</h1>
+                <p className="author-tagline">Weaving Tales from the Abyss</p>
+              </div>
+            </div>
           </div>
           
           <ul className="nav-menu">
