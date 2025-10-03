@@ -22,47 +22,33 @@ export const authorInfo = {
 export const books = [
   {
     id: 1,
-    title: "The Shadowed Castle",
-    subtitle: "Chronicles of Agarkas - Book I",
-    description: "When the moon turns crimson and ancient gates creak open, Lady Elara must navigate a realm where shadows hold memories and every whisper carries a curse. The first installment in the haunting Chronicles of Agarkas series.",
-    cover: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=450&fit=crop",
-    price: "$12.99",
-    publishDate: "October 2024",
-    genre: ["Dark Fantasy", "Gothic Horror"],
-    status: "available"
+    title: "Agarkas, The Future King of Satan",
+    subtitle: "The Agarkas Chronicles",
+    description: "In a haunted Romanian church, Aria—a gifted girl marked by silence—uncovers the buried name of Agarkas, a demon sealed beneath the altar. As relics bleed and prayers fail, she's drawn into visions, rituals, and spiritual warfare that test her faith and identity. Across forty chapters of mythic horror, this novel explores the thin veil between salvation and damnation.",
+    cover: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/4lqwnq0d_copilot_image_1755341425711.jpeg",
+    price: "₹199",
+    publishDate: "2024",
+    genre: ["Mythic Horror", "Spiritual Thriller", "Gothic Fiction"],
+    status: "available",
+    purchaseLinks: {
+      amazon: "https://www.amazon.in/Agarkas-Aruna-S/dp/9356059276/ref=sr_1_3?dib=eyJ2IjoiMSJ9.whDXSNtmHIUUtXz--D520A.POtUCIBg09DnC2NhaWX2GByLIBl70Pytev2kunIp_mI&dib_tag=se&keywords=agarkas&qid=1758391291&sr=8-3"
+    },
+    chapters: 40,
+    pages: 500
   },
   {
     id: 2,
-    title: "Whispers from the Void",
-    subtitle: "A Collection of Midnight Tales",
-    description: "Thirteen stories that blur the line between dreams and nightmares. Each tale is a doorway into a world where the impossible becomes inevitable and the darkness speaks in familiar voices.",
-    cover: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=450&fit=crop",
-    price: "$9.99",
-    publishDate: "June 2024",
-    genre: ["Horror", "Short Stories"],
-    status: "available"
-  },
-  {
-    id: 3,
-    title: "The Bone Garden",
-    subtitle: "Chronicles of Agarkas - Book II",
-    description: "The second chapter in the Agarkas saga. As Elara delves deeper into the mysteries of the shadowed realm, she discovers that some gardens grow more than flowers - they cultivate secrets that should remain buried.",
-    cover: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=450&fit=crop",
-    price: "$14.99",
-    publishDate: "Coming Spring 2025",
-    genre: ["Dark Fantasy", "Gothic Horror"],
-    status: "preorder"
-  },
-  {
-    id: 4,
-    title: "Mirror of Sorrows",
-    subtitle: "A Standalone Gothic Romance",
-    description: "Love transcends death in this haunting tale of a woman who inherits an antique mirror that shows not her reflection, but the face of a man from another century - a man who beckons her into his world of eternal twilight.",
-    cover: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=450&fit=crop",
-    price: "$11.99",
-    publishDate: "February 2024",
-    genre: ["Gothic Romance", "Paranormal"],
-    status: "available"
+    title: "The Whisper That Named Me",
+    subtitle: "A Psychological Horror Novel",
+    description: "In the shadowed corridors of a crumbling seminary, a woman walks alone—an exorcist not by training, but by necessity. Her name is Aruna, and she has come to confront the darkness that once called her by name. This is not just a horror story. It is a reckoning. A journey through spiritual terror, psychological unraveling, and the quiet hope that even the most cursed soul can be reclaimed.",
+    cover: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/22nyrwpq_IMG-20250924-WA0060.jpg",
+    price: "₹149",
+    publishDate: "2024", 
+    genre: ["Psychological Horror", "Spiritual Fiction", "Gothic Romance"],
+    status: "available",
+    purchaseLinks: {
+      googlePlay: "https://play.google.com/store/books/details?id=_h-BEQAAQBAJ"
+    }
   }
 ];
 
