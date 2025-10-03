@@ -21,24 +21,34 @@ const AboutSection = () => {
             
             <div className="author-bio">
               <p className="bio-text">{authorInfo.bio}</p>
+              <p className="bio-text">{authorInfo.longBio}</p>
               
               <div className="author-stats">
                 <div className="stat-item">
-                  <span className="stat-number">4</span>
-                  <span className="stat-label">Published Works</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">10k+</span>
-                  <span className="stat-label">Devoted Readers</span>
-                </div>
-                <div className="stat-item">
                   <span className="stat-number">2</span>
-                  <span className="stat-label">Literary Awards</span>
+                  <span className="stat-label">Published Novels</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-number">540</span>
+                  <span className="stat-label">Total Pages</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-number">3</span>
+                  <span className="stat-label">International Awards</span>
                 </div>
               </div>
               
+              <div className="awards-section">
+                <h3 className="awards-title">Awards & Recognition</h3>
+                <ul className="awards-list">
+                  {authorInfo.awards.map((award, index) => (
+                    <li key={index} className="award-item">{award}</li>
+                  ))}
+                </ul>
+              </div>
+              
               <blockquote className="author-quote">
-                "I write not to escape reality, but to find the hidden truths that dwell in the spaces between light and shadow."
+                "Thank you for venturing into this world with me. May you find both a thrilling new darkness and a quiet bit of healing within these pages."
               </blockquote>
             </div>
           </div>
