@@ -452,79 +452,207 @@ section {
   height: 100%;
   z-index: 15;
   display: flex;
-  transition: all 2s ease-in-out;
+  perspective: 1000px;
 }
 
+/* Demon Revelation Behind Doors */
+.demon-revelation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demon-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(139, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.9) 70%);
+}
+
+.demon-image {
+  width: 400px;
+  height: 600px;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(0.8) translateY(50px);
+  transition: all 2.5s ease-in-out;
+  filter: contrast(1.3) brightness(0.8) sepia(20%);
+  border-radius: 10px;
+  box-shadow: 0 0 50px rgba(139, 0, 0, 0.5);
+}
+
+.mystical-doors.doors-open .demon-image {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  animation: demonAppear 3s ease-in-out forwards;
+}
+
+.demon-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 700px;
+  background: radial-gradient(ellipse at center, rgba(255, 0, 0, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+}
+
+.mystical-doors.doors-open .demon-glow {
+  opacity: 1;
+  animation: demonGlow 2s ease-in-out infinite alternate;
+}
+
+.demon-smoke {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse 200px 100px at 30% 70%, rgba(100, 100, 100, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 150px 80px at 70% 60%, rgba(150, 150, 150, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  animation: smokeRise 4s ease-in-out infinite;
+}
+
+.mystical-doors.doors-open .demon-smoke {
+  opacity: 0.6;
+}
+
+/* Door Panels */
 .door {
   width: 50%;
   height: 100%;
   position: relative;
-  transition: transform 2s ease-in-out;
-  transform-origin: center;
+  z-index: 10;
+  transition: transform 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
 }
 
 .door-left {
-  background: linear-gradient(90deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.9));
   transform-origin: left center;
-  border-right: 2px solid rgba(0, 168, 168, 0.3);
 }
 
 .door-right {
-  background: linear-gradient(270deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.9));
   transform-origin: right center;
-  border-left: 2px solid rgba(0, 168, 168, 0.3);
 }
 
 .mystical-doors.doors-open .door-left {
-  transform: rotateY(-90deg);
+  transform: rotateY(-120deg);
 }
 
 .mystical-doors.doors-open .door-right {
-  transform: rotateY(90deg);
+  transform: rotateY(120deg);
 }
 
 .door-panel {
   width: 100%;
   height: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: 
-    radial-gradient(circle at 30% 30%, rgba(0, 168, 168, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(75, 0, 130, 0.1) 0%, transparent 50%);
+    linear-gradient(135deg, rgba(30, 20, 10, 0.95) 0%, rgba(50, 40, 30, 0.9) 50%, rgba(20, 15, 10, 0.95) 100%),
+    url('https://customer-assets.emergentagent.com/job_gothic-author/artifacts/hix160h1_1759516429354.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  border: 3px solid rgba(139, 69, 19, 0.4);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.door-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(0deg, transparent, rgba(139, 69, 19, 0.1) 1px, transparent 2px),
+    repeating-linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.1) 1px, transparent 2px);
+  background-size: 20px 20px;
+  opacity: 0.6;
 }
 
 .door-runes {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-}
-
-.door-runes .rune {
-  font-size: 3rem;
-  color: var(--gothic-teal);
-  text-shadow: 0 0 20px rgba(0, 168, 168, 0.5);
-  animation: runeGlow 3s ease-in-out infinite alternate;
-}
-
-.door-glow {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 2px;
-  height: 60%;
-  background: linear-gradient(to bottom, transparent, rgba(0, 168, 168, 0.8), transparent);
-  opacity: 0;
-  transition: all 2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  z-index: 10;
 }
 
-.mystical-doors.doors-open .door-glow {
+.door-runes .rune {
+  font-size: 4rem;
+  color: rgba(0, 168, 168, 0.8);
+  text-shadow: 
+    0 0 10px rgba(0, 168, 168, 0.5),
+    0 0 20px rgba(0, 168, 168, 0.3);
+  animation: runeGlow 4s ease-in-out infinite alternate;
+  transition: all 0.3s ease;
+}
+
+.door-handle {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 80px;
+  background: linear-gradient(135deg, #8b4513, #654321);
+  border-radius: 10px;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.door-left .door-handle {
+  right: 30px;
+  transform: translateY(-50%);
+}
+
+.door-right .door-handle {
+  left: 30px;
+  transform: translateY(-50%);
+}
+
+/* Door Opening Light Effect */
+.door-light-beam {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    rgba(255, 215, 0, 0.8) 30%, 
+    rgba(255, 165, 0, 0.6) 50%, 
+    rgba(255, 215, 0, 0.8) 70%, 
+    transparent 100%
+  );
+  opacity: 0;
+  z-index: 8;
+  transition: all 2s ease-in-out;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.mystical-doors.doors-open .door-light-beam {
   opacity: 1;
-  width: 100px;
-  box-shadow: 0 0 50px rgba(0, 168, 168, 0.8);
+  width: 50px;
+  animation: lightBeamPulse 2s ease-in-out infinite alternate;
 }
 
 .mystical-doors.doors-open {
