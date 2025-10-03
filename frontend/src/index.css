@@ -872,6 +872,125 @@
     font-size: 0.9rem;
   }
   
+  /* Visitor Counter Styles */
+  .visitor-counter {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .visitor-counter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 0%, rgba(0, 168, 168, 0.05) 50%, transparent 100%);
+    pointer-events: none;
+  }
+  
+  .counter-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: hsl(var(--accent));
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .counter-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .visitor-counter .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: hsl(var(--muted) / 0.5);
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+  
+  .visitor-counter .stat-item:hover {
+    background: hsl(var(--secondary) / 0.1);
+    border-color: hsl(var(--secondary));
+    transform: translateY(-2px);
+  }
+  
+  .visitor-counter .stat-number {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: hsl(var(--secondary));
+    text-shadow: 0 0 10px hsl(var(--secondary) / 0.3);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .visitor-counter .stat-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: hsl(var(--muted-foreground));
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .counter-subtitle {
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  .visitor-counter.loading {
+    opacity: 0.7;
+  }
+  
+  .visitor-counter.loading .stat-number {
+    color: hsl(var(--muted-foreground));
+    text-shadow: none;
+  }
+  
+  /* Contact Form Messages */
+  .submit-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius);
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    text-align: center;
+    border: 1px solid;
+  }
+  
+  .submit-message.success {
+    background: hsl(var(--secondary) / 0.1);
+    border-color: hsl(var(--secondary));
+    color: hsl(var(--secondary));
+  }
+  
+  .submit-message.error {
+    background: hsl(var(--destructive) / 0.1);
+    border-color: hsl(var(--destructive));
+    color: hsl(var(--destructive));
+  }
+  
+  .gothic-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
   /* Responsive Design */
   @media (max-width: 1024px) {
     .about-content {
