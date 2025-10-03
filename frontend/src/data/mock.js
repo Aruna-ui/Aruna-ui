@@ -70,11 +70,16 @@ export const bookTrailers = [
   {
     id: 1,
     title: "Agarkas - The Future King of Satan",
-    description: "Watch the haunting trailer for the epic gothic horror that explores the thin veil between salvation and damnation.",
-    videoUrl: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/dr9wzb6u_Novi_20250917_00_48_39.mp4",
+    subtitle: "Official Book Trailer",
+    description: "Experience the haunting journey into a Romanian church where ancient evil stirs. Follow Aria as she uncovers the buried name of Agarkas, a demon sealed beneath the altar. As relics bleed and prayers fail, witness the spiritual warfare that tests faith, identity, and the thin veil between salvation and damnation. A cinematic glimpse into 40 chapters of mythic horror.",
+    videoUrl: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/wvbjzjh1_Novi_20250917_00_48_39.mp4",
     thumbnail: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/4lqwnq0d_copilot_image_1755341425711.jpeg",
-    duration: "2:15",
-    featured: true
+    duration: "0:48",
+    featured: true,
+    isOfficialTrailer: true,
+    chapters: 40,
+    pages: 500,
+    genre: ["Mythic Horror", "Spiritual Thriller", "Gothic Fiction"]
   },
   {
     id: 2,
