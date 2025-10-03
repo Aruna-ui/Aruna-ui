@@ -63,7 +63,9 @@ const BooksSection = () => {
                   </div>
                   
                   <div className="book-details">
-                    <span className="book-price">{book.price}</span>
+                    {!book.comingSoon && book.price && (
+                      <span className="book-price">{book.price}</span>
+                    )}
                     <span className="book-date">{book.publishDate}</span>
                   </div>
                 </div>
