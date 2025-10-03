@@ -140,6 +140,7 @@ export const testimonials = [
 export const navigationItems = [
   { name: "Books", href: "#books" },
   { name: "About", href: "#about" },
+  { name: "Trailers", href: "#trailers" },
   { name: "Blog", href: "#blog" },
   { name: "News", href: "#news" },
   { name: "Contact", href: "#contact" }
