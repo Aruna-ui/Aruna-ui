@@ -37,6 +37,44 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+class VisitorStats(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    total_visits: int = 0
+    unique_visitors: int = 0
+    daily_visits: int = 0
+    weekly_visits: int = 0
+    monthly_visits: int = 0
+    last_reset_date: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+class PageView(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    page_path: str
+    visitor_ip_hash: str
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    user_agent: Optional[str] = None
+    referrer: Optional[str] = None
+
+class ContactMessage(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    email: str
+    subject: str
+    message: str
+    status: str = "new"
+    ip_address_hash: str
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+class ContactMessageCreate(BaseModel):
+    name: str
+    email: str
+    subject: str
+    message: str
+
+class TrackVisitRequest(BaseModel):
+    page_path: str
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
