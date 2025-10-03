@@ -203,21 +203,30 @@ const BookTrailersSection = () => {
             
             <div className="video-container">
               {selectedTrailer.videoUrl.includes('.mp4') ? (
-                <video 
-                  controls 
-                  autoPlay 
-                  className="trailer-video"
-                  poster={selectedTrailer.thumbnail}
-                  preload="metadata"
-                  onError={(e) => console.error('Video error:', e)}
-                  onLoadStart={() => console.log('Video loading started')}
-                  onCanPlay={() => console.log('Video can play')}
-                >
-                  <source src={selectedTrailer.videoUrl} type="video/mp4" />
-                  <source src={selectedTrailer.videoUrl} type="video/webm" />
-                  <p>Your browser does not support the video tag.</p>
-                  <p>Video URL: {selectedTrailer.videoUrl}</p>
-                </video>
+                <div className="video-wrapper">
+                  <video 
+                    controls 
+                    className="trailer-video"
+                    poster={selectedTrailer.thumbnail}
+                    preload="metadata"
+                    width="100%"
+                    height="100%"
+                  >
+                    <source src={selectedTrailer.videoUrl} type="video/mp4" />
+                    <p>Your browser does not support the video tag.</p>
+                  </video>
+                  <div className="video-fallback">
+                    <p>Having trouble viewing the video?</p>
+                    <a 
+                      href={selectedTrailer.videoUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="direct-video-link"
+                    >
+                      Click here to watch directly
+                    </a>
+                  </div>
+                </div>
               ) : (
                 <iframe
                   src={selectedTrailer.videoUrl}
