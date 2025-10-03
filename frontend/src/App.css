@@ -126,6 +126,31 @@ body {
   text-align: left;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-logo-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--gothic-teal);
+  box-shadow: 0 0 20px rgba(0, 168, 168, 0.3);
+  transition: all 0.3s ease;
+}
+
+.author-logo-image:hover {
+  box-shadow: 0 0 30px rgba(0, 168, 168, 0.5);
+  transform: scale(1.05);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
 .author-name {
   font-family: var(--font-gothic);
   font-size: 2.5rem;
