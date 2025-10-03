@@ -50,6 +50,19 @@ export const books = [
     purchaseLinks: {
       googlePlay: "https://play.google.com/store/books/details?id=_h-BEQAAQBAJ"
     }
+  },
+  {
+    id: 3,
+    title: "Echoes of the Forsaken",
+    subtitle: "A New Gothic Masterpiece",
+    description: "From the depths of forgotten realms comes a tale of lost souls seeking redemption in a world where hope itself has been forsaken. A haunting journey through landscapes both beautiful and terrifying.",
+    cover: "https://customer-assets.emergentagent.com/job_gothic-author/artifacts/dpcy8v3n_1759490412941.jpg",
+    price: "Pre-order ₹299",
+    publishDate: "Coming Soon - 2025",
+    genre: ["Gothic Horror", "Dark Fantasy", "Psychological Thriller"],
+    status: "coming-soon",
+    comingSoon: true,
+    expectedRelease: "Spring 2025"
   }
 ];
 
