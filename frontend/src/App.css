@@ -743,6 +743,63 @@ section {
   }
 }
 
+@keyframes demonAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(100px);
+    filter: blur(10px) contrast(1.3) brightness(0.3);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.9) translateY(20px);
+    filter: blur(2px) contrast(1.3) brightness(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px) contrast(1.3) brightness(0.8);
+  }
+}
+
+@keyframes demonGlow {
+  0% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes lightBeamPulse {
+  0% {
+    opacity: 0.6;
+    width: 30px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  100% {
+    opacity: 1;
+    width: 60px;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  }
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-40px) rotate(-2deg);
+    opacity: 0.1;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-container {
