@@ -117,7 +117,7 @@ export const newsArticles = [
     image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=250&fit=crop"
   },
   {
-    id: 2,
+    id: 4,
     title: "The Journey Through Exorcism Training",
     excerpt: "My experience in exorcism course and the whispers that shaped my understanding of the unseen...",
     content: "During my training in exorcism, I heard many whispering voices from demons. I was given tests to face my deepest fears—an initiation that blurred the line between legend and lived experience. Those days shaped my understanding of the unseen, instilling in me the conviction that stories are both a shield and a doorway. Each narrative I craft is an act of defiance against despair.",
