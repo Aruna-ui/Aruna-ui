@@ -56,7 +56,7 @@ const AboutSection = () => {
           <div className="author-image-container">
             <div className="image-frame">
               <img 
-                src={authorInfo.image} 
+                src="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/8po8yksd_1703018909560.jpg" 
                 alt={authorInfo.name}
                 className="author-image"
               />
