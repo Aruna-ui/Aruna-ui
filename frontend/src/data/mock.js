@@ -110,6 +110,62 @@ export const testimonials = [
 export const navigationItems = [
   { name: "Books", href: "#books" },
   { name: "About", href: "#about" },
+  { name: "Blog", href: "#blog" },
   { name: "News", href: "#news" },
   { name: "Contact", href: "#contact" }
+];
+
+export const blogPosts = [
+  {
+    id: 1,
+    title: "The Art of Writing Gothic Horror",
+    slug: "art-of-writing-gothic-horror",
+    excerpt: "Delving into the techniques that make gothic horror truly haunting - from atmospheric world-building to psychological depth.",
+    content: "Gothic horror is not merely about creating fear; it's about crafting an atmosphere so thick with dread that readers can feel it seeping through the pages. In my years of writing dark tales, I've discovered that the most effective horror comes from what lurks in the shadows of the human psyche. The ancient castle is merely a backdrop—the real terror dwells within the characters themselves, in their buried secrets and unspoken fears. When writing 'Agarkas, The Future King of Satan,' I learned that true gothic horror requires a delicate balance between the supernatural and the psychological. The demon Agarkas represents external evil, but Aria's internal struggle with her faith and identity creates the real tension that drives the narrative forward.",
+    author: "Aruna.S",
+    publishedDate: "November 28, 2024",
+    readingTime: "8 min read",
+    tags: ["Writing Craft", "Gothic Horror", "Character Development"],
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=400&fit=crop",
+    featured: true
+  },
+  {
+    id: 2,
+    title: "Inspiration from Exorcism Training",
+    slug: "inspiration-exorcism-training",
+    excerpt: "How my real-world experience with exorcism training shaped the supernatural elements in my novels.",
+    content: "During my exorcism training, I encountered whispers that seemed to come from the void itself. These weren't mere hallucinations or tricks of an overactive imagination—they were experiences that challenged everything I thought I knew about the boundaries between our world and the unseen realm. The training involved facing my deepest fears, confronting darkness both literal and metaphorical. These experiences became the foundation for the spiritual warfare depicted in both 'Agarkas' and 'The Whisper That Named Me.' When you've heard a demon whisper your name in the darkness of a consecrated space, you understand that some stories can only be told by those who have walked the line between faith and fear.",
+    author: "Aruna.S",
+    publishedDate: "November 15, 2024",
+    readingTime: "6 min read",
+    tags: ["Personal Journey", "Supernatural", "Inspiration"],
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop",
+    featured: true
+  },
+  {
+    id: 3,
+    title: "The Symbolism of Ravens and Serpents",
+    slug: "symbolism-ravens-serpents",
+    excerpt: "Exploring the ancient mythological symbols that appear throughout my work and their deeper meanings.",
+    content: "In ancient folklore, the raven serves as a messenger between worlds, while the serpent represents both wisdom and temptation. These symbols have woven themselves through my stories like threads in a tapestry of darkness and light. The raven in my works often appears at moments of transition, when characters must choose between the known and the unknowable. The serpent—reflected in my own logo design—embodies the cyclical nature of knowledge and power. In 'The Whisper That Named Me,' the protagonist's encounters with these symbolic creatures mark crucial points in her spiritual journey. These aren't mere decorative elements; they're ancestral memories encoded in our collective unconscious, ancient truths that speak to something primal within us.",
+    author: "Aruna.S",
+    publishedDate: "October 30, 2024",
+    readingTime: "7 min read",
+    tags: ["Symbolism", "Mythology", "Writing Craft"],
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+    featured: false
+  },
+  {
+    id: 4,
+    title: "Building Atmosphere in Dark Fantasy",
+    slug: "building-atmosphere-dark-fantasy",
+    excerpt: "The techniques I use to create immersive, haunting atmospheres that draw readers into shadowy realms.",
+    content: "Atmosphere in dark fantasy is like incense in an ancient ritual—it permeates everything, creating a sacred space where the impossible becomes inevitable. When crafting the world of Agarkas, I drew inspiration from crumbling Romanian churches, mist-covered graveyards, and candlelit chambers where shadows dance with secrets. The key is to engage all five senses: the musty scent of old parchment, the echo of footsteps on stone floors, the feeling of cold air brushing against skin like ghostly fingers. Every description must serve the atmosphere while advancing the narrative. The bleeding relics in my church scenes aren't just visual elements—they represent the thin veil between sacred and profane, the way divine and demonic forces can inhabit the same space.",
+    author: "Aruna.S",
+    publishedDate: "October 12, 2024",
+    readingTime: "9 min read",
+    tags: ["Atmosphere", "World Building", "Dark Fantasy"],
+    image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=600&h=400&fit=crop",
+    featured: false
+  }
 ];
