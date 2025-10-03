@@ -6,6 +6,19 @@ import { books } from "../data/mock";
 import ComingSoonPopup from "./ComingSoonPopup";
 
 const BooksSection = () => {
+  const [selectedComingSoonBook, setSelectedComingSoonBook] = useState(null);
+  const [showComingSoonPopup, setShowComingSoonPopup] = useState(false);
+
+  const handleComingSoonClick = (book) => {
+    setSelectedComingSoonBook(book);
+    setShowComingSoonPopup(true);
+  };
+
+  const closeComingSoonPopup = () => {
+    setSelectedComingSoonBook(null);
+    setShowComingSoonPopup(false);
+  };
+
   return (
     <section id="books" className="books-section">
       <div className="section-background">
