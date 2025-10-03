@@ -10,6 +10,8 @@ const BookTrailersSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const openTrailerModal = (trailer) => {
+    console.log('Opening trailer modal for:', trailer.title);
+    console.log('Video URL:', trailer.videoUrl);
     setSelectedTrailer(trailer);
     setIsPlaying(true);
   };
