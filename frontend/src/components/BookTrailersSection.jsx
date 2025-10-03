@@ -206,9 +206,15 @@ const BookTrailersSection = () => {
                   autoPlay 
                   className="trailer-video"
                   poster={selectedTrailer.thumbnail}
+                  preload="metadata"
+                  onError={(e) => console.error('Video error:', e)}
+                  onLoadStart={() => console.log('Video loading started')}
+                  onCanPlay={() => console.log('Video can play')}
                 >
                   <source src={selectedTrailer.videoUrl} type="video/mp4" />
-                  Your browser does not support the video tag.
+                  <source src={selectedTrailer.videoUrl} type="video/webm" />
+                  <p>Your browser does not support the video tag.</p>
+                  <p>Video URL: {selectedTrailer.videoUrl}</p>
                 </video>
               ) : (
                 <iframe
