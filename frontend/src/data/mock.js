@@ -38,7 +38,7 @@ export const books = [
     pages: 500
   },
   {
-    id: 2,
+    id: 3,
     title: "The Whisper That Named Me",
     subtitle: "A Psychological Horror Novel",
     description: "In the shadowed corridors of a crumbling seminary, a woman walks alone—an exorcist not by training, but by necessity. Her name is Aruna, and she has come to confront the darkness that once called her by name. This is not just a horror story. It is a reckoning. A journey through spiritual terror, psychological unraveling, and the quiet hope that even the most cursed soul can be reclaimed.",
