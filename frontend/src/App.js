@@ -17,6 +17,7 @@ function App() {
       <Header />
       <HeroSection />
       <BooksSection />
+      <BookTrailersSection />
       <AboutSection />
       <BlogSection />
       <NewsSection />
