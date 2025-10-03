@@ -55,29 +55,29 @@ export const books = [
 export const newsArticles = [
   {
     id: 1,
-    title: "The Bone Garden: Writing Update",
-    excerpt: "Progress on the second Chronicles of Agarkas book continues. Here's a glimpse into Elara's latest discoveries...",
-    content: "The mist grows thicker as I write deeper into The Bone Garden. Each chapter reveals new mysteries about the realm of Agarkas, and I find myself as surprised by the revelations as my readers will be. Currently at 60,000 words and climbing.",
-    date: "December 15, 2024",
-    category: "Writing Updates",
+    title: "Award Recognition: London Book & World Record",
+    excerpt: "Grateful to receive international acclaim for The Agarkas Chronicles, earning recognition for excellence in mythic horror storytelling...",
+    content: "I am deeply honored to have received the London Book & World Record Recognition for The Agarkas Chronicles. This international acclaim for excellence in literary writing and mythic horror storytelling validates my belief that stories born from spiritual conviction can resonate across borders and touch the hearts of readers worldwide.",
+    date: "November 20, 2024",
+    category: "Awards & Recognition",
     image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=250&fit=crop"
   },
   {
     id: 2,
-    title: "Gothic Romance: Finding Love in the Darkness",
-    excerpt: "Exploring the delicate balance between horror and romance in my latest work, Mirror of Sorrows.",
-    content: "There's something beautiful about love that persists beyond the veil of death. In Mirror of Sorrows, I wanted to explore how connection transcends the boundaries we think are absolute. The gothic genre allows for this exploration in ways that pure romance cannot.",
-    date: "November 28, 2024",
-    category: "Writing Craft",
+    title: "The Journey Through Exorcism Training",
+    excerpt: "My experience in exorcism course and the whispers that shaped my understanding of the unseen...",
+    content: "During my training in exorcism, I heard many whispering voices from demons. I was given tests to face my deepest fears—an initiation that blurred the line between legend and lived experience. Those days shaped my understanding of the unseen, instilling in me the conviction that stories are both a shield and a doorway. Each narrative I craft is an act of defiance against despair.",
+    date: "October 15, 2024",
+    category: "Personal Journey",
     image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=250&fit=crop"
   },
   {
     id: 3,
-    title: "Reader Q&A: Inspiration for Agarkas",
-    excerpt: "Answering your questions about the world-building process behind the Chronicles of Agarkas series.",
-    content: "Many readers have asked about the inspiration for Agarkas. The truth is, it came to me in a dream - a realm where shadows held memories and moonlight revealed truths hidden in daylight. I knew I had to explore this world through Elara's eyes.",
-    date: "November 10, 2024",
-    category: "Reader Interaction",
+    title: "Mentorship & Creative Community",
+    excerpt: "Guiding young writers and fostering a community of emerging storytellers through joy, gratitude, and emotional authenticity...",
+    content: "Recently, I had the privilege of guiding young author Aparna Sriram in crafting her bio and acknowledgments for her third published book. Fostering a creative community of emerging writers brings me immense joy. I encourage all writers to embrace authenticity in their storytelling and find the sacred in the terrifying.",
+    date: "September 28, 2024",
+    category: "Mentorship",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop"
   }
 ];
