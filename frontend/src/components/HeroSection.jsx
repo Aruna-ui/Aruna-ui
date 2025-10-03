@@ -40,25 +40,47 @@ const HeroSection = () => {
       
       {/* Mystical Doors */}
       <div className={`mystical-doors ${doorsOpen ? 'doors-open' : ''}`}>
+        {/* Demon Revelation Behind Doors */}
+        <div className="demon-revelation">
+          <div className="demon-container">
+            <img 
+              src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=1200&fit=crop&crop=center"
+              alt="Ancient Demon"
+              className="demon-image"
+            />
+            <div className="demon-glow"></div>
+            <div className="demon-smoke"></div>
+          </div>
+        </div>
+        
+        {/* Left Door */}
         <div className="door door-left">
           <div className="door-panel">
+            <div className="door-texture"></div>
             <div className="door-runes">
               <span className="rune">◈</span>
               <span className="rune">※</span>
               <span className="rune">⟐</span>
             </div>
+            <div className="door-handle"></div>
           </div>
         </div>
+        
+        {/* Right Door */}
         <div className="door door-right">
           <div className="door-panel">
+            <div className="door-texture"></div>
             <div className="door-runes">
               <span className="rune">◈</span>
               <span className="rune">※</span>
               <span className="rune">⟐</span>
             </div>
+            <div className="door-handle"></div>
           </div>
         </div>
-        <div className="door-glow"></div>
+        
+        {/* Door Opening Light Effect */}
+        <div className="door-light-beam"></div>
       </div>
       
       <div className={`hero-content ${hasEntered ? 'content-revealed' : ''}`}>
