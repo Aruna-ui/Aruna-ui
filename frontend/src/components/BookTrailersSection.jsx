@@ -75,19 +75,57 @@ const BookTrailersSection = () => {
               </div>
               
               <CardHeader>
-                <CardTitle className="trailer-title">{featuredTrailer.title}</CardTitle>
+                <div className="trailer-header">
+                  <div className="title-section">
+                    <CardTitle className="trailer-title">{featuredTrailer.title}</CardTitle>
+                    {featuredTrailer.subtitle && (
+                      <p className="trailer-subtitle">{featuredTrailer.subtitle}</p>
+                    )}
+                  </div>
+                  {featuredTrailer.isOfficialTrailer && (
+                    <div className="official-badge">
+                      <Film className="film-icon" />
+                      <span>Official Trailer</span>
+                    </div>
+                  )}
+                </div>
                 <CardDescription className="trailer-description">
                   {featuredTrailer.description}
                 </CardDescription>
+                
+                {featuredTrailer.chapters && (
+                  <div className="trailer-stats">
+                    <div className="stat">
+                      <span className="stat-number">{featuredTrailer.chapters}</span>
+                      <span className="stat-label">Chapters</span>
+                    </div>
+                    <div className="stat">
+                      <span className="stat-number">{featuredTrailer.pages}</span>
+                      <span className="stat-label">Pages</span>
+                    </div>
+                    <div className="stat">
+                      <span className="stat-number">{featuredTrailer.genre.length}</span>
+                      <span className="stat-label">Genres</span>
+                    </div>
+                  </div>
+                )}
               </CardHeader>
               
               <CardContent>
+                <div className="trailer-genres">
+                  {featuredTrailer.genre && featuredTrailer.genre.map((g) => (
+                    <Badge key={g} variant="secondary" className="genre-badge-trailer">
+                      {g}
+                    </Badge>
+                  ))}
+                </div>
+                
                 <Button 
                   onClick={() => openTrailerModal(featuredTrailer)}
                   className="watch-trailer-btn featured"
                 >
                   <Play className="btn-play-icon" />
-                  Watch Epic Trailer
+                  Watch Official Trailer
                 </Button>
               </CardContent>
             </Card>
