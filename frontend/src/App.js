@@ -17,9 +17,11 @@ function App() {
       <HeroSection />
       <BooksSection />
       <AboutSection />
+      <BlogSection />
       <NewsSection />
       <ContactSection />
       <Footer />
+      <FeedbackWidget />
     </div>
   );
 }
