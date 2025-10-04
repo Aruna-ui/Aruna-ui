@@ -68,12 +68,28 @@ const HeroSection = () => {
       
       <div className={`hero-content ${hasEntered ? 'content-revealed' : ''}`}>
         <div className="hero-text">
-          <h2 className="hero-welcome">Welcome</h2>
-          <h3 className="hero-subtitle">Step into the Abyss</h3>
+          <h2 
+            className={`hero-welcome ${!doorsOpen ? 'clickable' : 'clicked'}`}
+            onClick={!doorsOpen ? handleWelcomeClick : undefined}
+            style={{ cursor: !doorsOpen ? 'pointer' : 'default' }}
+          >
+            Welcome
+          </h2>
+          <h3 
+            className={`hero-subtitle ${!doorsOpen ? 'clickable' : 'clicked'}`}
+            onClick={!doorsOpen ? handleWelcomeClick : undefined}
+            style={{ cursor: !doorsOpen ? 'pointer' : 'default' }}
+          >
+            Step into the Abyss
+          </h3>
           <p className="hero-description">
-            Where shadows dance with moonlight and whispers carry ancient secrets.
-            Enter a realm where darkness holds its own twisted beauty,
-            and every tale beckons you deeper into the unknown.
+            {!doorsOpen ? (
+              <>Click above to witness the serpent's entrance and unlock the gateway to darkness.</>
+            ) : (
+              <>Where shadows dance with moonlight and whispers carry ancient secrets.
+              Enter a realm where darkness holds its own twisted beauty,
+              and every tale beckons you deeper into the unknown.</>
+            )}
           </p>
         </div>
         
