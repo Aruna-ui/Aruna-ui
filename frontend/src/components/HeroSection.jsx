@@ -4,6 +4,8 @@ import { Button } from "./ui/button";
 const HeroSection = () => {
   const [doorsOpen, setDoorsOpen] = React.useState(false);
   const [hasEntered, setHasEntered] = React.useState(false);
+  const [videoPlaying, setVideoPlaying] = React.useState(false);
+  const videoRef = React.useRef(null);
 
   const scrollToBooks = () => {
     const booksSection = document.querySelector('#books');
@@ -12,19 +14,25 @@ const HeroSection = () => {
     }
   };
 
-  const handleEnterAbyss = () => {
-    setHasEntered(true);
-    scrollToBooks();
+  const handleWelcomeClick = () => {
+    setDoorsOpen(true);
+    setVideoPlaying(true);
+    
+    // Start the video
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0; // Start from beginning
+      videoRef.current.play();
+    }
+    
+    // After video completes, show enter button
+    setTimeout(() => {
+      setHasEntered(true);
+    }, 3000); // Adjust timing based on your video length
   };
 
-  React.useEffect(() => {
-    // Auto-reveal content after video has played for a moment
-    const timer = setTimeout(() => {
-      setHasEntered(true);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const handleEnterAbyss = () => {
+    scrollToBooks();
+  };
 
   return (
     <section className="hero-section">
