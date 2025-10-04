@@ -631,9 +631,6 @@ section {
   z-index: 5;
   pointer-events: none;
   overflow: hidden;
-  /* DEBUGGING: Make the overlay visible */
-  background: rgba(255, 0, 0, 0.2);
-  border: 5px solid red;
 }
 
 /* Individual Door Styles */
