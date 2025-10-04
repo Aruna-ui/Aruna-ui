@@ -166,11 +166,11 @@ const Header = () => {
           </h3>
           <p className="header-hero-description">
             {!doorsOpen ? (
-              <span className="click-instruction">Click above to witness the serpent's entrance and unlock the gateway to darkness.</span>
+              <span className="click-instruction">Click above to witness the serpent's entrance and unlock the gateway to horror.</span>
             ) : (
-              <>Where shadows dance with moonlight and whispers carry ancient secrets.
-              Enter a realm where darkness holds its own twisted beauty,
-              and every tale beckons you deeper into the unknown.</>
+              <>Where nightmares come alive and terror takes beautiful form.
+              Enter a realm where horror holds its own twisted beauty,
+              and every tale beckons you deeper into the world of fear.</>
             )}
           </p>
         </div>
