@@ -225,9 +225,7 @@ body {
   margin-bottom: 2rem;
   letter-spacing: 0.15em;
   transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  padding: 0.5rem;
 }
 
 .header-hero-subtitle.interactive {
@@ -448,9 +446,7 @@ body {
   margin-bottom: 2rem;
   letter-spacing: 0.15em;
   transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  padding: 0.5rem;
 }
 
 .hero-subtitle.interactive {
