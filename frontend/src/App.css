@@ -490,8 +490,14 @@ section {
   height: auto;
   transform: translate(-50%, -50%);
   z-index: 1;
-  filter: brightness(0.7) contrast(1.2) saturate(1.1);
+  filter: brightness(0.6) contrast(1.1) saturate(1.0);
   object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.gothic-background-video.playing {
+  filter: brightness(0.9) contrast(1.4) saturate(1.3);
+  animation: videoIntensify 3s ease-in-out;
 }
 
 .video-overlay {
