@@ -67,7 +67,7 @@ const Header = () => {
           poster="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/hix160h1_1759516429354.jpg"
         >
           <source 
-            src="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/pqvep5or_1759541615032.mp4" 
+            src="https://customer-assets.emergentagent.com/job_horror-author-site/artifacts/fuj1a0ps_1759541615032.mp4" 
             type="video/mp4" 
           />
         </video>
