@@ -492,12 +492,12 @@ section {
   z-index: 1;
   filter: brightness(0.6) contrast(1.1) saturate(1.0);
   object-fit: cover;
-  transition: all 0.5s ease;
+  transition: all 1s ease;
 }
 
-.gothic-background-video.playing {
+.gothic-video-container.doors-active .gothic-background-video {
   filter: brightness(0.9) contrast(1.4) saturate(1.3);
-  animation: videoIntensify 3s ease-in-out;
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 .video-overlay {
