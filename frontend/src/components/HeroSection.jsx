@@ -2,38 +2,11 @@ import React from "react";
 import { Button } from "./ui/button";
 
 const HeroSection = () => {
-  const [doorsOpen, setDoorsOpen] = React.useState(false);
-  const [hasEntered, setHasEntered] = React.useState(false);
-  const videoRef = React.useRef(null);
-
   const scrollToBooks = () => {
     const booksSection = document.querySelector('#books');
     if (booksSection) {
       booksSection.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const handleWelcomeClick = () => {
-    console.log('Welcome clicked!'); // Debug log
-    setDoorsOpen(true);
-    
-    // Start the video immediately
-    if (videoRef.current) {
-      videoRef.current.play().then(() => {
-        console.log('Video started playing');
-      }).catch((e) => {
-        console.error('Video play failed:', e);
-      });
-    }
-    
-    // Show enter button after animation
-    setTimeout(() => {
-      setHasEntered(true);
-    }, 4000);
-  };
-
-  const handleEnterAbyss = () => {
-    scrollToBooks();
   };
 
   return (
