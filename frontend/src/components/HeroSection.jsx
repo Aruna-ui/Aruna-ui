@@ -42,24 +42,27 @@ const HeroSection = () => {
       </div>
       
       {/* Gothic Video Background */}
-      <div className={`gothic-video-container ${hasEntered ? 'video-revealed' : ''}`}>
+      <div className={`gothic-video-container ${doorsOpen ? 'doors-opening' : ''} ${hasEntered ? 'video-revealed' : ''}`}>
         <video
-          className="gothic-background-video"
-          autoPlay
+          ref={videoRef}
+          className={`gothic-background-video ${videoPlaying ? 'playing' : 'paused'}`}
           muted
-          loop
           playsInline
           poster="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/hix160h1_1759516429354.jpg"
+          onEnded={() => setVideoPlaying(false)}
         >
           <source 
             src="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/pqvep5or_1759541615032.mp4" 
             type="video/mp4" 
           />
         </video>
-        <div className="video-overlay"></div>
+        <div className={`video-overlay ${doorsOpen ? 'overlay-opening' : ''}`}></div>
         <div className="video-mystical-effects">
-          <div className="floating-particles"></div>
-          <div className="mystical-glow"></div>
+          <div className={`floating-particles ${doorsOpen ? 'particles-active' : ''}`}></div>
+          <div className={`mystical-glow ${doorsOpen ? 'glow-active' : ''}`}></div>
+          <div className={`snake-entrance ${doorsOpen ? 'snake-entering' : ''}`}>
+            <div className="snake-trail"></div>
+          </div>
         </div>
       </div>
       
