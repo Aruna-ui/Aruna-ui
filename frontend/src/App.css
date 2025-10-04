@@ -195,9 +195,7 @@ body {
   margin-bottom: 1rem;
   letter-spacing: 0.1em;
   transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 0.5rem;
 }
 
 .header-hero-welcome.interactive {
@@ -420,9 +418,7 @@ body {
   margin-bottom: 1rem;
   letter-spacing: 0.1em;
   transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 0.5rem;
 }
 
 .hero-welcome.interactive {
