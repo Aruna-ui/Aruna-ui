@@ -13,11 +13,8 @@ const HeroSection = () => {
   };
 
   const handleEnterAbyss = () => {
-    setDoorsOpen(true);
-    setTimeout(() => {
-      setHasEntered(true);
-      scrollToBooks();
-    }, 2000);
+    setHasEntered(true);
+    scrollToBooks();
   };
 
   React.useEffect(() => {
