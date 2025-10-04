@@ -896,71 +896,77 @@ section {
   }
 }
 
-/* Snake Entrance Animation */
-.snake-entrance {
+/* Snake Container and Animation */
+.snake-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 10;
   pointer-events: none;
+  overflow: hidden;
 }
 
-.snake-trail {
+.snake-body {
   position: absolute;
-  width: 4px;
-  height: 100%;
+  top: 50%;
+  left: -100px;
+  width: 8px;
+  height: 300px;
   background: linear-gradient(
     to bottom,
-    transparent 0%,
-    rgba(0, 168, 168, 0.8) 20%,
-    rgba(0, 191, 255, 0.9) 50%,
-    rgba(0, 168, 168, 0.8) 80%,
+    rgba(0, 168, 168, 0.9) 0%,
+    rgba(0, 191, 255, 1) 30%,
+    rgba(0, 168, 168, 0.9) 70%,
     transparent 100%
   );
-  left: -10px;
-  opacity: 0;
-  transform: translateX(0);
+  border-radius: 4px;
+  transform: translateY(-50%) rotate(15deg);
   box-shadow: 
-    0 0 10px rgba(0, 168, 168, 0.6),
-    0 0 20px rgba(0, 191, 255, 0.4);
+    0 0 15px rgba(0, 168, 168, 0.8),
+    0 0 30px rgba(0, 191, 255, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  opacity: 0;
 }
 
-.snake-entrance.snake-entering .snake-trail {
-  animation: snakeSlither 4s ease-in-out;
+.snake-container.active .snake-body {
+  animation: serpentCross 4s ease-in-out;
 }
 
-@keyframes snakeSlither {
+@keyframes serpentCross {
   0% {
-    left: -10px;
+    left: -100px;
     opacity: 0;
-    transform: translateX(0) scaleX(0.5);
-    height: 0%;
+    transform: translateY(-50%) rotate(15deg) scale(0.5);
   }
-  20% {
-    opacity: 0.6;
-    height: 30%;
+  15% {
+    opacity: 0.7;
+    transform: translateY(-50%) rotate(10deg) scale(0.8);
   }
-  50% {
-    left: 50%;
+  40% {
+    left: 30%;
     opacity: 1;
-    transform: translateX(-50%) scaleX(1);
-    height: 80%;
+    transform: translateY(-50%) rotate(-5deg) scale(1);
     box-shadow: 
-      0 0 20px rgba(0, 168, 168, 1),
-      0 0 40px rgba(0, 191, 255, 0.8);
+      0 0 25px rgba(0, 168, 168, 1),
+      0 0 50px rgba(0, 191, 255, 0.8),
+      inset 0 2px 6px rgba(255, 255, 255, 0.4);
   }
-  80% {
-    left: 90%;
-    opacity: 0.8;
-    height: 100%;
+  70% {
+    left: 70%;
+    opacity: 0.9;
+    transform: translateY(-50%) rotate(-15deg) scale(1.1);
+  }
+  90% {
+    left: 100%;
+    opacity: 0.5;
+    transform: translateY(-50%) rotate(-25deg) scale(0.8);
   }
   100% {
-    left: 100%;
+    left: 120%;
     opacity: 0;
-    transform: translateX(0) scaleX(0.5);
-    height: 50%;
+    transform: translateY(-50%) rotate(-30deg) scale(0.3);
   }
 }
 
