@@ -44,7 +44,7 @@ const HeroSection = () => {
       </div>
       
       {/* Gothic Video Background */}
-      <div className="gothic-video-container">
+      <div className={`gothic-video-container ${doorsOpen ? 'doors-opening' : ''}`}>
         <video
           ref={videoRef}
           className="gothic-background-video"
