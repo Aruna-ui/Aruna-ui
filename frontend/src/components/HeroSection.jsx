@@ -72,7 +72,7 @@ const HeroSection = () => {
             className={`gothic-cta-button ${doorsOpen ? 'button-revealed' : ''}`}
             size="lg"
           >
-            {doorsOpen ? 'Face the Darkness Within' : 'Unleash the Ancient Evil'}
+            {hasEntered ? 'Enter My Dark Realm' : 'Witness the Gothic Vision'}
           </Button>
         </div>
         
