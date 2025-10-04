@@ -94,13 +94,15 @@ const HeroSection = () => {
         </div>
         
         <div className="hero-cta">
-          <Button 
-            onClick={handleEnterAbyss}
-            className={`gothic-cta-button ${doorsOpen ? 'button-revealed' : ''}`}
-            size="lg"
-          >
-            {hasEntered ? 'Enter My Dark Realm' : 'Witness the Gothic Vision'}
-          </Button>
+          {hasEntered && (
+            <Button 
+              onClick={handleEnterAbyss}
+              className="gothic-cta-button button-revealed"
+              size="lg"
+            >
+              Enter My Dark Realm
+            </Button>
+          )}
         </div>
         
         <div className="hero-quote">
