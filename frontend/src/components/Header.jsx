@@ -162,7 +162,7 @@ const Header = () => {
             className={`header-hero-subtitle ${doorsOpen ? 'activated' : 'interactive'}`}
             onClick={handleWelcomeClick}
           >
-            Step into the Abyss
+            Welcome to the World of Horror
           </h3>
           <p className="header-hero-description">
             {!doorsOpen ? (
