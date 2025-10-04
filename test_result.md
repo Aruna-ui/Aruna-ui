@@ -204,15 +204,18 @@ backend:
 frontend:
   - task: "Door Opening Animation with Serpent Entrance"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/components/Header.jsx"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
     needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Successfully implemented door opening mechanics in Header component. Doors visibly split apart when clicking 'Welcome. Step into the Abyss', serpent light beam appears through opened doors, and 'Enter My Dark Realm' button appears after animation sequence. All CSS animations and interactive elements working correctly."
+      - working: false
+        agent: "testing"
+        comment: "CRITICAL ISSUES FOUND: 1) Door opening animation not triggering when clicking Welcome/Step into the Abyss text - doors-opening class not being applied. 2) Light beam, serpent entrance, and mystical effects not activating (missing light-active, serpent-active, effects-active classes). 3) Enter My Dark Realm button not appearing after animation sequence. 4) React duplicate key warning causing potential rendering issues. 5) Multiple mystical-doors-overlay elements detected (2 found). Interactive elements have correct classes but click handlers not working properly. Animation sequence completely broken."
 
 metadata:
   created_by: "testing_agent"
