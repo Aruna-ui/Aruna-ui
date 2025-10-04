@@ -3,6 +3,9 @@ import { navigationItems } from "../data/mock";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [doorsOpen, setDoorsOpen] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
+  const videoRef = React.useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +20,29 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleWelcomeClick = () => {
+    console.log('Welcome clicked in header!'); // Debug log
+    setDoorsOpen(true);
+    
+    // Start the video if exists
+    if (videoRef.current) {
+      videoRef.current.play().then(() => {
+        console.log('Video started playing');
+      }).catch((e) => {
+        console.error('Video play failed:', e);
+      });
+    }
+    
+    // Show enter button after animation
+    setTimeout(() => {
+      setHasEntered(true);
+    }, 4000);
+  };
+
+  const handleEnterAbyss = () => {
+    scrollToSection('#books');
   };
 
   return (
