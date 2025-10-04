@@ -168,6 +168,121 @@ body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
+/* Header Hero Content (Interactive Welcome) */
+.header-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  text-align: center;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+.header-hero-text {
+  margin-bottom: 3rem;
+}
+
+.header-hero-welcome {
+  font-family: var(--font-gothic);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: var(--gothic-white);
+  text-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.header-hero-welcome.interactive {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-hero-welcome.interactive:hover {
+  color: var(--gothic-teal);
+  text-shadow: 
+    0 0 10px rgba(0, 168, 168, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+.header-hero-welcome.activated {
+  animation: welcomeActivate 1.5s ease-in-out;
+}
+
+.header-hero-subtitle {
+  font-family: var(--font-gothic-text);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--gothic-teal);
+  text-shadow: 
+    var(--glow-teal),
+    0 0 15px rgba(0, 168, 168, 1);
+  margin-bottom: 2rem;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.header-hero-subtitle.interactive {
+  cursor: pointer;
+}
+
+.header-hero-subtitle.interactive:hover {
+  color: var(--gothic-electric-blue);
+  text-shadow: 
+    0 0 15px rgba(0, 191, 255, 0.8),
+    0 0 30px rgba(0, 191, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.header-hero-subtitle.activated {
+  animation: subtitleActivate 1.5s ease-in-out 0.3s;
+}
+
+.header-hero-description {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--gothic-silver);
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.header-hero-cta {
+  margin: 3rem 0;
+}
+
+.header-hero-quote {
+  margin-top: 3rem;
+}
+
+.header-hero-quote blockquote {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--gothic-silver);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.header-hero-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--font-gothic-text);
+  font-size: 1rem;
+  color: var(--gothic-teal);
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
