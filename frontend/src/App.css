@@ -245,11 +245,13 @@ body {
 }
 
 .header-hero-subtitle.interactive:hover {
-  color: var(--gothic-electric-blue);
+  color: #ff0000;
   text-shadow: 
-    0 0 15px rgba(0, 191, 255, 0.8),
-    0 0 30px rgba(0, 191, 255, 0.5);
+    0 0 15px rgba(255, 0, 0, 1),
+    0 0 30px rgba(255, 0, 0, 0.8),
+    0 0 45px rgba(204, 0, 0, 0.6);
   transform: scale(1.05);
+  filter: drop-shadow(3px 3px 0px rgba(255, 0, 0, 0.5));
 }
 
 .header-hero-subtitle.activated {
