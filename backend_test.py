@@ -13,7 +13,7 @@ import random
 import string
 
 # Configuration
-BASE_URL = "https://gothic-author.preview.emergentagent.com/api"
+BASE_URL = "https://horror-author-site.preview.emergentagent.com/api"
 TIMEOUT = 30
 
 class GothicAuthorBackendTester:
