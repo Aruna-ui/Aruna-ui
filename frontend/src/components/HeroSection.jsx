@@ -4,7 +4,6 @@ import { Button } from "./ui/button";
 const HeroSection = () => {
   const [doorsOpen, setDoorsOpen] = React.useState(false);
   const [hasEntered, setHasEntered] = React.useState(false);
-  const [videoPlaying, setVideoPlaying] = React.useState(false);
   const videoRef = React.useRef(null);
 
   const scrollToBooks = () => {
@@ -15,19 +14,22 @@ const HeroSection = () => {
   };
 
   const handleWelcomeClick = () => {
+    console.log('Welcome clicked!'); // Debug log
     setDoorsOpen(true);
-    setVideoPlaying(true);
     
-    // Start the video
+    // Start the video immediately
     if (videoRef.current) {
-      videoRef.current.currentTime = 0; // Start from beginning
-      videoRef.current.play();
+      videoRef.current.play().then(() => {
+        console.log('Video started playing');
+      }).catch((e) => {
+        console.error('Video play failed:', e);
+      });
     }
     
-    // After video completes, show enter button
+    // Show enter button after animation
     setTimeout(() => {
       setHasEntered(true);
-    }, 3000); // Adjust timing based on your video length
+    }, 4000);
   };
 
   const handleEnterAbyss = () => {
@@ -42,49 +44,53 @@ const HeroSection = () => {
       </div>
       
       {/* Gothic Video Background */}
-      <div className={`gothic-video-container ${doorsOpen ? 'doors-opening' : ''} ${hasEntered ? 'video-revealed' : ''}`}>
+      <div className={`gothic-video-container ${doorsOpen ? 'doors-active' : 'doors-inactive'}`}>
         <video
           ref={videoRef}
-          className={`gothic-background-video ${videoPlaying ? 'playing' : 'paused'}`}
+          className="gothic-background-video"
           muted
+          loop
           playsInline
           poster="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/hix160h1_1759516429354.jpg"
-          onEnded={() => setVideoPlaying(false)}
         >
           <source 
             src="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/pqvep5or_1759541615032.mp4" 
             type="video/mp4" 
           />
         </video>
-        <div className={`video-overlay ${doorsOpen ? 'overlay-opening' : ''}`}></div>
-        <div className="video-mystical-effects">
-          <div className={`floating-particles ${doorsOpen ? 'particles-active' : ''}`}></div>
-          <div className={`mystical-glow ${doorsOpen ? 'glow-active' : ''}`}></div>
-          <div className={`snake-entrance ${doorsOpen ? 'snake-entering' : ''}`}>
-            <div className="snake-trail"></div>
-          </div>
+        
+        {/* Door Overlay Effect */}
+        <div className={`door-overlay ${doorsOpen ? 'opening' : ''}`}></div>
+        
+        {/* Snake Trail Effect */}
+        <div className={`snake-container ${doorsOpen ? 'active' : ''}`}>
+          <div className="snake-body"></div>
+        </div>
+        
+        {/* Mystical Effects */}
+        <div className={`mystical-effects ${doorsOpen ? 'activated' : ''}`}>
+          <div className="glow-effect"></div>
+          <div className="particle-effect"></div>
         </div>
       </div>
       
-      <div className={`hero-content ${hasEntered ? 'content-revealed' : ''}`}>
+      <div className="hero-content">
         <div className="hero-text">
           <h2 
-            className={`hero-welcome ${!doorsOpen ? 'clickable' : 'clicked'}`}
-            onClick={!doorsOpen ? handleWelcomeClick : undefined}
-            style={{ cursor: !doorsOpen ? 'pointer' : 'default' }}
+            className={`hero-welcome ${doorsOpen ? 'activated' : 'interactive'}`}
+            onClick={handleWelcomeClick}
           >
             Welcome
           </h2>
           <h3 
-            className={`hero-subtitle ${!doorsOpen ? 'clickable' : 'clicked'}`}
-            onClick={!doorsOpen ? handleWelcomeClick : undefined}
-            style={{ cursor: !doorsOpen ? 'pointer' : 'default' }}
+            className={`hero-subtitle ${doorsOpen ? 'activated' : 'interactive'}`}
+            onClick={handleWelcomeClick}
           >
             Step into the Abyss
           </h3>
           <p className="hero-description">
             {!doorsOpen ? (
-              <>Click above to witness the serpent's entrance and unlock the gateway to darkness.</>
+              <span className="click-instruction">Click above to witness the serpent's entrance and unlock the gateway to darkness.</span>
             ) : (
               <>Where shadows dance with moonlight and whispers carry ancient secrets.
               Enter a realm where darkness holds its own twisted beauty,
@@ -97,7 +103,7 @@ const HeroSection = () => {
           {hasEntered && (
             <Button 
               onClick={handleEnterAbyss}
-              className="gothic-cta-button button-revealed"
+              className="gothic-cta-button entrance-revealed"
               size="lg"
             >
               Enter My Dark Realm
