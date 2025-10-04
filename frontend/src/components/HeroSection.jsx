@@ -38,49 +38,26 @@ const HeroSection = () => {
         <div className="hero-shadows"></div>
       </div>
       
-      {/* Mystical Doors */}
-      <div className={`mystical-doors ${doorsOpen ? 'doors-open' : ''}`}>
-        {/* Demon Revelation Behind Doors */}
-        <div className="demon-revelation">
-          <div className="demon-container">
-            <img 
-              src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=1200&fit=crop&crop=center"
-              alt="Ancient Demon"
-              className="demon-image"
-            />
-            <div className="demon-glow"></div>
-            <div className="demon-smoke"></div>
-          </div>
+      {/* Gothic Video Background */}
+      <div className={`gothic-video-container ${hasEntered ? 'video-revealed' : ''}`}>
+        <video
+          className="gothic-background-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/hix160h1_1759516429354.jpg"
+        >
+          <source 
+            src="https://customer-assets.emergentagent.com/job_gothic-author/artifacts/pqvep5or_1759541615032.mp4" 
+            type="video/mp4" 
+          />
+        </video>
+        <div className="video-overlay"></div>
+        <div className="video-mystical-effects">
+          <div className="floating-particles"></div>
+          <div className="mystical-glow"></div>
         </div>
-        
-        {/* Left Door */}
-        <div className="door door-left">
-          <div className="door-panel">
-            <div className="door-texture"></div>
-            <div className="door-runes">
-              <span className="rune">◈</span>
-              <span className="rune">※</span>
-              <span className="rune">⟐</span>
-            </div>
-            <div className="door-handle"></div>
-          </div>
-        </div>
-        
-        {/* Right Door */}
-        <div className="door door-right">
-          <div className="door-panel">
-            <div className="door-texture"></div>
-            <div className="door-runes">
-              <span className="rune">◈</span>
-              <span className="rune">※</span>
-              <span className="rune">⟐</span>
-            </div>
-            <div className="door-handle"></div>
-          </div>
-        </div>
-        
-        {/* Door Opening Light Effect */}
-        <div className="door-light-beam"></div>
       </div>
       
       <div className={`hero-content ${hasEntered ? 'content-revealed' : ''}`}>
