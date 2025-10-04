@@ -44,7 +44,7 @@ const HeroSection = () => {
       </div>
       
       {/* Gothic Video Background */}
-      <div className={`gothic-video-container ${doorsOpen ? 'doors-active' : 'doors-inactive'}`}>
+      <div className="gothic-video-container">
         <video
           ref={videoRef}
           className="gothic-background-video"
@@ -58,19 +58,49 @@ const HeroSection = () => {
             type="video/mp4" 
           />
         </video>
+      </div>
+
+      {/* Mystical Doors */}
+      <div className={`mystical-doors-overlay ${doorsOpen ? 'doors-opening' : ''}`}>
+        {/* Left Door */}
+        <div className="mystical-door door-left">
+          <div className="door-surface">
+            <div className="door-runes">
+              <span className="rune">◈</span>
+              <span className="rune">※</span>
+              <span className="rune">⟐</span>
+            </div>
+            <div className="door-handle"></div>
+          </div>
+        </div>
         
-        {/* Door Overlay Effect */}
-        <div className={`door-overlay ${doorsOpen ? 'opening' : ''}`}></div>
+        {/* Right Door */}
+        <div className="mystical-door door-right">
+          <div className="door-surface">
+            <div className="door-runes">
+              <span className="rune">◈</span>
+              <span className="rune">※</span>
+              <span className="rune">⟐</span>
+            </div>
+            <div className="door-handle"></div>
+          </div>
+        </div>
         
-        {/* Snake Trail Effect */}
-        <div className={`snake-container ${doorsOpen ? 'active' : ''}`}>
-          <div className="snake-body"></div>
+        {/* Door Opening Light Beam */}
+        <div className={`door-light-beam ${doorsOpen ? 'light-active' : ''}`}></div>
+        
+        {/* Serpent Entrance */}
+        <div className={`serpent-entrance ${doorsOpen ? 'serpent-active' : ''}`}>
+          <div className="serpent-body">
+            <div className="serpent-head"></div>
+            <div className="serpent-trail"></div>
+          </div>
         </div>
         
         {/* Mystical Effects */}
-        <div className={`mystical-effects ${doorsOpen ? 'activated' : ''}`}>
-          <div className="glow-effect"></div>
-          <div className="particle-effect"></div>
+        <div className={`mystical-effects ${doorsOpen ? 'effects-active' : ''}`}>
+          <div className="glow-burst"></div>
+          <div className="particle-swirl"></div>
         </div>
       </div>
       
