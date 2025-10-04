@@ -218,14 +218,26 @@ body {
 .header-hero-subtitle {
   font-family: var(--font-gothic-text);
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  color: var(--gothic-teal);
+  color: #cc0000;
   text-shadow: 
-    var(--glow-teal),
-    0 0 15px rgba(0, 168, 168, 1);
+    0 0 10px rgba(204, 0, 0, 0.8),
+    0 0 20px rgba(204, 0, 0, 0.6),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: 2rem;
   letter-spacing: 0.15em;
   transition: all 0.3s ease;
   padding: 0.5rem;
+  background: linear-gradient(45deg, 
+    rgba(204, 0, 0, 0.1) 0%,
+    rgba(139, 0, 0, 0.2) 25%,
+    rgba(204, 0, 0, 0.1) 50%,
+    rgba(139, 0, 0, 0.2) 75%,
+    rgba(204, 0, 0, 0.1) 100%
+  );
+  background-size: 20px 20px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(2px 2px 0px rgba(204, 0, 0, 0.3));
 }
 
 .header-hero-subtitle.interactive {
