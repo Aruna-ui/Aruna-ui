@@ -18,15 +18,13 @@ const HeroSection = () => {
   };
 
   React.useEffect(() => {
-    // Auto-open doors after 3 seconds if user hasn't interacted
+    // Auto-reveal content after video has played for a moment
     const timer = setTimeout(() => {
-      if (!doorsOpen) {
-        setDoorsOpen(true);
-      }
-    }, 4000);
+      setHasEntered(true);
+    }, 3000);
 
     return () => clearTimeout(timer);
-  }, [doorsOpen]);
+  }, []);
 
   return (
     <section className="hero-section">
