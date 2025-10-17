@@ -13,7 +13,68 @@ const FlowerIcon = ({ className = "w-4 h-4" }) => (
   </svg>
 );
 
+const ShareButtons = ({ title, url }) => {
+  const shareOnWhatsApp = () => {
+    const text = encodeURIComponent(`Check out "${title}" by Aruna`);
+    const shareUrl = encodeURIComponent(url);
+    window.open(`https://wa.me/?text=${text}%20${shareUrl}`, '_blank');
+  };
+
+  const shareOnInstagram = () => {
+    // Instagram doesn't support direct sharing via URL, so we copy to clipboard
+    navigator.clipboard.writeText(`Check out "${title}" by Aruna! ${url}`);
+    alert('Link copied! Share it on Instagram stories or posts.');
+  };
+
+  const shareOnTwitter = () => {
+    const text = encodeURIComponent(`Check out "${title}" by Aruna`);
+    const shareUrl = encodeURIComponent(url);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${shareUrl}`, '_blank');
+  };
+
+  const shareOnFacebook = () => {
+    const shareUrl = encodeURIComponent(url);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, '_blank');
+  };
+
+  return (
+    <div className="flex items-center gap-2 mt-3">
+      <span className="text-cream-white/60 text-xs">Share:</span>
+      <button
+        onClick={shareOnWhatsApp}
+        className="w-8 h-8 rounded-full bg-green-600/80 hover:bg-green-600 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        title="Share on WhatsApp"
+      >
+        <FlowerIcon className="w-4 h-4 text-white" />
+      </button>
+      <button
+        onClick={shareOnInstagram}
+        className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        title="Share on Instagram"
+      >
+        <FlowerIcon className="w-4 h-4 text-white" />
+      </button>
+      <button
+        onClick={shareOnTwitter}
+        className="w-8 h-8 rounded-full bg-blue-500/80 hover:bg-blue-500 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        title="Share on Twitter"
+      >
+        <FlowerIcon className="w-4 h-4 text-white" />
+      </button>
+      <button
+        onClick={shareOnFacebook}
+        className="w-8 h-8 rounded-full bg-blue-700/80 hover:bg-blue-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        title="Share on Facebook"
+      >
+        <FlowerIcon className="w-4 h-4 text-white" />
+      </button>
+    </div>
+  );
+};
+
 const Books = () => {
+  const currentUrl = typeof window !== 'undefined' ? window.location.origin : '';
+
   return (
     <section id="books" className="relative">
       <div className="grid md:grid-cols-2">
@@ -44,7 +105,7 @@ const Books = () => {
                   <h3 className="font-serif text-xl text-cream-white mb-3 text-center">
                     {book.title}
                   </h3>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 mb-2">
                     <Button
                       className="bg-gold hover:bg-gold/90 text-charcoal px-6 py-2 text-sm rounded-full transition-all duration-300 flex items-center gap-2"
                       onClick={() => window.open(book.buyLinks.amazon, '_blank')}
@@ -61,6 +122,10 @@ const Books = () => {
                       Read Excerpt
                     </Button>
                   </div>
+                  <ShareButtons 
+                    title={book.title} 
+                    url={`${currentUrl}#books`} 
+                  />
                 </div>
               ))}
             </div>
@@ -103,12 +168,19 @@ const Books = () => {
               </p>
 
               <Button
-                className="w-full bg-gold hover:bg-gold/90 text-charcoal px-8 py-4 text-base rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                className="w-full bg-gold hover:bg-gold/90 text-charcoal px-8 py-4 text-base rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mb-4"
                 onClick={() => window.open(mockBooks.newFiction.preorder, '_blank')}
               >
                 <FlowerIcon className="w-5 h-5" />
                 Join the Mailing List for Exclusive Sneak Peeks
               </Button>
+              
+              <div className="flex justify-center">
+                <ShareButtons 
+                  title={mockBooks.newFiction.title} 
+                  url={`${currentUrl}#new-fiction`} 
+                />
+              </div>
             </div>
           </div>
         </div>

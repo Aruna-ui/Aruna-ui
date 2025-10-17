@@ -11,7 +11,67 @@ const FlowerIcon = ({ className = "w-6 h-6" }) => (
   </svg>
 );
 
+const ShareButtons = ({ title, url }) => {
+  const shareOnWhatsApp = () => {
+    const text = encodeURIComponent(`Check out this article: "${title}" by Aruna`);
+    const shareUrl = encodeURIComponent(url);
+    window.open(`https://wa.me/?text=${text}%20${shareUrl}`, '_blank');
+  };
+
+  const shareOnInstagram = () => {
+    navigator.clipboard.writeText(`Check out this article: "${title}" by Aruna! ${url}`);
+    alert('Link copied! Share it on Instagram stories or posts.');
+  };
+
+  const shareOnTwitter = () => {
+    const text = encodeURIComponent(`Check out this article: "${title}" by Aruna`);
+    const shareUrl = encodeURIComponent(url);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${shareUrl}`, '_blank');
+  };
+
+  const shareOnFacebook = () => {
+    const shareUrl = encodeURIComponent(url);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, '_blank');
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-cream-white/60 text-xs">Share:</span>
+      <button
+        onClick={shareOnWhatsApp}
+        className="w-7 h-7 rounded-full bg-green-600/80 hover:bg-green-600 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        title="Share on WhatsApp"
+      >
+        <FlowerIcon className="w-3 h-3 text-white" />
+      </button>
+      <button
+        onClick={shareOnInstagram}
+        className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        title="Share on Instagram"
+      >
+        <FlowerIcon className="w-3 h-3 text-white" />
+      </button>
+      <button
+        onClick={shareOnTwitter}
+        className="w-7 h-7 rounded-full bg-blue-500/80 hover:bg-blue-500 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        title="Share on Twitter"
+      >
+        <FlowerIcon className="w-3 h-3 text-white" />
+      </button>
+      <button
+        onClick={shareOnFacebook}
+        className="w-7 h-7 rounded-full bg-blue-700/80 hover:bg-blue-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
+        title="Share on Facebook"
+      >
+        <FlowerIcon className="w-3 h-3 text-white" />
+      </button>
+    </div>
+  );
+};
+
 const Blog = () => {
+  const currentUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  
   const blogPosts = [
     {
       id: 1,
@@ -93,10 +153,16 @@ const Blog = () => {
                   {post.excerpt}
                 </p>
 
-                <button className="flex items-center gap-2 text-gold hover:text-soft-pink font-medium text-sm transition-colors duration-300">
+                <button className="flex items-center gap-2 text-gold hover:text-soft-pink font-medium text-sm transition-colors duration-300 mb-3">
                   <span>Read More</span>
                   <FlowerIcon className="w-4 h-4" />
                 </button>
+
+                {/* Share Buttons */}
+                <ShareButtons 
+                  title={post.title} 
+                  url={`${currentUrl}#blog`} 
+                />
               </div>
             </article>
           ))}
