@@ -44,7 +44,7 @@ export const mockBooks = {
     title: 'Coming Soon',
     subtitle: 'A New Chapter in General Fiction',
     cover: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400',
-    teaser: 'Aruna's highly anticipated turn to general fiction promises to retain her signature insight into character while exploring new emotional landscapes. A story of resilience, connection, and the hidden histories that shape us.',
+    teaser: 'Aruna\'s highly anticipated turn to general fiction promises to retain her signature insight into character while exploring new emotional landscapes. A story of resilience, connection, and the hidden histories that shape us.',
     releaseDate: 'Fall 2025',
     preorder: '#',
     goodreads: '#'
