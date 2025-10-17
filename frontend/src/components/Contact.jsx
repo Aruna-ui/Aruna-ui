@@ -1,22 +1,81 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
 import { Instagram, Twitter, BookMarked, Send } from 'lucide-react';
 import { socialLinks } from '../mockData';
 import { useToast } from '../hooks/use-toast';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Contact = () => {
   const { toast } = useToast();
   const [email, setEmail] = useState('');
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
 
-  const handleMailingListSignup = (e) => {
+  const handleMailingListSignup = async (e) => {
     e.preventDefault();
-    // Mock signup - will be connected to backend later
-    toast({
-      title: "Welcome to the garden!",
-      description: "You've been added to the mailing list.",
-    });
-    setEmail('');
+    setLoading(true);
+    
+    try {
+      const response = await axios.post(`${API}/mailing-list/signup`, { email });
+      
+      if (response.data.success) {
+        toast({
+          title: "Welcome to the garden!",
+          description: "You've been added to the mailing list.",
+        });
+        setEmail('');
+      }
+    } catch (error) {
+      if (error.response?.status === 409) {
+        toast({
+          title: "Already subscribed",
+          description: "This email is already on our mailing list.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Subscription failed",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    try {
+      const response = await axios.post(`${API}/contact/submit`, contactForm);
+      
+      if (response.data.success) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for reaching out. We'll get back to you soon.",
+        });
+        setContactForm({ name: '', email: '', message: '' });
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -41,16 +100,61 @@ const Contact = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
+                  disabled={loading}
                   className="flex-1 border-warm-gray/40 focus:border-burgundy"
                 />
                 <Button
                   type="submit"
+                  disabled={loading}
                   className="bg-gold hover:bg-gold/90 text-charcoal px-6 transition-all duration-300"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
               </div>
             </form>
+
+            {/* Contact Form */}
+            <div className="mt-12">
+              <h3 className="font-serif text-2xl text-charcoal mb-4">
+                Send a Message
+              </h3>
+              <form onSubmit={handleContactSubmit} className="space-y-4">
+                <Input
+                  type="text"
+                  value={contactForm.name}
+                  onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                  placeholder="Your name"
+                  required
+                  disabled={loading}
+                  className="border-warm-gray/40 focus:border-burgundy"
+                />
+                <Input
+                  type="email"
+                  value={contactForm.email}
+                  onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                  placeholder="Your email"
+                  required
+                  disabled={loading}
+                  className="border-warm-gray/40 focus:border-burgundy"
+                />
+                <Textarea
+                  value={contactForm.message}
+                  onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                  placeholder="Your message"
+                  required
+                  disabled={loading}
+                  rows={4}
+                  className="border-warm-gray/40 focus:border-burgundy resize-none"
+                />
+                <Button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-burgundy hover:bg-crimson text-cream-white px-8 py-3 rounded-md transition-all duration-300"
+                >
+                  {loading ? 'Sending...' : 'Send Message'}
+                </Button>
+              </form>
+            </div>
           </div>
 
           {/* Right Column */}
@@ -65,6 +169,7 @@ const Contact = () => {
               <Button
                 variant="outline"
                 className="border-burgundy text-burgundy hover:bg-burgundy hover:text-cream-white px-8 py-2 rounded-full transition-all duration-300"
+                onClick={() => window.location.href = 'mailto:press@aruna.com'}
               >
                 Contact
               </Button>
@@ -97,7 +202,7 @@ const Contact = () => {
                 <BookMarked className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="mailto:hello@aruna.com"
                 className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-burgundy hover:bg-gold hover:text-charcoal transition-all duration-300"
               >
                 <Send className="w-5 h-5" />
