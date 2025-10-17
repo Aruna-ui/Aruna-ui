@@ -41,10 +41,10 @@ export const mockBooks = {
   ],
   newFiction: {
     id: '4',
-    title: 'Coming Soon',
+    title: 'Between Two Time Zones',
     subtitle: 'A New Chapter in General Fiction',
-    cover: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400',
-    teaser: 'Aruna highly anticipated turn to general fiction promises to retain her signature insight into character while exploring new emotional landscapes. A story of resilience, connection, and the hidden histories that shape us.',
+    cover: 'https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/un544s20_1760724820515.jpg',
+    teaser: 'A powerful exploration of love and distance in modern relationships. When two successful people share the same house but exist on different emotional schedules, can they bridge the time zones that separate them? Coming Fall 2025.',
     releaseDate: 'Fall 2025',
     preorder: '#',
     goodreads: '#'
