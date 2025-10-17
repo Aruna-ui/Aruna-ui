@@ -81,19 +81,19 @@ const Blog = () => {
               {/* Post Content */}
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <FlowerIcon className="w-4 h-4 text-burgundy" />
-                  <time className="text-sm text-warm-gray">{post.date}</time>
+                  <FlowerIcon className="w-4 h-4 text-gold" />
+                  <time className="text-sm text-cream-white/60">{post.date}</time>
                 </div>
                 
-                <h3 className="font-serif text-xl text-charcoal mb-3 group-hover:text-burgundy transition-colors duration-300">
+                <h3 className="font-serif text-xl text-cream-white mb-3 group-hover:text-gold transition-colors duration-300">
                   {post.title}
                 </h3>
                 
-                <p className="text-charcoal/80 text-sm leading-relaxed mb-4">
+                <p className="text-cream-white/70 text-sm leading-relaxed mb-4">
                   {post.excerpt}
                 </p>
 
-                <button className="flex items-center gap-2 text-burgundy hover:text-crimson font-medium text-sm transition-colors duration-300">
+                <button className="flex items-center gap-2 text-gold hover:text-soft-pink font-medium text-sm transition-colors duration-300">
                   <span>Read More</span>
                   <FlowerIcon className="w-4 h-4" />
                 </button>
