@@ -155,55 +155,111 @@ What is the "Meridian Line" in your life? How do you carve out real time for wha
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
+        <div className="space-y-12">
+          {/* Featured Post */}
+          {blogPosts.filter(post => post.isFeatured).map((post) => (
             <article
               key={post.id}
-              className="bg-burgundy/20 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group border border-gold/20"
+              className="bg-burgundy/20 backdrop-blur-sm rounded-lg overflow-hidden shadow-2xl border border-gold/30 hover:shadow-3xl transition-all duration-300"
             >
-              {/* Post Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Flower overlay on hover */}
-                <div className="absolute top-4 right-4 text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <FlowerIcon className="w-8 h-8" />
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Featured Image */}
+                <div className="relative h-96 md:h-auto overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4 bg-gold px-4 py-2 rounded-full">
+                    <span className="text-charcoal font-medium text-sm uppercase tracking-wide">Featured</span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Post Content */}
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <FlowerIcon className="w-4 h-4 text-gold" />
-                  <time className="text-sm text-cream-white/60">{post.date}</time>
+                {/* Featured Content */}
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <div className="flex items-center gap-2 mb-4">
+                    <FlowerIcon className="w-5 h-5 text-gold" />
+                    <time className="text-sm text-gold font-medium">{post.date}</time>
+                  </div>
+                  
+                  <h3 className="font-serif text-3xl md:text-4xl text-cream-white mb-4 leading-tight">
+                    {post.title}
+                  </h3>
+                  
+                  {post.author && (
+                    <p className="text-gold/80 text-sm mb-4 italic">By {post.author}</p>
+                  )}
+                  
+                  <p className="text-cream-white/80 text-base leading-relaxed mb-6">
+                    {post.excerpt}
+                  </p>
+
+                  <button className="flex items-center gap-2 text-gold hover:text-soft-pink font-medium text-base transition-colors duration-300 mb-4">
+                    <span>Read Full Article</span>
+                    <FlowerIcon className="w-5 h-5" />
+                  </button>
+
+                  {/* Share Buttons */}
+                  <ShareButtons 
+                    title={post.title} 
+                    url={`${currentUrl}#blog`} 
+                  />
                 </div>
-                
-                <h3 className="font-serif text-xl text-cream-white mb-3 group-hover:text-gold transition-colors duration-300">
-                  {post.title}
-                </h3>
-                
-                <p className="text-cream-white/70 text-sm leading-relaxed mb-4">
-                  {post.excerpt}
-                </p>
-
-                <button className="flex items-center gap-2 text-gold hover:text-soft-pink font-medium text-sm transition-colors duration-300 mb-3">
-                  <span>Read More</span>
-                  <FlowerIcon className="w-4 h-4" />
-                </button>
-
-                {/* Share Buttons */}
-                <ShareButtons 
-                  title={post.title} 
-                  url={`${currentUrl}#blog`} 
-                />
               </div>
             </article>
           ))}
+
+          {/* Regular Posts Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            {blogPosts.filter(post => !post.isFeatured).map((post) => (
+              <article
+                key={post.id}
+                className="bg-burgundy/20 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group border border-gold/20"
+              >
+                {/* Post Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  
+                  {/* Flower overlay on hover */}
+                  <div className="absolute top-4 right-4 text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <FlowerIcon className="w-8 h-8" />
+                  </div>
+                </div>
+
+                {/* Post Content */}
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <FlowerIcon className="w-4 h-4 text-gold" />
+                    <time className="text-sm text-cream-white/60">{post.date}</time>
+                  </div>
+                  
+                  <h3 className="font-serif text-xl text-cream-white mb-3 group-hover:text-gold transition-colors duration-300">
+                    {post.title}
+                  </h3>
+                  
+                  <p className="text-cream-white/70 text-sm leading-relaxed mb-4">
+                    {post.excerpt}
+                  </p>
+
+                  <button className="flex items-center gap-2 text-gold hover:text-soft-pink font-medium text-sm transition-colors duration-300 mb-3">
+                    <span>Read More</span>
+                    <FlowerIcon className="w-4 h-4" />
+                  </button>
+
+                  {/* Share Buttons */}
+                  <ShareButtons 
+                    title={post.title} 
+                    url={`${currentUrl}#blog`} 
+                  />
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         {/* View All Button */}
