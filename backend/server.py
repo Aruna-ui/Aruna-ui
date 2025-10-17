@@ -1,14 +1,14 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from pydantic import BaseModel, Field, EmailStr
+from typing import List, Optional
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime
 
 
 ROOT_DIR = Path(__file__).parent
@@ -27,44 +27,106 @@ api_router = APIRouter(prefix="/api")
 
 
 # Define Models
-class StatusCheck(BaseModel):
-    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
-    
+class MailingListSignup(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    email: EmailStr
+    subscribed_at: datetime = Field(default_factory=datetime.utcnow)
+    source: str = "website"
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
+class MailingListSignupCreate(BaseModel):
+    email: EmailStr
 
-# Add your routes to the router instead of directly to app
+class ContactMessage(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    email: EmailStr
+    message: str
+    submitted_at: datetime = Field(default_factory=datetime.utcnow)
+    status: str = "new"
+
+class ContactMessageCreate(BaseModel):
+    name: str
+    email: EmailStr
+    message: str
+
+# Routes
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Welcome to Aruna's Author Website API"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.model_dump()
-    status_obj = StatusCheck(**status_dict)
-    
-    # Convert to dict and serialize datetime to ISO string for MongoDB
-    doc = status_obj.model_dump()
-    doc['timestamp'] = doc['timestamp'].isoformat()
-    
-    _ = await db.status_checks.insert_one(doc)
-    return status_obj
+# Mailing List Routes
+@api_router.post("/mailing-list/signup")
+async def signup_mailing_list(signup: MailingListSignupCreate):
+    try:
+        # Check if email already exists
+        existing = await db.mailing_list.find_one({"email": signup.email})
+        if existing:
+            raise HTTPException(status_code=409, detail="Email already subscribed")
+        
+        # Create new signup
+        signup_obj = MailingListSignup(**signup.dict())
+        await db.mailing_list.insert_one(signup_obj.dict())
+        
+        return {
+            "success": True,
+            "message": "Successfully subscribed to mailing list",
+            "data": {
+                "id": signup_obj.id,
+                "email": signup_obj.email,
+                "subscribed_at": signup_obj.subscribed_at
+            }
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logging.error(f"Error in mailing list signup: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to process signup")
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    # Exclude MongoDB's _id field from the query results
-    status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
-    
-    # Convert ISO string timestamps back to datetime objects
-    for check in status_checks:
-        if isinstance(check['timestamp'], str):
-            check['timestamp'] = datetime.fromisoformat(check['timestamp'])
-    
-    return status_checks
+@api_router.get("/mailing-list")
+async def get_mailing_list():
+    try:
+        signups = await db.mailing_list.find().to_list(1000)
+        return {
+            "success": True,
+            "count": len(signups),
+            "data": [MailingListSignup(**signup) for signup in signups]
+        }
+    except Exception as e:
+        logging.error(f"Error fetching mailing list: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch mailing list")
+
+# Contact Form Routes
+@api_router.post("/contact/submit")
+async def submit_contact_form(contact: ContactMessageCreate):
+    try:
+        # Create new contact message
+        contact_obj = ContactMessage(**contact.dict())
+        await db.contact_messages.insert_one(contact_obj.dict())
+        
+        return {
+            "success": True,
+            "message": "Message sent successfully",
+            "data": {
+                "id": contact_obj.id,
+                "submitted_at": contact_obj.submitted_at
+            }
+        }
+    except Exception as e:
+        logging.error(f"Error in contact form submission: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to send message")
+
+@api_router.get("/contact/messages")
+async def get_contact_messages():
+    try:
+        messages = await db.contact_messages.find().to_list(1000)
+        return {
+            "success": True,
+            "count": len(messages),
+            "data": [ContactMessage(**msg) for msg in messages]
+        }
+    except Exception as e:
+        logging.error(f"Error fetching contact messages: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch messages")
 
 # Include the router in the main app
 app.include_router(api_router)
