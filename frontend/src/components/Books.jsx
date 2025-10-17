@@ -90,15 +90,15 @@ const Books = () => {
                 />
               </div>
               
-              <h3 className="font-serif text-2xl text-burgundy mb-3 text-center">
+              <h3 className="font-serif text-2xl text-cream-white mb-3 text-center">
                 {mockBooks.newFiction.title}
               </h3>
               
-              <p className="text-charcoal text-center mb-2 italic">
+              <p className="text-cream-white/80 text-center mb-2 italic">
                 {mockBooks.newFiction.teaser}
               </p>
               
-              <p className="text-burgundy font-medium text-center mb-6">
+              <p className="text-gold font-medium text-center mb-6">
                 Pre-order now!
               </p>
 
