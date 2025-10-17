@@ -88,29 +88,22 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-16 overflow-hidden">
-      {/* Rose Petals Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
-          alt="Rose petals background"
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-cream-white/85"></div>
-      </div>
+    <section id="contact" className="relative py-16 overflow-hidden border-t border-gold/20">
+      {/* Dark background matching overall theme */}
+      <div className="absolute inset-0 z-0 bg-transparent"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16">
           {/* Left Column */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <FlowerIcon className="w-8 h-8 text-burgundy" />
-              <h2 className="font-serif text-3xl text-charcoal">
+              <FlowerIcon className="w-8 h-8 text-gold" />
+              <h2 className="font-serif text-3xl text-cream-white">
                 Gathered at the Gate
               </h2>
             </div>
             
-            <p className="text-charcoal/80 mb-8 leading-relaxed">
+            <p className="text-cream-white/80 mb-8 leading-relaxed">
               Be the first to step through the door. Get updates on the new novel and early news.
             </p>
 
@@ -123,7 +116,7 @@ const Contact = () => {
                   placeholder="Enter your email"
                   required
                   disabled={loading}
-                  className="flex-1 border-warm-gray/40 focus:border-burgundy bg-white/80"
+                  className="flex-1 border-gold/30 focus:border-gold bg-burgundy/20 text-cream-white placeholder:text-cream-white/50"
                 />
                 <Button
                   type="submit"
@@ -138,8 +131,8 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="mt-12">
               <div className="flex items-center gap-3 mb-4">
-                <FlowerIcon className="w-6 h-6 text-burgundy" />
-                <h3 className="font-serif text-2xl text-charcoal">
+                <FlowerIcon className="w-6 h-6 text-gold" />
+                <h3 className="font-serif text-2xl text-cream-white">
                   Send a Message
                 </h3>
               </div>
@@ -151,7 +144,7 @@ const Contact = () => {
                   placeholder="Your name"
                   required
                   disabled={loading}
-                  className="border-warm-gray/40 focus:border-burgundy bg-white/80"
+                  className="border-gold/30 focus:border-gold bg-burgundy/20 text-cream-white placeholder:text-cream-white/50"
                 />
                 <Input
                   type="email"
@@ -160,7 +153,7 @@ const Contact = () => {
                   placeholder="Your email"
                   required
                   disabled={loading}
-                  className="border-warm-gray/40 focus:border-burgundy bg-white/80"
+                  className="border-gold/30 focus:border-gold bg-burgundy/20 text-cream-white placeholder:text-cream-white/50"
                 />
                 <Textarea
                   value={contactForm.message}
@@ -169,12 +162,12 @@ const Contact = () => {
                   required
                   disabled={loading}
                   rows={4}
-                  className="border-warm-gray/40 focus:border-burgundy resize-none bg-white/80"
+                  className="border-gold/30 focus:border-gold resize-none bg-burgundy/20 text-cream-white placeholder:text-cream-white/50"
                 />
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-burgundy hover:bg-crimson text-cream-white px-8 py-3 rounded-md transition-all duration-300 flex items-center justify-center gap-2"
+                  className="w-full bg-burgundy hover:bg-crimson text-cream-white px-8 py-3 rounded-md transition-all duration-300 flex items-center justify-center gap-2 border border-gold/30"
                 >
                   <FlowerIcon className="w-4 h-4" />
                   {loading ? 'Sending...' : 'Send Message'}
@@ -186,24 +179,24 @@ const Contact = () => {
           {/* Right Column */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <FlowerIcon className="w-8 h-8 text-burgundy" />
-              <h3 className="font-serif text-3xl text-charcoal">
+              <FlowerIcon className="w-8 h-8 text-gold" />
+              <h3 className="font-serif text-3xl text-cream-white">
                 Contact & Media
               </h3>
             </div>
             
-            <div className="space-y-4 mb-8 bg-white/60 backdrop-blur-sm p-6 rounded-lg">
+            <div className="space-y-4 mb-8 bg-burgundy/20 backdrop-blur-sm p-6 rounded-lg border border-gold/20">
               <div className="flex items-center gap-2">
-                <FlowerIcon className="w-5 h-5 text-burgundy" />
-                <p className="text-charcoal/80">Press Inquiries</p>
+                <FlowerIcon className="w-5 h-5 text-gold" />
+                <p className="text-cream-white/80">Press Inquiries</p>
               </div>
               <div className="flex items-center gap-2">
-                <FlowerIcon className="w-5 h-5 text-burgundy" />
-                <p className="text-charcoal/80">Press Materials</p>
+                <FlowerIcon className="w-5 h-5 text-gold" />
+                <p className="text-cream-white/80">Press Materials</p>
               </div>
               <Button
                 variant="outline"
-                className="border-burgundy text-burgundy hover:bg-burgundy hover:text-cream-white px-8 py-2 rounded-full transition-all duration-300 flex items-center gap-2"
+                className="border-gold text-gold hover:bg-gold hover:text-charcoal px-8 py-2 rounded-full transition-all duration-300 flex items-center gap-2"
                 onClick={() => window.location.href = 'mailto:press@aruna.com'}
               >
                 <FlowerIcon className="w-4 h-4" />
@@ -212,14 +205,14 @@ const Contact = () => {
             </div>
 
             {/* Social Links with Flowers */}
-            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-lg">
-              <p className="text-charcoal/70 text-sm mb-4">Connect with Aruna</p>
+            <div className="bg-burgundy/20 backdrop-blur-sm p-6 rounded-lg border border-gold/20">
+              <p className="text-cream-white/70 text-sm mb-4">Connect with Aruna</p>
               <div className="grid grid-cols-4 gap-4">
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-14 h-14 rounded-full bg-gradient-to-br from-burgundy/20 to-gold/20 flex items-center justify-center text-burgundy hover:from-burgundy hover:to-crimson hover:text-cream-white transition-all duration-300 hover:scale-110"
+                  className="w-14 h-14 rounded-full bg-gradient-to-br from-gold/20 to-soft-pink/20 flex items-center justify-center text-gold hover:from-gold hover:to-soft-pink hover:text-charcoal transition-all duration-300 hover:scale-110 border border-gold/30"
                   title="Instagram"
                 >
                   <FlowerIcon className="w-7 h-7" />
@@ -228,7 +221,7 @@ const Contact = () => {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-14 h-14 rounded-full bg-gradient-to-br from-burgundy/20 to-gold/20 flex items-center justify-center text-burgundy hover:from-burgundy hover:to-crimson hover:text-cream-white transition-all duration-300 hover:scale-110"
+                  className="w-14 h-14 rounded-full bg-gradient-to-br from-gold/20 to-soft-pink/20 flex items-center justify-center text-gold hover:from-gold hover:to-soft-pink hover:text-charcoal transition-all duration-300 hover:scale-110 border border-gold/30"
                   title="Twitter"
                 >
                   <FlowerIcon className="w-7 h-7" />
@@ -237,14 +230,14 @@ const Contact = () => {
                   href="https://goodreads.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-14 h-14 rounded-full bg-gradient-to-br from-burgundy/20 to-gold/20 flex items-center justify-center text-burgundy hover:from-burgundy hover:to-crimson hover:text-cream-white transition-all duration-300 hover:scale-110"
+                  className="w-14 h-14 rounded-full bg-gradient-to-br from-gold/20 to-soft-pink/20 flex items-center justify-center text-gold hover:from-gold hover:to-soft-pink hover:text-charcoal transition-all duration-300 hover:scale-110 border border-gold/30"
                   title="Goodreads"
                 >
                   <FlowerIcon className="w-7 h-7" />
                 </a>
                 <a
                   href="mailto:hello@aruna.com"
-                  className="w-14 h-14 rounded-full bg-gradient-to-br from-burgundy/20 to-gold/20 flex items-center justify-center text-burgundy hover:from-burgundy hover:to-crimson hover:text-cream-white transition-all duration-300 hover:scale-110"
+                  className="w-14 h-14 rounded-full bg-gradient-to-br from-gold/20 to-soft-pink/20 flex items-center justify-center text-gold hover:from-gold hover:to-soft-pink hover:text-charcoal transition-all duration-300 hover:scale-110 border border-gold/30"
                   title="Email"
                 >
                   <FlowerIcon className="w-7 h-7" />
