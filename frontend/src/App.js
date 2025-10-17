@@ -5,6 +5,7 @@ import About from './components/About';
 import Books from './components/Books';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
+import VisitorCounter from './components/VisitorCounter';
 import { Toaster } from './components/ui/sonner';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Blog />
         <Contact />
       </main>
+      <VisitorCounter />
       <Toaster />
     </div>
   );
