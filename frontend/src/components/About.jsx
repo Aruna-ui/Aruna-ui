@@ -15,34 +15,27 @@ const FlowerIcon = ({ className = "w-6 h-6" }) => (
 const About = () => {
   return (
     <section id="about" className="relative py-24 overflow-hidden">
-      {/* Rose Petals Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
-          alt="Rose petals background"
-          className="w-full h-full object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-cream-white/90"></div>
-      </div>
+      {/* Dark floral background - matching overall theme */}
+      <div className="absolute inset-0 z-0 bg-transparent"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <FlowerIcon className="w-10 h-10 text-burgundy" />
-            <h2 className="font-serif text-5xl text-charcoal">
+            <FlowerIcon className="w-10 h-10 text-gold" />
+            <h2 className="font-serif text-5xl text-cream-white">
               Behind the Rose Trellis
             </h2>
-            <FlowerIcon className="w-10 h-10 text-burgundy" />
+            <FlowerIcon className="w-10 h-10 text-gold" />
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Bio Content */}
-          <div className="space-y-6 bg-white/60 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+          <div className="space-y-6 bg-burgundy/20 backdrop-blur-sm p-8 rounded-lg shadow-lg border border-gold/20">
             {authorBio.paragraphs.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-charcoal leading-relaxed text-base"
+                className="text-cream-white/90 leading-relaxed text-base"
               >
                 {paragraph}
               </p>
@@ -50,11 +43,11 @@ const About = () => {
             
             {/* Decorative flower divider */}
             <div className="flex items-center justify-center gap-2 pt-4">
-              <FlowerIcon className="w-5 h-5 text-burgundy" />
-              <div className="w-16 h-px bg-burgundy"></div>
-              <FlowerIcon className="w-5 h-5 text-burgundy" />
-              <div className="w-16 h-px bg-burgundy"></div>
-              <FlowerIcon className="w-5 h-5 text-burgundy" />
+              <FlowerIcon className="w-5 h-5 text-gold" />
+              <div className="w-16 h-px bg-gold"></div>
+              <FlowerIcon className="w-5 h-5 text-gold" />
+              <div className="w-16 h-px bg-gold"></div>
+              <FlowerIcon className="w-5 h-5 text-gold" />
             </div>
           </div>
 
@@ -65,27 +58,27 @@ const About = () => {
               <div className="absolute inset-0 -m-8">
                 <svg className="w-full h-full" viewBox="0 0 400 400">
                   {/* Decorative circles */}
-                  <circle cx="200" cy="200" r="190" fill="none" stroke="#C4B5A0" strokeWidth="2" opacity="0.3"/>
-                  <circle cx="200" cy="200" r="180" fill="none" stroke="#6B1C23" strokeWidth="1" opacity="0.2"/>
+                  <circle cx="200" cy="200" r="190" fill="none" stroke="#C9A961" strokeWidth="2" opacity="0.4"/>
+                  <circle cx="200" cy="200" r="180" fill="none" stroke="#C4B5A0" strokeWidth="1" opacity="0.3"/>
                 </svg>
                 
                 {/* Corner flowers */}
-                <div className="absolute top-0 left-0 text-burgundy opacity-40">
+                <div className="absolute top-0 left-0 text-gold opacity-60">
                   <FlowerIcon className="w-12 h-12" />
                 </div>
-                <div className="absolute top-0 right-0 text-gold opacity-40">
+                <div className="absolute top-0 right-0 text-soft-pink opacity-60">
                   <FlowerIcon className="w-12 h-12" />
                 </div>
-                <div className="absolute bottom-0 left-0 text-gold opacity-40">
+                <div className="absolute bottom-0 left-0 text-soft-pink opacity-60">
                   <FlowerIcon className="w-12 h-12" />
                 </div>
-                <div className="absolute bottom-0 right-0 text-burgundy opacity-40">
+                <div className="absolute bottom-0 right-0 text-gold opacity-60">
                   <FlowerIcon className="w-12 h-12" />
                 </div>
               </div>
               
               {/* Circular author image */}
-              <div className="relative w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-cream-white">
+              <div className="relative w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-gold/30">
                 <img
                   src={authorBio.image}
                   alt="Aruna"
