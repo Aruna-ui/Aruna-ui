@@ -38,27 +38,20 @@ const Blog = () => {
 
   return (
     <section id="blog" className="relative py-24 overflow-hidden">
-      {/* Rose Petals Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
-          alt="Rose petals background"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-soft-gray/90"></div>
-      </div>
+      {/* Transparent background to show main dark theme */}
+      <div className="absolute inset-0 z-0 bg-transparent"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <FlowerIcon className="w-10 h-10 text-burgundy" />
-            <h2 className="font-serif text-5xl text-charcoal">
+            <FlowerIcon className="w-10 h-10 text-gold" />
+            <h2 className="font-serif text-5xl text-cream-white">
               From the Writer's Garden
             </h2>
-            <FlowerIcon className="w-10 h-10 text-burgundy" />
+            <FlowerIcon className="w-10 h-10 text-gold" />
           </div>
-          <p className="text-warm-gray text-lg mt-4">
+          <p className="text-cream-white/70 text-lg mt-4">
             Musings on writing, stories, and the spaces between light and darkness
           </p>
         </div>
@@ -68,7 +61,7 @@ const Blog = () => {
           {blogPosts.map((post) => (
             <article
               key={post.id}
-              className="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+              className="bg-burgundy/20 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group border border-gold/20"
             >
               {/* Post Image */}
               <div className="relative h-48 overflow-hidden">
