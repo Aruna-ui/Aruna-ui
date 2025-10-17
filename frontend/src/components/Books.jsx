@@ -1,5 +1,5 @@
 import React from 'react';
-import { mockBooks } from '../mock';
+import { mockBooks } from '../mockData';
 import { Button } from './ui/button';
 import { ExternalLink, BookOpen } from 'lucide-react';
 
