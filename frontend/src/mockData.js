@@ -54,10 +54,10 @@ export const mockBooks = {
 export const authorBio = {
   name: 'Aruna',
   tagline: 'Where Beauty Holds the Blade',
-  image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
+  image: 'https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/s49chsci_1702063179077.jpg',
   paragraphs: [
-    'Aruna is a critically acclaimed author best known for plunging readers into the darkest corners of psychological horror and existential dread. A writer who masterfully explores the intersection of myth, trauma, and the unexplained, her work has garnered praise for its unflinching intensity and literary craftsmanship.',
-    'Her terrifying debut, Agarkas, introduced a narrative defined by chilling suspense and folklore-infused menace. She quickly followed this success with The Whisper That Named Me, a novel praised for its deep psychological tension and exploration of identity. She then satisfied her eager fans with Agarkas Part 2, further cementing her reputation as a master of modern horror.',
+    'Aruna is a critically acclaimed author best known for plunging readers into the darkest corners of psychological horror and existential dread. A writer who masterfully explores the intersection of myth, trauma, and the unexplained, Aruna established her reputation with three chilling horror novels that have earned a dedicated following.',
+    'Her terrifying debut, Agarkas, introduced a narrative defined by chilling suspense and folklore-infused menace, immediately establishing her distinct voice in the genre. She quickly followed this success with The Whisper That Named Me, a novel praised for its deep psychological tension and atmospheric setting. Aruna then satisfied her eager fans with Agarkas Part 2, expanding the terrifying lore of her debut and cementing the series as a modern horror benchmark.',
     'Recently, Aruna has turned her focus toward general fiction, embracing a broader scope of human experience. This shift represents a new, exciting phase in her career, promising stories that retain her keen insight into character while exploring new emotional landscapes.',
     'Readers can anticipate her newest work, an upcoming novel in the general fiction genre, which is scheduled for release soon. Aruna lives with her family and continues to draw inspiration from the unspoken fears and hidden histories that reside in the everyday.'
   ]
