@@ -1,5 +1,5 @@
 import React from 'react';
-import { authorBio } from '../mock';
+import { authorBio } from '../mockData';
 
 const About = () => {
   return (
