@@ -128,6 +128,56 @@ async def get_contact_messages():
         logging.error(f"Error fetching contact messages: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to fetch messages")
 
+# Visitor Counter Routes
+@api_router.post("/visitors/track")
+async def track_visitor():
+    try:
+        # Check if visitor counter exists
+        counter = await db.visitor_counter.find_one({"_id": "main_counter"})
+        
+        if counter:
+            # Increment counter
+            await db.visitor_counter.update_one(
+                {"_id": "main_counter"},
+                {"$inc": {"count": 1}, "$set": {"last_visit": datetime.utcnow()}}
+            )
+            new_count = counter["count"] + 1
+        else:
+            # Create new counter
+            await db.visitor_counter.insert_one({
+                "_id": "main_counter",
+                "count": 1,
+                "last_visit": datetime.utcnow()
+            })
+            new_count = 1
+        
+        return {
+            "success": True,
+            "count": new_count
+        }
+    except Exception as e:
+        logging.error(f"Error tracking visitor: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to track visitor")
+
+@api_router.get("/visitors/count")
+async def get_visitor_count():
+    try:
+        counter = await db.visitor_counter.find_one({"_id": "main_counter"})
+        
+        if counter:
+            return {
+                "success": True,
+                "count": counter["count"]
+            }
+        else:
+            return {
+                "success": True,
+                "count": 0
+            }
+    except Exception as e:
+        logging.error(f"Error fetching visitor count: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch visitor count")
+
 # Include the router in the main app
 app.include_router(api_router)
 
