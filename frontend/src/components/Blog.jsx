@@ -75,20 +75,58 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
+      title: "The Quiet Cost of the Overbooked Calendar",
+      author: "Aruna S",
+      excerpt: "The alarm goes off. You're up, focused, already mentally listing the day's targets. You ace the pitch, navigate the market with surgical precision, and close the demanding project. You are, by all metrics, a success. But then, 9 PM hits...",
+      date: "January 15, 2025",
+      image: "https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/ruyejh1v_1760725446846.jpg",
+      isFeatured: true,
+      fullContent: `The alarm goes off. You're up, focused, already mentally listing the day's targets. You ace the pitch, navigate the market with surgical precision, and close the demanding project. You are, by all metrics, a success.
+
+But then, 9 PM hits. The laptop lid finally closes. You look up, and there's a silence in the room far deeper than the absence of noise. That's when the quiet cost of the overbooked calendar comes due.
+
+It's the hug you wanted to give but didn't because he was already in a meeting. It's the story you forgot to share because your brain was still debugging the system crash. We spend so much energy optimizing our professional lives, yet often treat our emotional lives like a low-priority background task.
+
+In my new novel, Between Two Time Zones, I explore the life of a woman who loves her successful husband but is separated from him by the chasm of their relentless careers. She's living proof that two successful people in the same house can still exist on different emotional schedules.
+
+**The Illusion of "Keeping Busy"**
+
+I know that feeling of desperation, that urge to "keep yourself busy" just so you don't have to face the loneliness. It's a survival tactic. You take on a new project, sign up for a night class, or start a demanding workout routine. You build a fortress of productivity around yourself.
+
+And it works—for a while.
+
+But busyness is a distraction, not a cure. It creates a powerful, self-sufficient exterior that, ironically, makes it harder for anyone to see the vulnerable part of you that just wants to be held. The wall you build to keep the pain out often ends up keeping the connection out, too.
+
+**How to Stop Banking Emotional Reserves**
+
+If you recognize yourself in this description, the solution isn't to quit your job or demand your partner quit theirs. It's about establishing The Meridian Line—the clear, agreed-upon center where your two worlds meet.
+
+• **Stop Deleting the Vulnerable Texts**: If you feel the urge to share something real, something soft, send it. Don't let your self-editing protect you from potential connection.
+
+• **Schedule the Disruption**: Your professional calendar has meetings; your personal life needs "interruptions." Schedule a "no-tech fifteen" after dinner. Even fifteen minutes of focused, eye-to-eye conversation is a deposit into your emotional account.
+
+• **Define Your True Success**: If your eulogy were written by your spouse, what would you want it to say? If the answer is only about your P&L reports, your priorities need a serious audit.
+
+It takes courage to slow down, to be still, and to admit the distance. But it is only in that quiet space that we can finally bridge the time zones and truly arrive home.
+
+What is the "Meridian Line" in your life? How do you carve out real time for what matters most? Grab your early copy of my general fiction debut, Between Two Time Zones, coming soon.`
+    },
+    {
+      id: 2,
       title: "The Art of Weaving Fear and Folklore",
       excerpt: "Exploring the intersection of ancient myths and modern psychological horror in contemporary storytelling...",
       date: "October 15, 2024",
       image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600"
     },
     {
-      id: 2,
+      id: 3,
       title: "My Journey from Horror to General Fiction",
       excerpt: "After three novels in psychological horror, I'm embarking on a new literary adventure that explores broader human experiences...",
       date: "September 28, 2024",
       image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600"
     },
     {
-      id: 3,
+      id: 4,
       title: "Writing Rituals and Rose Gardens",
       excerpt: "Behind every dark story lies a writer's sanctuary. Mine happens to be surrounded by roses—both beautiful and thorned...",
       date: "August 12, 2024",
