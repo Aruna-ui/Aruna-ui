@@ -50,7 +50,7 @@ const Hero = () => {
   return (
     <>
       {/* Announcement Banner */}
-      <div className="bg-cream-white border-b border-warm-gray/20 py-3 px-6 text-center">
+      <div className="bg-cream-white/95 backdrop-blur-sm border-b border-gold/30 py-3 px-6 text-center">
         <p className="text-charcoal text-sm">
           New novel, a general fiction title, coming soon. Sign up for updates
         </p>
@@ -65,7 +65,7 @@ const Hero = () => {
             alt="Ornate door with roses"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/60 to-charcoal/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
         </div>
 
         {/* Door Opening Animation Overlay */}
