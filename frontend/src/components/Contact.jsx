@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Instagram, Twitter, BookMarked, Mail, Send } from 'lucide-react';
-import { socialLinks } from '../mock';
+import { socialLinks } from '../mockData';
 import { useToast } from '../hooks/use-toast';
 
 const Contact = () => {
