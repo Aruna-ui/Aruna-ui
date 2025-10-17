@@ -69,23 +69,16 @@ const Books = () => {
 
         {/* Right Side - New Bloom (The Petals) */}
         <div id="new-fiction" className="relative py-20 px-8 lg:px-12 overflow-hidden">
-          {/* Light rose petals background */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
-              alt="Rose petals"
-              className="w-full h-full object-cover opacity-40"
-            />
-            <div className="absolute inset-0 bg-soft-pink/50"></div>
-          </div>
+          {/* Lighter overlay for contrast */}
+          <div className="absolute inset-0 z-0 bg-soft-pink/20"></div>
 
           <div className="relative z-10 flex flex-col items-center justify-center h-full">
             <div className="flex items-center justify-center gap-3 mb-12">
-              <FlowerIcon className="w-8 h-8 text-burgundy" />
-              <h2 className="font-serif text-4xl text-burgundy text-center">
+              <FlowerIcon className="w-8 h-8 text-soft-pink" />
+              <h2 className="font-serif text-4xl text-cream-white text-center">
                 The New Bloom (The Petals)
               </h2>
-              <FlowerIcon className="w-8 h-8 text-burgundy" />
+              <FlowerIcon className="w-8 h-8 text-soft-pink" />
             </div>
 
             <div className="max-w-md">
