@@ -1,32 +1,44 @@
 import React from 'react';
 import { authorBio } from '../mockData';
 
+// Flower Icon Component
+const FlowerIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C12 2 10 4 10 6C10 7 10.5 8 11.5 8.5C10.5 9 10 10 10 11C10 13 12 15 12 15C12 15 14 13 14 11C14 10 13.5 9 12.5 8.5C13.5 8 14 7 14 6C14 4 12 2 12 2Z"/>
+    <path d="M12 15C12 15 10 17 10 19C10 20 10.5 21 11.5 21.5C10.5 22 10 23 10 24H14C14 23 13.5 22 12.5 21.5C13.5 21 14 20 14 19C14 17 12 15 12 15Z"/>
+    <path d="M15 12C15 12 17 10 19 10C20 10 21 10.5 21.5 11.5C22 10.5 23 10 24 10V14C23 14 22 13.5 21.5 12.5C21 13.5 20 14 19 14C17 14 15 12 15 12Z"/>
+    <path d="M9 12C9 12 7 10 5 10C4 10 3 10.5 2.5 11.5C2 10.5 1 10 0 10V14C1 14 2 13.5 2.5 12.5C3 13.5 4 14 5 14C7 14 9 12 9 12Z"/>
+    <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+  </svg>
+);
+
 const About = () => {
   return (
     <section id="about" className="relative py-24 overflow-hidden">
-      {/* Subtle Rose Background */}
+      {/* Rose Petals Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-cream-white"></div>
-        <div 
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1516565349308-c76fe36a115c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxkYXJrJTIwcm9zZXN8ZW58MHx8fHwxNzYwNzA3MjA5fDA&ixlib=rb-4.1.0&q=85)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        ></div>
+        <img
+          src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
+          alt="Rose petals background"
+          className="w-full h-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 bg-cream-white/90"></div>
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-5xl text-charcoal mb-4">
-            Behind the Rose Trellis
-          </h2>
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <FlowerIcon className="w-10 h-10 text-burgundy" />
+            <h2 className="font-serif text-5xl text-charcoal">
+              Behind the Rose Trellis
+            </h2>
+            <FlowerIcon className="w-10 h-10 text-burgundy" />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Bio Content */}
-          <div className="space-y-6">
+          <div className="space-y-6 bg-white/60 backdrop-blur-sm p-8 rounded-lg shadow-lg">
             {authorBio.paragraphs.map((paragraph, index) => (
               <p
                 key={index}
@@ -35,22 +47,41 @@ const About = () => {
                 {paragraph}
               </p>
             ))}
+            
+            {/* Decorative flower divider */}
+            <div className="flex items-center justify-center gap-2 pt-4">
+              <FlowerIcon className="w-5 h-5 text-burgundy" />
+              <div className="w-16 h-px bg-burgundy"></div>
+              <FlowerIcon className="w-5 h-5 text-burgundy" />
+              <div className="w-16 h-px bg-burgundy"></div>
+              <FlowerIcon className="w-5 h-5 text-burgundy" />
+            </div>
           </div>
 
-          {/* Author Image with Ornate Frame */}
+          {/* Author Image with Ornate Flower Frame */}
           <div className="flex justify-center">
             <div className="relative">
-              {/* Ornate border decoration */}
+              {/* Flower border decoration */}
               <div className="absolute inset-0 -m-8">
                 <svg className="w-full h-full" viewBox="0 0 400 400">
+                  {/* Decorative circles */}
                   <circle cx="200" cy="200" r="190" fill="none" stroke="#C4B5A0" strokeWidth="2" opacity="0.3"/>
                   <circle cx="200" cy="200" r="180" fill="none" stroke="#6B1C23" strokeWidth="1" opacity="0.2"/>
-                  {/* Decorative corner elements */}
-                  <path d="M 50,50 Q 50,80 80,80" fill="none" stroke="#6B1C23" strokeWidth="1.5" opacity="0.3"/>
-                  <path d="M 350,50 Q 350,80 320,80" fill="none" stroke="#6B1C23" strokeWidth="1.5" opacity="0.3"/>
-                  <path d="M 50,350 Q 50,320 80,320" fill="none" stroke="#6B1C23" strokeWidth="1.5" opacity="0.3"/>
-                  <path d="M 350,350 Q 350,320 320,320" fill="none" stroke="#6B1C23" strokeWidth="1.5" opacity="0.3"/>
                 </svg>
+                
+                {/* Corner flowers */}
+                <div className="absolute top-0 left-0 text-burgundy opacity-40">
+                  <FlowerIcon className="w-12 h-12" />
+                </div>
+                <div className="absolute top-0 right-0 text-gold opacity-40">
+                  <FlowerIcon className="w-12 h-12" />
+                </div>
+                <div className="absolute bottom-0 left-0 text-gold opacity-40">
+                  <FlowerIcon className="w-12 h-12" />
+                </div>
+                <div className="absolute bottom-0 right-0 text-burgundy opacity-40">
+                  <FlowerIcon className="w-12 h-12" />
+                </div>
               </div>
               
               {/* Circular author image */}
