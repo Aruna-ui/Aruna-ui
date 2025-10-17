@@ -3,8 +3,18 @@ import { authorBio } from '../mock';
 
 const About = () => {
   return (
-    <section id="about" className="relative py-24 bg-soft-gray">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="about" className="relative py-24 overflow-hidden">
+      {/* Rose Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1516565349308-c76fe36a115c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxkYXJrJTIwcm9zZXN8ZW58MHx8fHwxNzYwNzA3MjA5fDA&ixlib=rb-4.1.0&q=85"
+          alt="Rose background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-cream-white/90"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-4">
             Behind the Rose Trellis
