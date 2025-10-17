@@ -122,32 +122,32 @@ const Hero = () => {
       </section>
 
       {/* Navigation Bar */}
-      <nav className="bg-cream-white border-b border-warm-gray/30 py-6">
+      <nav className="bg-burgundy/30 backdrop-blur-md border-b border-gold/30 py-6">
         <div className="max-w-5xl mx-auto flex justify-center items-center space-x-12">
           <button
             onClick={() => scrollToSection('books')}
-            className="flex items-center gap-2 text-base text-charcoal hover:text-burgundy transition-colors duration-300 font-medium"
+            className="flex items-center gap-2 text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium"
           >
             <FlowerIcon className="w-5 h-5" />
             Horror Novels
           </button>
           <button
             onClick={() => scrollToSection('about')}
-            className="flex items-center gap-2 text-base text-charcoal hover:text-burgundy transition-colors duration-300 font-medium"
+            className="flex items-center gap-2 text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium"
           >
             <FlowerIcon className="w-5 h-5" />
             The Author
           </button>
           <button
             onClick={() => scrollToSection('new-fiction')}
-            className="flex items-center gap-2 text-base text-charcoal hover:text-burgundy transition-colors duration-300 font-medium"
+            className="flex items-center gap-2 text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium"
           >
             <FlowerIcon className="w-5 h-5" />
             The New Direction
           </button>
           <button
             onClick={() => scrollToSection('blog')}
-            className="flex items-center gap-2 text-base text-charcoal hover:text-burgundy transition-colors duration-300 font-medium"
+            className="flex items-center gap-2 text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium"
           >
             <FlowerIcon className="w-5 h-5" />
             Blog
