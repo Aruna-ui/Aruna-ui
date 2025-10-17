@@ -2,33 +2,46 @@ import React from 'react';
 import { mockBooks } from '../mockData';
 import { Button } from './ui/button';
 
+// Flower Icon Component
+const FlowerIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C12 2 10 4 10 6C10 7 10.5 8 11.5 8.5C10.5 9 10 10 10 11C10 13 12 15 12 15C12 15 14 13 14 11C14 10 13.5 9 12.5 8.5C13.5 8 14 7 14 6C14 4 12 2 12 2Z"/>
+    <path d="M12 15C12 15 10 17 10 19C10 20 10.5 21 11.5 21.5C10.5 22 10 23 10 24H14C14 23 13.5 22 12.5 21.5C13.5 21 14 20 14 19C14 17 12 15 12 15Z"/>
+    <path d="M15 12C15 12 17 10 19 10C20 10 21 10.5 21.5 11.5C22 10.5 23 10 24 10V14C23 14 22 13.5 21.5 12.5C21 13.5 20 14 19 14C17 14 15 12 15 12Z"/>
+    <path d="M9 12C9 12 7 10 5 10C4 10 3 10.5 2.5 11.5C2 10.5 1 10 0 10V14C1 14 2 13.5 2.5 12.5C3 13.5 4 14 5 14C7 14 9 12 9 12Z"/>
+    <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+  </svg>
+);
+
 const Books = () => {
   return (
     <section id="books" className="relative">
       <div className="grid md:grid-cols-2">
         {/* Left Side - Horror Archive (The Thorns) */}
         <div className="relative py-20 px-8 lg:px-12 overflow-hidden">
-          {/* Dark burgundy background with rose pattern */}
-          <div className="absolute inset-0 z-0 bg-burgundy">
-            <div 
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage: 'url(https://images.unsplash.com/photo-1529106550889-a7ed1c7a0293?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwyfHxkYXJrJTIwcm9zZXN8ZW58MHx8fHwxNzYwNzA3MjA5fDA&ixlib=rb-4.1.0&q=85)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            ></div>
+          {/* Rose petals background with dark overlay */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
+              alt="Rose petals"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-burgundy/90"></div>
           </div>
 
           <div className="relative z-10">
-            <h2 className="font-serif text-4xl text-cream-white mb-12 text-center">
-              The Horror Archive (The Thorns)
-            </h2>
+            <div className="flex items-center justify-center gap-3 mb-12">
+              <FlowerIcon className="w-8 h-8 text-gold" />
+              <h2 className="font-serif text-4xl text-cream-white text-center">
+                The Horror Archive (The Thorns)
+              </h2>
+              <FlowerIcon className="w-8 h-8 text-gold" />
+            </div>
 
             <div className="space-y-8">
               {mockBooks.horror.map((book) => (
                 <div key={book.id} className="flex flex-col items-center">
-                  <div className="w-56 h-80 mb-4 shadow-2xl rounded overflow-hidden">
+                  <div className="w-56 h-80 mb-4 shadow-2xl rounded overflow-hidden transform hover:scale-105 transition-transform duration-300">
                     <img
                       src={book.cover}
                       alt={book.title}
@@ -40,16 +53,18 @@ const Books = () => {
                   </h3>
                   <div className="flex gap-3">
                     <Button
-                      className="bg-gold hover:bg-gold/90 text-charcoal px-6 py-2 text-sm rounded-full transition-all duration-300"
+                      className="bg-gold hover:bg-gold/90 text-charcoal px-6 py-2 text-sm rounded-full transition-all duration-300 flex items-center gap-2"
                       onClick={() => window.open(book.buyLinks.amazon, '_blank')}
                     >
+                      <FlowerIcon className="w-3 h-3" />
                       Buy Now
                     </Button>
                     <Button
                       variant="outline"
-                      className="bg-transparent border-2 border-cream-white text-cream-white hover:bg-cream-white hover:text-burgundy px-6 py-2 text-sm rounded-full transition-all duration-300"
+                      className="bg-transparent border-2 border-cream-white text-cream-white hover:bg-cream-white hover:text-burgundy px-6 py-2 text-sm rounded-full transition-all duration-300 flex items-center gap-2"
                       onClick={() => window.open(book.excerpt, '_blank')}
                     >
+                      <FlowerIcon className="w-3 h-3" />
                       Read Excerpt
                     </Button>
                   </div>
@@ -61,26 +76,27 @@ const Books = () => {
 
         {/* Right Side - New Bloom (The Petals) */}
         <div id="new-fiction" className="relative py-20 px-8 lg:px-12 overflow-hidden">
-          {/* Light pink/cream background with floral pattern */}
+          {/* Light rose petals background */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-soft-pink/30"></div>
-            <div 
-              className="absolute inset-0 opacity-15"
-              style={{
-                backgroundImage: 'url(https://images.unsplash.com/flagged/photo-1687355616097-ebf4e0008091?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwyfHxldGhlcmVhbCUyMHJvc2UlMjBnYXJkZW58ZW58MHx8fHwxNzYwNzA3MTc5fDA&ixlib=rb-4.1.0&q=85)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            ></div>
+            <img
+              src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
+              alt="Rose petals"
+              className="w-full h-full object-cover opacity-40"
+            />
+            <div className="absolute inset-0 bg-soft-pink/50"></div>
           </div>
 
           <div className="relative z-10 flex flex-col items-center justify-center h-full">
-            <h2 className="font-serif text-4xl text-burgundy mb-12 text-center">
-              The New Bloom (The Petals)
-            </h2>
+            <div className="flex items-center justify-center gap-3 mb-12">
+              <FlowerIcon className="w-8 h-8 text-burgundy" />
+              <h2 className="font-serif text-4xl text-burgundy text-center">
+                The New Bloom (The Petals)
+              </h2>
+              <FlowerIcon className="w-8 h-8 text-burgundy" />
+            </div>
 
             <div className="max-w-md">
-              <div className="w-64 h-96 mb-6 shadow-2xl rounded overflow-hidden mx-auto">
+              <div className="w-64 h-96 mb-6 shadow-2xl rounded overflow-hidden mx-auto transform hover:scale-105 transition-transform duration-300">
                 <img
                   src={mockBooks.newFiction.cover}
                   alt={mockBooks.newFiction.title}
@@ -101,9 +117,10 @@ const Books = () => {
               </p>
 
               <Button
-                className="w-full bg-gold hover:bg-gold/90 text-charcoal px-8 py-4 text-base rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="w-full bg-gold hover:bg-gold/90 text-charcoal px-8 py-4 text-base rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                 onClick={() => window.open(mockBooks.newFiction.preorder, '_blank')}
               >
+                <FlowerIcon className="w-5 h-5" />
                 Join the Mailing List for Exclusive Sneak Peeks
               </Button>
             </div>

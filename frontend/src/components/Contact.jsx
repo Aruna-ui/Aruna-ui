@@ -2,13 +2,22 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { Instagram, Twitter, BookMarked, Send } from 'lucide-react';
-import { socialLinks } from '../mockData';
 import { useToast } from '../hooks/use-toast';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
+
+// Flower Icon Component
+const FlowerIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C12 2 10 4 10 6C10 7 10.5 8 11.5 8.5C10.5 9 10 10 10 11C10 13 12 15 12 15C12 15 14 13 14 11C14 10 13.5 9 12.5 8.5C13.5 8 14 7 14 6C14 4 12 2 12 2Z"/>
+    <path d="M12 15C12 15 10 17 10 19C10 20 10.5 21 11.5 21.5C10.5 22 10 23 10 24H14C14 23 13.5 22 12.5 21.5C13.5 21 14 20 14 19C14 17 12 15 12 15Z"/>
+    <path d="M15 12C15 12 17 10 19 10C20 10 21 10.5 21.5 11.5C22 10.5 23 10 24 10V14C23 14 22 13.5 21.5 12.5C21 13.5 20 14 19 14C17 14 15 12 15 12Z"/>
+    <path d="M9 12C9 12 7 10 5 10C4 10 3 10.5 2.5 11.5C2 10.5 1 10 0 10V14C1 14 2 13.5 2.5 12.5C3 13.5 4 14 5 14C7 14 9 12 9 12Z"/>
+    <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+  </svg>
+);
 
 const Contact = () => {
   const { toast } = useToast();
@@ -79,14 +88,27 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-16 bg-cream-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="contact" className="relative py-16 overflow-hidden">
+      {/* Rose Petals Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
+          alt="Rose petals background"
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-cream-white/85"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16">
           {/* Left Column */}
           <div>
-            <h2 className="font-serif text-3xl text-charcoal mb-6">
-              Gathered at the Gate
-            </h2>
+            <div className="flex items-center gap-3 mb-6">
+              <FlowerIcon className="w-8 h-8 text-burgundy" />
+              <h2 className="font-serif text-3xl text-charcoal">
+                Gathered at the Gate
+              </h2>
+            </div>
             
             <p className="text-charcoal/80 mb-8 leading-relaxed">
               Be the first to step through the door. Get updates on the new novel and early news.
@@ -101,23 +123,26 @@ const Contact = () => {
                   placeholder="Enter your email"
                   required
                   disabled={loading}
-                  className="flex-1 border-warm-gray/40 focus:border-burgundy"
+                  className="flex-1 border-warm-gray/40 focus:border-burgundy bg-white/80"
                 />
                 <Button
                   type="submit"
                   disabled={loading}
                   className="bg-gold hover:bg-gold/90 text-charcoal px-6 transition-all duration-300"
                 >
-                  <Send className="w-4 h-4" />
+                  <FlowerIcon className="w-4 h-4" />
                 </Button>
               </div>
             </form>
 
             {/* Contact Form */}
             <div className="mt-12">
-              <h3 className="font-serif text-2xl text-charcoal mb-4">
-                Send a Message
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <FlowerIcon className="w-6 h-6 text-burgundy" />
+                <h3 className="font-serif text-2xl text-charcoal">
+                  Send a Message
+                </h3>
+              </div>
               <form onSubmit={handleContactSubmit} className="space-y-4">
                 <Input
                   type="text"
@@ -126,7 +151,7 @@ const Contact = () => {
                   placeholder="Your name"
                   required
                   disabled={loading}
-                  className="border-warm-gray/40 focus:border-burgundy"
+                  className="border-warm-gray/40 focus:border-burgundy bg-white/80"
                 />
                 <Input
                   type="email"
@@ -135,7 +160,7 @@ const Contact = () => {
                   placeholder="Your email"
                   required
                   disabled={loading}
-                  className="border-warm-gray/40 focus:border-burgundy"
+                  className="border-warm-gray/40 focus:border-burgundy bg-white/80"
                 />
                 <Textarea
                   value={contactForm.message}
@@ -144,13 +169,14 @@ const Contact = () => {
                   required
                   disabled={loading}
                   rows={4}
-                  className="border-warm-gray/40 focus:border-burgundy resize-none"
+                  className="border-warm-gray/40 focus:border-burgundy resize-none bg-white/80"
                 />
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-burgundy hover:bg-crimson text-cream-white px-8 py-3 rounded-md transition-all duration-300"
+                  className="w-full bg-burgundy hover:bg-crimson text-cream-white px-8 py-3 rounded-md transition-all duration-300 flex items-center justify-center gap-2"
                 >
+                  <FlowerIcon className="w-4 h-4" />
                   {loading ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
@@ -159,54 +185,71 @@ const Contact = () => {
 
           {/* Right Column */}
           <div>
-            <h3 className="font-serif text-3xl text-charcoal mb-6">
-              Contact & Media
-            </h3>
+            <div className="flex items-center gap-3 mb-6">
+              <FlowerIcon className="w-8 h-8 text-burgundy" />
+              <h3 className="font-serif text-3xl text-charcoal">
+                Contact & Media
+              </h3>
+            </div>
             
-            <div className="space-y-4 mb-8">
-              <p className="text-charcoal/80">Press Inquiries</p>
-              <p className="text-charcoal/80">Press Materials</p>
+            <div className="space-y-4 mb-8 bg-white/60 backdrop-blur-sm p-6 rounded-lg">
+              <div className="flex items-center gap-2">
+                <FlowerIcon className="w-5 h-5 text-burgundy" />
+                <p className="text-charcoal/80">Press Inquiries</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <FlowerIcon className="w-5 h-5 text-burgundy" />
+                <p className="text-charcoal/80">Press Materials</p>
+              </div>
               <Button
                 variant="outline"
-                className="border-burgundy text-burgundy hover:bg-burgundy hover:text-cream-white px-8 py-2 rounded-full transition-all duration-300"
+                className="border-burgundy text-burgundy hover:bg-burgundy hover:text-cream-white px-8 py-2 rounded-full transition-all duration-300 flex items-center gap-2"
                 onClick={() => window.location.href = 'mailto:press@aruna.com'}
               >
+                <FlowerIcon className="w-4 h-4" />
                 Contact
               </Button>
             </div>
 
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              <a
-                href={socialLinks.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-burgundy hover:bg-gold hover:text-charcoal transition-all duration-300"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href={socialLinks.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-burgundy hover:bg-gold hover:text-charcoal transition-all duration-300"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href={socialLinks.goodreads}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-burgundy hover:bg-gold hover:text-charcoal transition-all duration-300"
-              >
-                <BookMarked className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:hello@aruna.com"
-                className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-burgundy hover:bg-gold hover:text-charcoal transition-all duration-300"
-              >
-                <Send className="w-5 h-5" />
-              </a>
+            {/* Social Links with Flowers */}
+            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-lg">
+              <p className="text-charcoal/70 text-sm mb-4">Connect with Aruna</p>
+              <div className="grid grid-cols-4 gap-4">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 rounded-full bg-gradient-to-br from-burgundy/20 to-gold/20 flex items-center justify-center text-burgundy hover:from-burgundy hover:to-crimson hover:text-cream-white transition-all duration-300 hover:scale-110"
+                  title="Instagram"
+                >
+                  <FlowerIcon className="w-7 h-7" />
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 rounded-full bg-gradient-to-br from-burgundy/20 to-gold/20 flex items-center justify-center text-burgundy hover:from-burgundy hover:to-crimson hover:text-cream-white transition-all duration-300 hover:scale-110"
+                  title="Twitter"
+                >
+                  <FlowerIcon className="w-7 h-7" />
+                </a>
+                <a
+                  href="https://goodreads.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-14 h-14 rounded-full bg-gradient-to-br from-burgundy/20 to-gold/20 flex items-center justify-center text-burgundy hover:from-burgundy hover:to-crimson hover:text-cream-white transition-all duration-300 hover:scale-110"
+                  title="Goodreads"
+                >
+                  <FlowerIcon className="w-7 h-7" />
+                </a>
+                <a
+                  href="mailto:hello@aruna.com"
+                  className="w-14 h-14 rounded-full bg-gradient-to-br from-burgundy/20 to-gold/20 flex items-center justify-center text-burgundy hover:from-burgundy hover:to-crimson hover:text-cream-white transition-all duration-300 hover:scale-110"
+                  title="Email"
+                >
+                  <FlowerIcon className="w-7 h-7" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
