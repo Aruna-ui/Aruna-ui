@@ -75,8 +75,18 @@ const BookCard = ({ book, isNewFiction = false }) => {
 
 const Books = () => {
   return (
-    <section id="books" className="py-24 bg-cream-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="books" className="relative py-24 overflow-hidden">
+      {/* Soft Rose Garden Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/flagged/photo-1687355616097-ebf4e0008091?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwyfHxldGhlcmVhbCUyMHJvc2UlMjBnYXJkZW58ZW58MHx8fHwxNzYwNzA3MTc5fDA&ixlib=rb-4.1.0&q=85"
+          alt="Rose garden background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-cream-white/92"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl text-charcoal mb-4">
             The Petals & The Thorns
