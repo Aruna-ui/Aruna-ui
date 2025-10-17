@@ -56,6 +56,17 @@ const Hero = () => {
         </p>
       </div>
 
+      {/* Logo Header */}
+      <div className="bg-burgundy/30 backdrop-blur-md border-b border-gold/30 py-6">
+        <div className="max-w-7xl mx-auto flex justify-center">
+          <img 
+            src="https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/o7uoix6g_1760709576020.jpg" 
+            alt="Aruna Logo" 
+            className="h-32 w-auto object-contain"
+          />
+        </div>
+      </div>
+
       {/* Hero Section with Door Opening Animation */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
