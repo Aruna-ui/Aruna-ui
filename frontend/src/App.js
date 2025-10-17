@@ -3,6 +3,7 @@ import './App.css';
 import Hero from './components/Hero';
 import About from './components/About';
 import Books from './components/Books';
+import Blog from './components/Blog';
 import Contact from './components/Contact';
 import { Toaster } from './components/ui/sonner';
 
@@ -18,6 +19,7 @@ function App() {
         <Hero />
         <About />
         <Books />
+        <Blog />
         <Contact />
       </main>
       <Toaster />
