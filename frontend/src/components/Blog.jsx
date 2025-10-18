@@ -136,8 +136,15 @@ What is the "Meridian Line" in your life? How do you carve out real time for wha
 
   return (
     <section id="blog" className="relative py-24 overflow-hidden">
-      {/* Transparent background to show main dark theme */}
-      <div className="absolute inset-0 z-0 bg-transparent"></div>
+      {/* Rose Petals Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
+          alt="Rose petals background"
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-transparent"></div>
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
