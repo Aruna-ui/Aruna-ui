@@ -41,13 +41,13 @@ const VisitorCounter = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <div className="bg-burgundy/90 backdrop-blur-md border-2 border-gold/40 rounded-full px-6 py-3 shadow-2xl">
-        <div className="flex items-center gap-3">
-          <FlowerIcon className="w-5 h-5 text-gold animate-pulse" />
+    <div className="fixed bottom-4 md:bottom-6 right-4 md:right-6 z-50">
+      <div className="bg-burgundy/90 backdrop-blur-md border-2 border-gold/40 rounded-full px-4 md:px-6 py-2 md:py-3 shadow-2xl">
+        <div className="flex items-center gap-2 md:gap-3">
+          <FlowerIcon className="w-4 h-4 md:w-5 md:h-5 text-gold animate-pulse" />
           <div className="text-cream-white">
             <p className="text-xs uppercase tracking-wide text-gold/80">Visitors</p>
-            <p className="text-2xl font-serif font-bold">
+            <p className="text-xl md:text-2xl font-serif font-bold">
               {loading ? '...' : visitorCount.toLocaleString()}
             </p>
           </div>
