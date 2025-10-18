@@ -14,28 +14,28 @@ const FlowerIcon = ({ className = "w-6 h-6" }) => (
 
 const About = () => {
   return (
-    <section id="about" className="relative py-24 overflow-hidden">
+    <section id="about" className="relative py-16 md:py-24 overflow-hidden">
       {/* Dark floral background - matching overall theme */}
       <div className="absolute inset-0 z-0 bg-transparent"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <FlowerIcon className="w-10 h-10 text-gold" />
-            <h2 className="font-serif text-5xl text-cream-white">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
+            <FlowerIcon className="w-8 h-8 md:w-10 md:h-10 text-gold" />
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-cream-white">
               Behind the Rose Trellis
             </h2>
-            <FlowerIcon className="w-10 h-10 text-gold" />
+            <FlowerIcon className="w-8 h-8 md:w-10 md:h-10 text-gold" />
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Bio Content */}
-          <div className="space-y-6 bg-burgundy/20 backdrop-blur-sm p-8 rounded-lg shadow-lg border border-gold/20">
+          <div className="space-y-4 md:space-y-6 bg-burgundy/20 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg border border-gold/20 order-2 md:order-1">
             {authorBio.paragraphs.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-cream-white/90 leading-relaxed text-base"
+                className="text-cream-white/90 leading-relaxed text-sm md:text-base"
               >
                 {paragraph}
               </p>
@@ -43,19 +43,19 @@ const About = () => {
             
             {/* Decorative flower divider */}
             <div className="flex items-center justify-center gap-2 pt-4">
-              <FlowerIcon className="w-5 h-5 text-gold" />
-              <div className="w-16 h-px bg-gold"></div>
-              <FlowerIcon className="w-5 h-5 text-gold" />
-              <div className="w-16 h-px bg-gold"></div>
-              <FlowerIcon className="w-5 h-5 text-gold" />
+              <FlowerIcon className="w-4 h-4 md:w-5 md:h-5 text-gold" />
+              <div className="w-12 md:w-16 h-px bg-gold"></div>
+              <FlowerIcon className="w-4 h-4 md:w-5 md:h-5 text-gold" />
+              <div className="w-12 md:w-16 h-px bg-gold"></div>
+              <FlowerIcon className="w-4 h-4 md:w-5 md:h-5 text-gold" />
             </div>
           </div>
 
           {/* Author Image with Ornate Flower Frame */}
-          <div className="flex justify-center">
+          <div className="flex justify-center order-1 md:order-2">
             <div className="relative">
               {/* Flower border decoration */}
-              <div className="absolute inset-0 -m-8">
+              <div className="absolute inset-0 -m-4 md:-m-8">
                 <svg className="w-full h-full" viewBox="0 0 400 400">
                   {/* Decorative circles */}
                   <circle cx="200" cy="200" r="190" fill="none" stroke="#C9A961" strokeWidth="2" opacity="0.4"/>
@@ -64,21 +64,21 @@ const About = () => {
                 
                 {/* Corner flowers */}
                 <div className="absolute top-0 left-0 text-gold opacity-60">
-                  <FlowerIcon className="w-12 h-12" />
+                  <FlowerIcon className="w-8 h-8 md:w-12 md:h-12" />
                 </div>
                 <div className="absolute top-0 right-0 text-soft-pink opacity-60">
-                  <FlowerIcon className="w-12 h-12" />
+                  <FlowerIcon className="w-8 h-8 md:w-12 md:h-12" />
                 </div>
                 <div className="absolute bottom-0 left-0 text-soft-pink opacity-60">
-                  <FlowerIcon className="w-12 h-12" />
+                  <FlowerIcon className="w-8 h-8 md:w-12 md:h-12" />
                 </div>
                 <div className="absolute bottom-0 right-0 text-gold opacity-60">
-                  <FlowerIcon className="w-12 h-12" />
+                  <FlowerIcon className="w-8 h-8 md:w-12 md:h-12" />
                 </div>
               </div>
               
               {/* Circular author image */}
-              <div className="relative w-80 h-80 rounded-full overflow-hidden shadow-2xl border-4 border-gold/30">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-gold/30">
                 <img
                   src={authorBio.image}
                   alt="Aruna"

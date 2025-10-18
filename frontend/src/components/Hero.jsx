@@ -50,25 +50,25 @@ const Hero = () => {
   return (
     <>
       {/* Announcement Banner */}
-      <div className="bg-cream-white/95 backdrop-blur-sm border-b border-gold/30 py-3 px-6 text-center">
-        <p className="text-charcoal text-sm">
+      <div className="bg-cream-white/95 backdrop-blur-sm border-b border-gold/30 py-2 md:py-3 px-4 md:px-6 text-center">
+        <p className="text-charcoal text-xs md:text-sm">
           New novel, a general fiction title, coming soon. Sign up for updates
         </p>
       </div>
 
       {/* Logo Header */}
-      <div className="bg-burgundy/30 backdrop-blur-md border-b border-gold/30 py-6">
-        <div className="max-w-7xl mx-auto flex justify-center">
+      <div className="bg-burgundy/30 backdrop-blur-md border-b border-gold/30 py-4 md:py-6">
+        <div className="max-w-7xl mx-auto flex justify-center px-4">
           <img 
             src="https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/o7uoix6g_1760709576020.jpg" 
             alt="Aruna Logo" 
-            className="h-32 w-auto object-contain"
+            className="h-20 md:h-32 w-auto object-contain"
           />
         </div>
       </div>
 
       {/* Hero Section with Door Opening Animation */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section id="home" className="relative min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -96,18 +96,18 @@ const Hero = () => {
 
             {/* Welcome Text */}
             <div
-              className={`relative z-30 text-center transition-all duration-1000 transform ${
+              className={`relative z-30 text-center transition-all duration-1000 transform px-4 ${
                 showWelcome ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             >
-              <div className="bg-charcoal/60 backdrop-blur-md px-12 py-8 rounded-lg border-2 border-gold/40">
-                <h2 className="font-serif text-5xl md:text-6xl text-cream-white mb-4 tracking-wide">
+              <div className="bg-charcoal/60 backdrop-blur-md px-6 md:px-12 py-6 md:py-8 rounded-lg border-2 border-gold/40">
+                <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-cream-white mb-3 md:mb-4 tracking-wide">
                   Welcome to the World
                 </h2>
-                <h2 className="font-serif text-5xl md:text-6xl text-gold mb-6 tracking-wide">
+                <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-gold mb-4 md:mb-6 tracking-wide">
                   of Literacy
                 </h2>
-                <div className="w-32 h-1 bg-gold mx-auto animate-pulse"></div>
+                <div className="w-24 md:w-32 h-1 bg-gold mx-auto animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -115,17 +115,17 @@ const Hero = () => {
 
         {/* Main Content - Fades in after animation */}
         <div
-          className={`relative z-10 max-w-5xl mx-auto px-6 text-center transition-all duration-1000 ${
+          className={`relative z-10 max-w-5xl mx-auto px-4 md:px-6 text-center transition-all duration-1000 ${
             animationComplete ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl text-cream-white mb-8 leading-tight tracking-tight">
+          <h1 className="font-serif text-3xl md:text-6xl lg:text-8xl xl:text-9xl text-cream-white mb-6 md:mb-8 leading-tight tracking-tight">
             Aruna: Where Beauty Holds the Blade
           </h1>
 
           <Button
             onClick={() => scrollToSection('new-fiction')}
-            className="bg-gold hover:bg-gold/90 text-charcoal px-10 py-7 text-lg font-medium rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            className="bg-gold hover:bg-gold/90 text-charcoal px-6 md:px-10 py-5 md:py-7 text-base md:text-lg font-medium rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
           >
             Explore the New Chapter (General Fiction)
           </Button>
@@ -133,34 +133,37 @@ const Hero = () => {
       </section>
 
       {/* Navigation Bar */}
-      <nav className="bg-burgundy/30 backdrop-blur-md border-b border-gold/30 py-6">
-        <div className="max-w-5xl mx-auto flex justify-center items-center space-x-12">
+      <nav className="bg-burgundy/30 backdrop-blur-md border-b border-gold/30 py-4 md:py-6 overflow-x-auto">
+        <div className="max-w-5xl mx-auto flex justify-center items-center space-x-4 md:space-x-12 px-4">
           <button
             onClick={() => scrollToSection('books')}
-            className="flex items-center gap-2 text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium"
+            className="flex items-center gap-1 md:gap-2 text-sm md:text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium whitespace-nowrap"
           >
-            <FlowerIcon className="w-5 h-5" />
-            Horror Novels
+            <FlowerIcon className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="hidden sm:inline">Horror Novels</span>
+            <span className="sm:hidden">Horror</span>
           </button>
           <button
             onClick={() => scrollToSection('about')}
-            className="flex items-center gap-2 text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium"
+            className="flex items-center gap-1 md:gap-2 text-sm md:text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium whitespace-nowrap"
           >
-            <FlowerIcon className="w-5 h-5" />
-            The Author
+            <FlowerIcon className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="hidden sm:inline">The Author</span>
+            <span className="sm:hidden">Author</span>
           </button>
           <button
             onClick={() => scrollToSection('new-fiction')}
-            className="flex items-center gap-2 text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium"
+            className="flex items-center gap-1 md:gap-2 text-sm md:text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium whitespace-nowrap"
           >
-            <FlowerIcon className="w-5 h-5" />
-            The New Direction
+            <FlowerIcon className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="hidden sm:inline">New Direction</span>
+            <span className="sm:hidden">New</span>
           </button>
           <button
             onClick={() => scrollToSection('blog')}
-            className="flex items-center gap-2 text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium"
+            className="flex items-center gap-1 md:gap-2 text-sm md:text-base text-cream-white hover:text-gold transition-colors duration-300 font-medium whitespace-nowrap"
           >
-            <FlowerIcon className="w-5 h-5" />
+            <FlowerIcon className="w-4 h-4 md:w-5 md:h-5" />
             Blog
           </button>
         </div>
