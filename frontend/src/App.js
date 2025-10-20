@@ -567,70 +567,70 @@ const PostDialog = ({ open, onOpenChange, post, onSuccess }) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-slate-900 border-slate-800 max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="bg-white border-amber-900/30 max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-white text-2xl" data-testid="post-dialog-title">{post ? 'Edit Post' : 'Create New Post'}</DialogTitle>
-          <DialogDescription className="text-slate-400">
+          <DialogTitle className="text-amber-950 text-2xl" data-testid="post-dialog-title">{post ? 'Edit Post' : 'Create New Post'}</DialogTitle>
+          <DialogDescription className="text-amber-800">
             {post ? 'Update your blog post details below' : 'Fill in the details to create a new blog post'}
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <Label className="text-slate-300">Title</Label>
+            <Label className="text-amber-900">Title</Label>
             <Input
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="bg-slate-800 border-slate-700 text-white"
+              className="bg-amber-50 border-amber-300 text-amber-950"
               required
               data-testid="post-title-input"
             />
           </div>
           <div>
-            <Label className="text-slate-300">Slug (URL)</Label>
+            <Label className="text-amber-900">Slug (URL)</Label>
             <Input
               value={formData.slug}
               onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-              className="bg-slate-800 border-slate-700 text-white"
+              className="bg-amber-50 border-amber-300 text-amber-950"
               required
               data-testid="post-slug-input"
             />
           </div>
           <div>
-            <Label className="text-slate-300">Excerpt</Label>
+            <Label className="text-amber-900">Excerpt</Label>
             <Textarea
               value={formData.excerpt}
               onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-              className="bg-slate-800 border-slate-700 text-white"
+              className="bg-amber-50 border-amber-300 text-amber-950"
               required
               data-testid="post-excerpt-input"
             />
           </div>
           <div>
-            <Label className="text-slate-300">Content</Label>
+            <Label className="text-amber-900">Content</Label>
             <Textarea
               value={formData.content}
               onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-              className="bg-slate-800 border-slate-700 text-white min-h-[200px]"
+              className="bg-amber-50 border-amber-300 text-amber-950 min-h-[200px]"
               required
               data-testid="post-content-input"
             />
           </div>
           <div>
-            <Label className="text-slate-300">Image URL</Label>
+            <Label className="text-amber-900">Image URL</Label>
             <Input
               value={formData.image_url}
               onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-              className="bg-slate-800 border-slate-700 text-white"
+              className="bg-amber-50 border-amber-300 text-amber-950"
               required
               data-testid="post-image-input"
             />
           </div>
           <div>
-            <Label className="text-slate-300">Category</Label>
+            <Label className="text-amber-900">Category</Label>
             <Input
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-              className="bg-slate-800 border-slate-700 text-white"
+              className="bg-amber-50 border-amber-300 text-amber-950"
               required
               data-testid="post-category-input"
             />
