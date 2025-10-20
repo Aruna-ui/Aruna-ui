@@ -341,27 +341,31 @@ const AdminPage = () => {
     <div className="min-h-screen">
       <Starfield />
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/70 border-b border-purple-500/30">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <PenLine className="w-6 h-6 text-purple-400" />
-              <span className="text-2xl font-display text-indigo-100">Aruna.S Writes</span>
+              <PenLine className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+              <span className="text-xl md:text-2xl font-display text-indigo-100">Aruna.S</span>
             </Link>
-            <div className="flex items-center gap-4">
-              <span className="text-indigo-200">Welcome, {localStorage.getItem('username')}</span>
-              <Button onClick={handleLogout} variant="ghost" size="sm" className="text-purple-300" data-testid="logout-btn">
-                <LogOut className="w-4 h-4 mr-2" />
-                Logout
+            <div className="flex items-center gap-2 md:gap-4">
+              <span className="text-indigo-200 text-sm md:text-base hidden sm:inline">Welcome, {localStorage.getItem('username')}</span>
+              <Button onClick={handleLogout} variant="ghost" size="sm" className="text-purple-300 text-xs md:text-sm" data-testid="logout-btn">
+                <LogOut className="w-4 h-4 md:mr-2" />
+                <span className="hidden md:inline">Logout</span>
               </Button>
             </div>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-6 pt-32 pb-20">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-display text-indigo-100" data-testid="admin-title">Manage Posts</h1>
-          <Button onClick={() => setShowCreateDialog(true)} className="cta-button" data-testid="create-post-btn">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-32 pb-12 md:pb-20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 md:mb-8">
+          <h1 className="text-3xl md:text-4xl font-display text-indigo-100" data-testid="admin-title">Manage Posts</h1>
+          <Button 
+            onClick={() => setShowCreateDialog(true)} 
+            className="cta-button w-full md:w-auto" 
+            data-testid="create-post-btn"
+          >
             <Plus className="w-5 h-5 mr-2" />
             Create New Post
           </Button>
