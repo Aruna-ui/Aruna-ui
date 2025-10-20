@@ -15,15 +15,8 @@ const FlowerIcon = ({ className = "w-6 h-6" }) => (
 const About = () => {
   return (
     <section id="about" className="relative py-16 md:py-24 overflow-hidden">
-      {/* Rose Petals Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1200"
-          alt="Rose petals background"
-          className="w-full h-full object-cover opacity-15"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-transparent"></div>
-      </div>
+      {/* No additional background - forest shows through */}
+      <div className="absolute inset-0 z-0 bg-black/20"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
@@ -37,12 +30,12 @@ const About = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-          {/* Bio Content */}
-          <div className="space-y-4 md:space-y-6 bg-burgundy/20 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-lg border border-gold/20 order-2 md:order-1">
+          {/* Bio Content - No white background */}
+          <div className="space-y-4 md:space-y-6 bg-black/40 backdrop-blur-sm p-6 md:p-8 rounded-lg shadow-2xl border border-gold/30 order-2 md:order-1">
             {authorBio.paragraphs.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-cream-white/90 leading-relaxed text-sm md:text-base"
+                className="text-cream-white/95 leading-relaxed text-sm md:text-base"
               >
                 {paragraph}
               </p>
@@ -65,27 +58,27 @@ const About = () => {
               <div className="absolute inset-0 -m-4 md:-m-8">
                 <svg className="w-full h-full" viewBox="0 0 400 400">
                   {/* Decorative circles */}
-                  <circle cx="200" cy="200" r="190" fill="none" stroke="#C9A961" strokeWidth="2" opacity="0.4"/>
-                  <circle cx="200" cy="200" r="180" fill="none" stroke="#C4B5A0" strokeWidth="1" opacity="0.3"/>
+                  <circle cx="200" cy="200" r="190" fill="none" stroke="#C9A961" strokeWidth="2" opacity="0.6"/>
+                  <circle cx="200" cy="200" r="180" fill="none" stroke="#C4B5A0" strokeWidth="1" opacity="0.4"/>
                 </svg>
                 
                 {/* Corner flowers */}
-                <div className="absolute top-0 left-0 text-gold opacity-60">
+                <div className="absolute top-0 left-0 text-gold opacity-80">
                   <FlowerIcon className="w-8 h-8 md:w-12 md:h-12" />
                 </div>
-                <div className="absolute top-0 right-0 text-soft-pink opacity-60">
+                <div className="absolute top-0 right-0 text-soft-pink opacity-80">
                   <FlowerIcon className="w-8 h-8 md:w-12 md:h-12" />
                 </div>
-                <div className="absolute bottom-0 left-0 text-soft-pink opacity-60">
+                <div className="absolute bottom-0 left-0 text-soft-pink opacity-80">
                   <FlowerIcon className="w-8 h-8 md:w-12 md:h-12" />
                 </div>
-                <div className="absolute bottom-0 right-0 text-gold opacity-60">
+                <div className="absolute bottom-0 right-0 text-gold opacity-80">
                   <FlowerIcon className="w-8 h-8 md:w-12 md:h-12" />
                 </div>
               </div>
               
               {/* Circular author image */}
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-gold/30">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-gold/50">
                 <img
                   src={authorBio.image}
                   alt="Aruna"
