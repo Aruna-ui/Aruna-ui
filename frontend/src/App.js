@@ -262,7 +262,7 @@ const PostPage = () => {
 
         <div className="article-feedback" data-testid="article-feedback">
           <h3>Was this post helpful?</h3>
-          <p className="text-amber-700 mb-4 text-sm">Your feedback helps me create better content</p>
+          <p className="text-indigo-300 mb-4 text-sm">Your feedback helps me create better content</p>
           <div className="article-feedback-buttons">
             <button
               onClick={handleLike}
