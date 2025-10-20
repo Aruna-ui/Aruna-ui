@@ -110,6 +110,8 @@ async def seed_data():
             "author": "Aruna.S",
             "category": "Writing Process",
             "published": True,
+            "likes": 0,
+            "dislikes": 0,
             "created_at": datetime.now(timezone.utc).isoformat(),
             "updated_at": datetime.now(timezone.utc).isoformat()
         }
