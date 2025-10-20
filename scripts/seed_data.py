@@ -51,6 +51,19 @@ async def seed_data():
     posts = [
         {
             "id": str(uuid.uuid4()),
+            "title": "Why This Blog?",
+            "slug": "why-this-blog",
+            "excerpt": "Welcome to my new corner of the internet! Many of you know me as the author of the Agarkas series. This is a space to share the stories between the books.",
+            "content": "Welcome to my new corner of the internet! Many of you know me as the author of the Agarkas series. While my books explore worlds of fantasy and shadow, my own life is a busy blend of reality—juggling a career in banking, raising my two daughters here in Pune, and diving deep into writing my fourth novel.\n\nI created this blog to bridge those worlds. This is a space to share the stories between the books: my writing process, the sparks of inspiration found in daily life, and the chaotic, wonderful balancing act of being a mother, a banker, and a storyteller.\n\nYou'll find posts here about:\n\n• Behind-the-scenes glimpses into my writing journey\n• Reflections on balancing creativity with corporate life\n• Insights into building fantasy worlds and complex characters\n• The everyday magic that inspires my stories\n• Updates on my upcoming fourth book\n\nWriting has always been my way of making sense of the world—both the real one and the imagined ones. Through the Agarkas series, I've explored themes of power, redemption, and the eternal battle between light and darkness. But there's so much more to say, so many smaller stories that don't fit into epic fantasy novels.\n\nThis blog is for those in-between moments. It's for the times when I want to share a thought that struck me during my morning commute, or discuss a writing challenge I'm wrestling with, or simply connect with readers who've journeyed through my books and want to know what comes next.\n\nThank you for being here. I'm so excited to connect with you in this space.\n\nWith warm regards,\nAruna.S",
+            "image_url": "https://customer-assets.emergentagent.com/job_3753420f-aaf4-4ba8-bc35-43e58ba6eb39/artifacts/jxahflxn_1760974219204.jpg",
+            "author": "Aruna.S",
+            "category": "Personal",
+            "published": True,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "updated_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
             "title": "Echoes of the Past",
             "slug": "echoes-of-the-past",
             "excerpt": "In the misty realm where memories collide, ancient whispers reveal forgotten truths.",
