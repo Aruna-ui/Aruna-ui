@@ -30,8 +30,8 @@
 .App {
   background-color: var(--dark-bg);
   background-image: 
-    url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1920'),
-    linear-gradient(135deg, rgba(107, 28, 35, 0.4) 0%, rgba(26, 15, 20, 0.7) 50%, rgba(107, 28, 35, 0.4) 100%);
+    url('https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/8xlahz03_1760968481450.jpg'),
+    linear-gradient(135deg, rgba(107, 28, 35, 0.3) 0%, rgba(26, 15, 20, 0.5) 50%, rgba(107, 28, 35, 0.3) 100%);
   background-blend-mode: overlay, normal;
   background-size: cover;
   background-position: center;
