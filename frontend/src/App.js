@@ -370,42 +370,43 @@ const AdminPage = () => {
         <div className="space-y-4">
           {posts.map((post) => (
             <div key={post.id} className="admin-post-card" data-testid={`admin-post-${post.slug}`}>
-              <div className="flex gap-4">
-                <img src={post.image_url} alt={post.title} className="admin-post-thumbnail" />
+              <div className="flex flex-col md:flex-row gap-4">
+                <img src={post.image_url} alt={post.title} className="admin-post-thumbnail w-full md:w-40 h-48 md:h-32" />
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-indigo-100 mb-2" data-testid={`admin-post-title-${post.slug}`}>{post.title}</h3>
-                  <p className="text-indigo-300 text-sm mb-2">{post.excerpt}</p>
-                  <div className="flex items-center gap-4 text-sm text-indigo-400">
-                    <span>{post.category}</span>
-                    <span>•</span>
+                  <p className="text-indigo-300 text-sm mb-2 line-clamp-2">{post.excerpt}</p>
+                  <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-indigo-400">
+                    <span className="px-2 py-1 bg-purple-500/20 rounded">{post.category}</span>
                     <span>by {post.author}</span>
                     <span>•</span>
                     <span>{new Date(post.created_at).toLocaleDateString()}</span>
                     <span>•</span>
                     <span className="flex items-center gap-2">
                       <ThumbsUp className="w-3 h-3" /> {post.likes || 0}
-                      <ThumbsDown className="w-3 h-3 ml-2" /> {post.dislikes || 0}
+                      <ThumbsDown className="w-3 h-3 ml-1" /> {post.dislikes || 0}
                     </span>
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="admin-actions flex md:flex-col gap-2">
                   <Button
                     onClick={() => setEditingPost(post)}
                     variant="outline"
                     size="sm"
-                    className="border-purple-500 text-purple-300"
+                    className="border-purple-500 text-purple-300 flex-1 md:flex-none"
                     data-testid={`edit-post-${post.slug}`}
                   >
-                    <Edit className="w-4 h-4" />
+                    <Edit className="w-4 h-4 md:mr-0" />
+                    <span className="md:hidden ml-2">Edit</span>
                   </Button>
                   <Button
                     onClick={() => handleDelete(post.id)}
                     variant="outline"
                     size="sm"
-                    className="border-red-500 text-red-400 hover:bg-red-500/20"
+                    className="border-red-500 text-red-400 hover:bg-red-500/20 flex-1 md:flex-none"
                     data-testid={`delete-post-${post.slug}`}
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <Trash2 className="w-4 h-4 md:mr-0" />
+                    <span className="md:hidden ml-2">Delete</span>
                   </Button>
                 </div>
               </div>
