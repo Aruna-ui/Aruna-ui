@@ -260,6 +260,28 @@ const PostPage = () => {
 
         <div className="article-content" data-testid="article-content" dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br />') }} />
 
+        {/* About the Author Section */}
+        <div className="mt-8 p-6 bg-slate-900/80 rounded-2xl border border-purple-500/30 backdrop-blur-xl shadow-lg shadow-purple-500/20">
+          <h3 className="text-2xl font-display text-purple-400 mb-4">About the Author</h3>
+          <div className="flex flex-col md:flex-row gap-6 items-start">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_3753420f-aaf4-4ba8-bc35-43e58ba6eb39/artifacts/qy25iad9_1703018909560.jpg"
+              alt="Aruna.S"
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-purple-500/50 shadow-lg shadow-purple-500/50 flex-shrink-0"
+            />
+            <div className="flex-1">
+              <h4 className="text-xl font-display text-indigo-100 mb-2">Aruna.S</h4>
+              <p className="text-indigo-200 text-sm mb-3">Author | Blogger | Banking Professional</p>
+              <p className="text-indigo-300 leading-relaxed mb-3">
+                Aruna.S is an author based in Pune, where she lives with her two daughters. She is known for her books <span className="text-purple-400 font-semibold">Agarkas the King of Satan</span>, <span className="text-purple-400 font-semibold">The Whisper That Name Me</span>, and <span className="text-purple-400 font-semibold">Agarkas the Return of the King</span>. 
+              </p>
+              <p className="text-indigo-300 leading-relaxed">
+                Alongside her literary career, she balances her creative pursuits with a professional career in the banking sector while working on her fourth book.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="article-feedback" data-testid="article-feedback">
           <h3>Was this post helpful?</h3>
           <p className="text-indigo-300 mb-4 text-sm">Your feedback helps me create better content</p>
