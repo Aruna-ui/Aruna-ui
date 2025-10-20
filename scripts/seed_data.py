@@ -26,20 +26,26 @@ async def seed_data():
     categories = [
         {
             "id": str(uuid.uuid4()),
-            "name": "Mystery",
-            "slug": "mystery",
+            "name": "Personal",
+            "slug": "personal",
             "created_at": datetime.now(timezone.utc).isoformat()
         },
         {
             "id": str(uuid.uuid4()),
-            "name": "Fiction",
-            "slug": "fiction",
+            "name": "Writing Process",
+            "slug": "writing-process",
             "created_at": datetime.now(timezone.utc).isoformat()
         },
         {
             "id": str(uuid.uuid4()),
-            "name": "Poetry",
-            "slug": "poetry",
+            "name": "Book Updates",
+            "slug": "book-updates",
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "name": "Life & Balance",
+            "slug": "life-balance",
             "created_at": datetime.now(timezone.utc).isoformat()
         }
     ]
