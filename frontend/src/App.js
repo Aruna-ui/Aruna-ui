@@ -446,47 +446,47 @@ const AuthDialog = ({ open, onOpenChange }) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-slate-900 border-slate-800">
+      <DialogContent className="bg-white border-amber-900/30">
         <DialogHeader>
-          <DialogTitle className="text-white text-2xl" data-testid="auth-title">{isLogin ? 'Welcome Back' : 'Create Account'}</DialogTitle>
-          <DialogDescription className="text-slate-400">
+          <DialogTitle className="text-amber-950 text-2xl" data-testid="auth-title">{isLogin ? 'Welcome Back' : 'Create Account'}</DialogTitle>
+          <DialogDescription className="text-amber-800">
             {isLogin ? 'Login to manage your blog posts' : 'Register to start writing'}
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
             <div>
-              <Label htmlFor="username" className="text-slate-300">Username</Label>
+              <Label htmlFor="username" className="text-amber-900">Username</Label>
               <Input
                 id="username"
                 value={formData.username}
                 onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                className="bg-slate-800 border-slate-700 text-white"
+                className="bg-amber-50 border-amber-300 text-amber-950"
                 required
                 data-testid="auth-username"
               />
             </div>
           )}
           <div>
-            <Label htmlFor="email" className="text-slate-300">Email</Label>
+            <Label htmlFor="email" className="text-amber-900">Email</Label>
             <Input
               id="email"
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="bg-slate-800 border-slate-700 text-white"
+              className="bg-amber-50 border-amber-300 text-amber-950"
               required
               data-testid="auth-email"
             />
           </div>
           <div>
-            <Label htmlFor="password" className="text-slate-300">Password</Label>
+            <Label htmlFor="password" className="text-amber-900">Password</Label>
             <Input
               id="password"
               type="password"
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              className="bg-slate-800 border-slate-700 text-white"
+              className="bg-amber-50 border-amber-300 text-amber-950"
               required
               data-testid="auth-password"
             />
@@ -497,7 +497,7 @@ const AuthDialog = ({ open, onOpenChange }) => {
           <button
             type="button"
             onClick={() => setIsLogin(!isLogin)}
-            className="text-rose-400 text-sm hover:underline"
+            className="text-amber-900 text-sm hover:underline"
             data-testid="auth-toggle"
           >
             {isLogin ? "Don't have an account? Register" : 'Already have an account? Login'}
