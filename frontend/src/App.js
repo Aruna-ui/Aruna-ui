@@ -373,9 +373,9 @@ const AdminPage = () => {
               <div className="flex gap-4">
                 <img src={post.image_url} alt={post.title} className="admin-post-thumbnail" />
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-amber-950 mb-2" data-testid={`admin-post-title-${post.slug}`}>{post.title}</h3>
-                  <p className="text-amber-800 text-sm mb-2">{post.excerpt}</p>
-                  <div className="flex items-center gap-4 text-sm text-amber-700">
+                  <h3 className="text-xl font-semibold text-indigo-100 mb-2" data-testid={`admin-post-title-${post.slug}`}>{post.title}</h3>
+                  <p className="text-indigo-300 text-sm mb-2">{post.excerpt}</p>
+                  <div className="flex items-center gap-4 text-sm text-indigo-400">
                     <span>{post.category}</span>
                     <span>•</span>
                     <span>by {post.author}</span>
@@ -393,7 +393,7 @@ const AdminPage = () => {
                     onClick={() => setEditingPost(post)}
                     variant="outline"
                     size="sm"
-                    className="border-amber-700 text-amber-800"
+                    className="border-purple-500 text-purple-300"
                     data-testid={`edit-post-${post.slug}`}
                   >
                     <Edit className="w-4 h-4" />
@@ -402,7 +402,7 @@ const AdminPage = () => {
                     onClick={() => handleDelete(post.id)}
                     variant="outline"
                     size="sm"
-                    className="border-red-700 text-red-700 hover:bg-red-50"
+                    className="border-red-500 text-red-400 hover:bg-red-500/20"
                     data-testid={`delete-post-${post.slug}`}
                   >
                     <Trash2 className="w-4 h-4" />
