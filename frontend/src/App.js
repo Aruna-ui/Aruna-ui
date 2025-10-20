@@ -247,7 +247,7 @@ const PostPage = () => {
         <div className="mb-8">
           <span className="post-category" data-testid="article-category">{post.category}</span>
           <h1 className="article-title" data-testid="article-title">{post.title}</h1>
-          <div className="flex items-center gap-4 text-amber-800 text-sm mt-4">
+          <div className="flex items-center gap-4 text-indigo-200 text-sm mt-4">
             <span data-testid="article-author">By {post.author}</span>
             <span>•</span>
             <span data-testid="article-date">{new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
