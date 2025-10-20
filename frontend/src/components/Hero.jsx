@@ -13,32 +13,29 @@ const FlowerIcon = ({ className = "w-4 h-4" }) => (
 );
 
 const Hero = () => {
+  const [doorClicked, setDoorClicked] = useState(false);
   const [doorOpen, setDoorOpen] = useState(false);
   const [showWelcome, setShowWelcome] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
 
-  useEffect(() => {
-    // Start door opening animation after 500ms
-    const doorTimer = setTimeout(() => {
+  const handleDoorClick = () => {
+    if (!doorClicked) {
+      setDoorClicked(true);
+      
+      // Start door opening animation immediately
       setDoorOpen(true);
-    }, 500);
-
-    // Show welcome text as door opens
-    const welcomeTimer = setTimeout(() => {
-      setShowWelcome(true);
-    }, 1500);
-
-    // Complete animation and show main content
-    const completeTimer = setTimeout(() => {
-      setAnimationComplete(true);
-    }, 4500);
-
-    return () => {
-      clearTimeout(doorTimer);
-      clearTimeout(welcomeTimer);
-      clearTimeout(completeTimer);
-    };
-  }, []);
+      
+      // Show welcome text after door starts opening
+      setTimeout(() => {
+        setShowWelcome(true);
+      }, 1000);
+      
+      // Complete animation and show main content
+      setTimeout(() => {
+        setAnimationComplete(true);
+      }, 4000);
+    }
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -67,7 +64,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Hero Section with Door Opening Animation */}
+      {/* Hero Section with Clickable Door */}
       <section id="home" className="relative min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -79,8 +76,35 @@ const Hero = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
         </div>
 
-        {/* Door Opening Animation Overlay */}
-        {!animationComplete && (
+        {/* Clickable Door Overlay - Shows before click */}
+        {!doorClicked && (
+          <div className="absolute inset-0 z-20 flex items-center justify-center">
+            <button
+              onClick={handleDoorClick}
+              className="relative group cursor-pointer focus:outline-none"
+            >
+              {/* Pulsing Click Indicator */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-gold/20 animate-pulse group-hover:bg-gold/30 transition-all duration-300"></div>
+              </div>
+              
+              {/* Click Text */}
+              <div className="relative z-10 bg-charcoal/80 backdrop-blur-md px-8 md:px-12 py-6 md:py-8 rounded-lg border-2 border-gold/60 group-hover:border-gold transition-all duration-300 shadow-2xl group-hover:shadow-gold/50">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <FlowerIcon className="w-8 h-8 md:w-12 md:h-12 text-gold animate-bounce" />
+                  <div>
+                    <p className="font-serif text-2xl md:text-4xl text-gold mb-2">Click to Enter</p>
+                    <p className="text-cream-white/80 text-sm md:text-base">Open the door to begin your journey</p>
+                  </div>
+                  <FlowerIcon className="w-8 h-8 md:w-12 md:h-12 text-gold animate-bounce" />
+                </div>
+              </div>
+            </button>
+          </div>
+        )}
+
+        {/* Door Opening Animation - Shows after click */}
+        {doorClicked && !animationComplete && (
           <div className="absolute inset-0 z-20 flex items-center justify-center">
             {/* Video of door opening */}
             <video
@@ -91,7 +115,7 @@ const Hero = () => {
                 doorOpen ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <source src="https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/3afhih2u_1760705617973.mp4" type="video/mp4" />
+              <source src="https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/9teyusq0_1760705617973.mp4" type="video/mp4" />
             </video>
 
             {/* Welcome Text */}
