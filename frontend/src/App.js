@@ -369,14 +369,19 @@ const AdminPage = () => {
               <div className="flex gap-4">
                 <img src={post.image_url} alt={post.title} className="admin-post-thumbnail" />
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white mb-2" data-testid={`admin-post-title-${post.slug}`}>{post.title}</h3>
-                  <p className="text-slate-400 text-sm mb-2">{post.excerpt}</p>
-                  <div className="flex items-center gap-4 text-sm text-slate-500">
+                  <h3 className="text-xl font-semibold text-amber-950 mb-2" data-testid={`admin-post-title-${post.slug}`}>{post.title}</h3>
+                  <p className="text-amber-800 text-sm mb-2">{post.excerpt}</p>
+                  <div className="flex items-center gap-4 text-sm text-amber-700">
                     <span>{post.category}</span>
                     <span>•</span>
                     <span>by {post.author}</span>
                     <span>•</span>
                     <span>{new Date(post.created_at).toLocaleDateString()}</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-2">
+                      <ThumbsUp className="w-3 h-3" /> {post.likes || 0}
+                      <ThumbsDown className="w-3 h-3 ml-2" /> {post.dislikes || 0}
+                    </span>
                   </div>
                 </div>
                 <div className="flex gap-2">
@@ -384,7 +389,7 @@ const AdminPage = () => {
                     onClick={() => setEditingPost(post)}
                     variant="outline"
                     size="sm"
-                    className="border-slate-600 text-slate-300"
+                    className="border-amber-700 text-amber-800"
                     data-testid={`edit-post-${post.slug}`}
                   >
                     <Edit className="w-4 h-4" />
@@ -393,7 +398,7 @@ const AdminPage = () => {
                     onClick={() => handleDelete(post.id)}
                     variant="outline"
                     size="sm"
-                    className="border-rose-500 text-rose-400 hover:bg-rose-500/10"
+                    className="border-red-700 text-red-700 hover:bg-red-50"
                     data-testid={`delete-post-${post.slug}`}
                   >
                     <Trash2 className="w-4 h-4" />
