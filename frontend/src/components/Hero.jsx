@@ -44,15 +44,25 @@ const Hero = () => {
       // Start door opening animation immediately
       setDoorOpen(true);
       
-      // Show welcome text after door starts opening
+      // Start falling petals
       setTimeout(() => {
-        setShowWelcome(true);
-      }, 1000);
+        setShowPetals(true);
+      }, 500);
       
-      // Complete animation and show main content
+      // Show popup message
+      setTimeout(() => {
+        setShowPopup(true);
+      }, 1500);
+      
+      // Hide popup and complete animation
+      setTimeout(() => {
+        setShowPopup(false);
+        setShowPetals(false);
+      }, 4500);
+      
       setTimeout(() => {
         setAnimationComplete(true);
-      }, 4000);
+      }, 5000);
     }
   };
 
