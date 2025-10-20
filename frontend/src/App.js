@@ -56,7 +56,7 @@ const HomePage = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               <PenLine className="w-6 h-6 text-rose-400" />
-              <span className="text-2xl font-display text-white">The Silent Scribe</span>
+              <span className="text-2xl font-display text-white">Aruna.S Writes</span>
             </Link>
             <div className="flex items-center gap-6">
               <Link to="/" className="nav-link" data-testid="nav-home">Home</Link>
@@ -190,7 +190,7 @@ const PostPage = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               <PenLine className="w-6 h-6 text-rose-400" />
-              <span className="text-2xl font-display text-white">The Silent Scribe</span>
+              <span className="text-2xl font-display text-white">Aruna.S Writes</span>
             </Link>
             <Link to="/" className="nav-link" data-testid="back-home">← Back to Home</Link>
           </div>
@@ -273,7 +273,7 @@ const AdminPage = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               <PenLine className="w-6 h-6 text-rose-400" />
-              <span className="text-2xl font-display text-white">The Silent Scribe</span>
+              <span className="text-2xl font-display text-white">Aruna.S Writes</span>
             </Link>
             <div className="flex items-center gap-4">
               <span className="text-slate-300">Welcome, {localStorage.getItem('username')}</span>
@@ -579,7 +579,7 @@ const AboutPage = () => {
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
               <PenLine className="w-6 h-6 text-rose-400" />
-              <span className="text-2xl font-display text-white">The Silent Scribe</span>
+              <span className="text-2xl font-display text-white">Aruna.S Writes</span>
             </Link>
             <Link to="/" className="nav-link" data-testid="about-back-home">← Back to Home</Link>
           </div>
@@ -587,16 +587,16 @@ const AboutPage = () => {
       </nav>
 
       <div className="max-w-4xl mx-auto px-6 pt-32 pb-20">
-        <h1 className="text-5xl font-display text-white mb-6" data-testid="about-title">About The Silent Scribe</h1>
+        <h1 className="text-5xl font-display text-white mb-6" data-testid="about-title">About Aruna.S Writes</h1>
         <div className="prose prose-invert max-w-none">
           <p className="text-lg text-slate-300 leading-relaxed mb-6">
-            Welcome to The Silent Scribe, where words dance in the shadows and stories emerge from the depths of imagination.
+            Welcome to Aruna.S Writes, where words dance in the shadows and stories emerge from the depths of imagination.
           </p>
           <p className="text-lg text-slate-300 leading-relaxed mb-6">
             This is a space dedicated to thoughtful writing, creative expression, and the timeless art of storytelling. Each post is crafted with care, designed to inspire, provoke thought, and transport you to new worlds.
           </p>
           <p className="text-lg text-slate-300 leading-relaxed">
-            Whether you're seeking mystery, reflection, or simply a moment of literary escape, you'll find it here among the pages of The Silent Scribe.
+            Whether you're seeking mystery, reflection, or simply a moment of literary escape, you'll find it here among the pages of Aruna.S Writes.
           </p>
         </div>
       </div>
