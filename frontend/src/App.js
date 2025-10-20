@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { PenLine, Plus, Trash2, Edit, LogOut, User, ThumbsUp, ThumbsDown } from 'lucide-react';
+import Starfield from '@/components/Starfield';
 import '@/App.css';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
