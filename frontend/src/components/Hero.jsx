@@ -169,10 +169,9 @@ const Hero = () => {
           </div>
         )}
 
-        {/* Door Opening Animation - Shows after click */}
+        {/* Door Opening Video - Shows after click */}
         {doorClicked && !animationComplete && (
           <div className="absolute inset-0 z-20 flex items-center justify-center">
-            {/* Video of door opening */}
             <video
               autoPlay
               muted
@@ -183,21 +182,59 @@ const Hero = () => {
             >
               <source src="https://customer-assets.emergentagent.com/job_petals-and-thorns/artifacts/9teyusq0_1760705617973.mp4" type="video/mp4" />
             </video>
+          </div>
+        )}
 
-            {/* Welcome Text */}
-            <div
-              className={`relative z-30 text-center transition-all duration-1000 transform px-4 ${
-                showWelcome ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
-            >
-              <div className="bg-charcoal/60 backdrop-blur-md px-6 md:px-12 py-6 md:py-8 rounded-lg border-2 border-gold/40">
-                <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-cream-white mb-3 md:mb-4 tracking-wide">
+        {/* Welcome Popup Modal */}
+        {showPopup && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+            
+            {/* Popup Content */}
+            <div className="relative z-10 bg-gradient-to-br from-burgundy/90 to-charcoal/90 backdrop-blur-xl p-8 md:p-12 rounded-2xl border-4 border-gold shadow-2xl max-w-2xl w-full transform animate-[scale-up_0.5s_ease-out]">
+              {/* Decorative Flowers */}
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                <div className="flex gap-2">
+                  <FlowerIcon className="w-10 h-10 text-gold animate-bounce" />
+                  <FlowerIcon className="w-12 h-12 text-soft-pink animate-bounce delay-100" />
+                  <FlowerIcon className="w-10 h-10 text-gold animate-bounce delay-200" />
+                </div>
+              </div>
+
+              {/* Welcome Message */}
+              <div className="text-center pt-6">
+                <h2 className="font-serif text-4xl md:text-6xl text-cream-white mb-4 leading-tight">
                   Welcome to the World
                 </h2>
-                <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-gold mb-4 md:mb-6 tracking-wide">
+                <h2 className="font-serif text-4xl md:text-6xl text-gold mb-6 leading-tight">
                   of Literacy
                 </h2>
-                <div className="w-24 md:w-32 h-1 bg-gold mx-auto animate-pulse"></div>
+                
+                {/* Animated Divider */}
+                <div className="flex items-center justify-center gap-2 mb-6">
+                  <div className="w-16 h-1 bg-gold"></div>
+                  <FlowerIcon className="w-6 h-6 text-gold animate-pulse" />
+                  <div className="w-16 h-1 bg-gold"></div>
+                </div>
+
+                <p className="text-cream-white/90 text-lg md:text-xl italic">
+                  Where stories bloom and mysteries unfold
+                </p>
+              </div>
+
+              {/* Corner Decorations */}
+              <div className="absolute top-4 left-4 text-gold/40">
+                <FlowerIcon className="w-8 h-8" />
+              </div>
+              <div className="absolute top-4 right-4 text-soft-pink/40">
+                <FlowerIcon className="w-8 h-8" />
+              </div>
+              <div className="absolute bottom-4 left-4 text-soft-pink/40">
+                <FlowerIcon className="w-8 h-8" />
+              </div>
+              <div className="absolute bottom-4 right-4 text-gold/40">
+                <FlowerIcon className="w-8 h-8" />
               </div>
             </div>
           </div>
