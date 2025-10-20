@@ -587,17 +587,47 @@ const AboutPage = () => {
       </nav>
 
       <div className="max-w-4xl mx-auto px-6 pt-32 pb-20">
-        <h1 className="text-5xl font-display text-white mb-6" data-testid="about-title">About Aruna.S Writes</h1>
-        <div className="prose prose-invert max-w-none">
-          <p className="text-lg text-slate-300 leading-relaxed mb-6">
-            Welcome to Aruna.S Writes, where words dance in the shadows and stories emerge from the depths of imagination.
-          </p>
-          <p className="text-lg text-slate-300 leading-relaxed mb-6">
-            This is a space dedicated to thoughtful writing, creative expression, and the timeless art of storytelling. Each post is crafted with care, designed to inspire, provoke thought, and transport you to new worlds.
-          </p>
+        <div className="flex flex-col md:flex-row gap-8 mb-12">
+          <div className="flex-shrink-0">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_3753420f-aaf4-4ba8-bc35-43e58ba6eb39/artifacts/qqg299lc_1703018909560.jpg" 
+              alt="Aruna.S" 
+              className="w-48 h-48 rounded-full object-cover border-4 border-rose-400/30"
+            />
+          </div>
+          <div>
+            <h1 className="text-5xl font-display text-white mb-4" data-testid="about-title">About Aruna.S</h1>
+            <p className="text-lg text-slate-300 leading-relaxed mb-4">
+              Author | Blogger | Banking Professional
+            </p>
+            <p className="text-slate-400">
+              Based in Pune, India
+            </p>
+          </div>
+        </div>
+        
+        <div className="prose prose-invert max-w-none space-y-6">
           <p className="text-lg text-slate-300 leading-relaxed">
-            Whether you're seeking mystery, reflection, or simply a moment of literary escape, you'll find it here among the pages of Aruna.S Writes.
+            Aruna.S is an author based in Pune, where she lives with her two daughters. She is known for her books <span className="text-rose-300 font-semibold">Agarkas the King of Satan</span>, <span className="text-rose-300 font-semibold">The Whisper That Name Me</span>, and <span className="text-rose-300 font-semibold">Agarkas the Return of the King</span>.
           </p>
+          
+          <p className="text-lg text-slate-300 leading-relaxed">
+            Alongside her literary career, Aruna.S is also a passionate blogger and is currently working on her fourth book. She balances her creative pursuits with a professional career, working in the banking sector.
+          </p>
+          
+          <p className="text-lg text-slate-300 leading-relaxed">
+            While her books explore worlds of fantasy and shadow, her blog bridges those fictional worlds with reality—sharing insights into her writing process, the sparks of inspiration found in daily life, and the chaotic, wonderful balancing act of being a mother, a banker, and a storyteller.
+          </p>
+          
+          <div className="mt-8 p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+            <h3 className="text-2xl font-display text-rose-300 mb-4">Published Works</h3>
+            <ul className="space-y-2 text-slate-300">
+              <li>📚 <strong>Agarkas the King of Satan</strong></li>
+              <li>📚 <strong>The Whisper That Name Me</strong></li>
+              <li>📚 <strong>Agarkas the Return of the King</strong></li>
+              <li>✍️ <strong>Fourth book in progress...</strong></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
