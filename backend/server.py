@@ -255,6 +255,44 @@ async def delete_post(post_id: str, email: str = Depends(verify_token)):
         raise HTTPException(status_code=404, detail="Post not found")
     return {"message": "Post deleted successfully"}
 
+@api_router.post("/posts/{post_id}/like")
+async def like_post(post_id: str):
+    post = await db.posts.find_one({"id": post_id})
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    
+    await db.posts.update_one(
+        {"id": post_id},
+        {"$inc": {"likes": 1}}
+    )
+    
+    updated_post = await db.posts.find_one({"id": post_id}, {"_id": 0})
+    if isinstance(updated_post['created_at'], str):
+        updated_post['created_at'] = datetime.fromisoformat(updated_post['created_at'])
+    if isinstance(updated_post['updated_at'], str):
+        updated_post['updated_at'] = datetime.fromisoformat(updated_post['updated_at'])
+    
+    return updated_post
+
+@api_router.post("/posts/{post_id}/dislike")
+async def dislike_post(post_id: str):
+    post = await db.posts.find_one({"id": post_id})
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    
+    await db.posts.update_one(
+        {"id": post_id},
+        {"$inc": {"dislikes": 1}}
+    )
+    
+    updated_post = await db.posts.find_one({"id": post_id}, {"_id": 0})
+    if isinstance(updated_post['created_at'], str):
+        updated_post['created_at'] = datetime.fromisoformat(updated_post['created_at'])
+    if isinstance(updated_post['updated_at'], str):
+        updated_post['updated_at'] = datetime.fromisoformat(updated_post['updated_at'])
+    
+    return updated_post
+
 # Include router
 app.include_router(api_router)
 
