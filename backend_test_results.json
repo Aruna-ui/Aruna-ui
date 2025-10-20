@@ -1,0 +1,121 @@
+{
+  "total_tests": 19,
+  "passed_tests": 19,
+  "success_rate": 100.0,
+  "test_results": [
+    {
+      "test": "Get Categories",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:28.781505"
+    },
+    {
+      "test": "Categories Response Format",
+      "success": true,
+      "details": "Found 3 categories",
+      "timestamp": "2025-10-20T15:19:28.782122"
+    },
+    {
+      "test": "Get All Posts",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:28.819868"
+    },
+    {
+      "test": "Posts Response Format",
+      "success": true,
+      "details": "Found 4 posts",
+      "timestamp": "2025-10-20T15:19:28.820507"
+    },
+    {
+      "test": "Get Posts by Category",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:28.860203"
+    },
+    {
+      "test": "Category Filtering",
+      "success": true,
+      "details": "Found 2 posts in category 'Fiction'",
+      "timestamp": "2025-10-20T15:19:28.860883"
+    },
+    {
+      "test": "Get Individual Post",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:28.903240"
+    },
+    {
+      "test": "Individual Post Content",
+      "success": true,
+      "details": "Retrieved post: Whispers in the Dark",
+      "timestamp": "2025-10-20T15:19:28.903891"
+    },
+    {
+      "test": "User Registration",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:29.200456"
+    },
+    {
+      "test": "Registration Token",
+      "success": true,
+      "details": "Received token for user: testuser_151928",
+      "timestamp": "2025-10-20T15:19:29.201190"
+    },
+    {
+      "test": "Create Post",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:29.241386"
+    },
+    {
+      "test": "Post Creation Response",
+      "success": true,
+      "details": "Created post with ID: c332773e-583f-4fd3-a9e8-eb47f43bb6d2",
+      "timestamp": "2025-10-20T15:19:29.242056"
+    },
+    {
+      "test": "Update Post",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:29.282372"
+    },
+    {
+      "test": "Post Update",
+      "success": true,
+      "details": "Post updated successfully",
+      "timestamp": "2025-10-20T15:19:29.283055"
+    },
+    {
+      "test": "Delete Post",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:29.322133"
+    },
+    {
+      "test": "Post Deletion",
+      "success": true,
+      "details": "Post deleted successfully",
+      "timestamp": "2025-10-20T15:19:29.322957"
+    },
+    {
+      "test": "Pre-Login Registration",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:29.582434"
+    },
+    {
+      "test": "User Login",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-10-20T15:19:29.843306"
+    },
+    {
+      "test": "Login Token",
+      "success": true,
+      "details": "Login successful for user: logintest_151929",
+      "timestamp": "2025-10-20T15:19:29.844072"
+    }
+  ]
+}
