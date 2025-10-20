@@ -164,10 +164,17 @@ const HomePage = () => {
 const PostPage = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
+  const [hasLiked, setHasLiked] = useState(false);
+  const [hasDisliked, setHasDisliked] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchPost();
+    // Check if user has already liked/disliked
+    const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '[]');
+    const dislikedPosts = JSON.parse(localStorage.getItem('dislikedPosts') || '[]');
+    setHasLiked(likedPosts.includes(slug));
+    setHasDisliked(dislikedPosts.includes(slug));
   }, [slug]);
 
   const fetchPost = async () => {
@@ -181,16 +188,52 @@ const PostPage = () => {
     }
   };
 
-  if (!post) return <div className="min-h-screen bg-slate-950 flex items-center justify-center"><div className="text-white">Loading...</div></div>;
+  const handleLike = async () => {
+    if (hasLiked) {
+      toast.info('You already liked this post');
+      return;
+    }
+    try {
+      const response = await axios.post(`${API}/posts/${post.id}/like`);
+      setPost(response.data);
+      setHasLiked(true);
+      const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '[]');
+      likedPosts.push(slug);
+      localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
+      toast.success('Thank you for your feedback!');
+    } catch (error) {
+      toast.error('Failed to like post');
+    }
+  };
+
+  const handleDislike = async () => {
+    if (hasDisliked) {
+      toast.info('You already disliked this post');
+      return;
+    }
+    try {
+      const response = await axios.post(`${API}/posts/${post.id}/dislike`);
+      setPost(response.data);
+      setHasDisliked(true);
+      const dislikedPosts = JSON.parse(localStorage.getItem('dislikedPosts') || '[]');
+      dislikedPosts.push(slug);
+      localStorage.setItem('dislikedPosts', JSON.stringify(dislikedPosts));
+      toast.success('Thank you for your feedback!');
+    } catch (error) {
+      toast.error('Failed to dislike post');
+    }
+  };
+
+  if (!post) return <div className="min-h-screen bg-[#f5f1e8] flex items-center justify-center"><div className="text-amber-950">Loading...</div></div>;
 
   return (
     <div className="min-h-screen">
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/80 border-b border-slate-800">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b border-amber-900/20">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <PenLine className="w-6 h-6 text-rose-400" />
-              <span className="text-2xl font-display text-white">Aruna.S Writes</span>
+              <PenLine className="w-6 h-6 text-amber-900" />
+              <span className="text-2xl font-display text-amber-950">Aruna.S Writes</span>
             </Link>
             <Link to="/" className="nav-link" data-testid="back-home">← Back to Home</Link>
           </div>
@@ -201,7 +244,7 @@ const PostPage = () => {
         <div className="mb-8">
           <span className="post-category" data-testid="article-category">{post.category}</span>
           <h1 className="article-title" data-testid="article-title">{post.title}</h1>
-          <div className="flex items-center gap-4 text-slate-400 text-sm mt-4">
+          <div className="flex items-center gap-4 text-amber-800 text-sm mt-4">
             <span data-testid="article-author">By {post.author}</span>
             <span>•</span>
             <span data-testid="article-date">{new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
@@ -213,6 +256,31 @@ const PostPage = () => {
         </div>
 
         <div className="article-content" data-testid="article-content" dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br />') }} />
+
+        <div className="article-feedback" data-testid="article-feedback">
+          <h3>Was this post helpful?</h3>
+          <p className="text-amber-700 mb-4 text-sm">Your feedback helps me create better content</p>
+          <div className="article-feedback-buttons">
+            <button
+              onClick={handleLike}
+              className={`feedback-btn ${hasLiked ? 'liked' : ''}`}
+              disabled={hasLiked}
+              data-testid="article-like-btn"
+            >
+              <ThumbsUp className="w-5 h-5" />
+              <span>Helpful ({post.likes || 0})</span>
+            </button>
+            <button
+              onClick={handleDislike}
+              className={`feedback-btn ${hasDisliked ? 'liked' : ''}`}
+              disabled={hasDisliked}
+              data-testid="article-dislike-btn"
+            >
+              <ThumbsDown className="w-5 h-5" />
+              <span>Not Helpful ({post.dislikes || 0})</span>
+            </button>
+          </div>
+        </div>
       </article>
     </div>
   );
