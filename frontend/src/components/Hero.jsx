@@ -83,6 +83,21 @@ const Hero = () => {
 
   return (
     <>
+      <style jsx>{`
+        @keyframes fall {
+          0% {
+            transform: translateY(-10vh) rotate(0deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(110vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+        .animate-fall {
+          animation: fall linear infinite;
+        }
+      `}</style>
       {/* Announcement Banner */}
       <div className="bg-cream-white/95 backdrop-blur-sm border-b border-gold/30 py-2 md:py-3 px-4 md:px-6 text-center">
         <p className="text-charcoal text-xs md:text-sm">
