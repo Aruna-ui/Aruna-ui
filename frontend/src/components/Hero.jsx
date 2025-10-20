@@ -33,7 +33,8 @@ const FallingPetal = ({ delay, duration, left }) => (
 const Hero = () => {
   const [doorClicked, setDoorClicked] = useState(false);
   const [doorOpen, setDoorOpen] = useState(false);
-  const [showWelcome, setShowWelcome] = useState(false);
+  const [showPetals, setShowPetals] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
 
   const handleDoorClick = () => {
