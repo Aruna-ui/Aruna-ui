@@ -497,6 +497,9 @@ const PostDialog = ({ open, onOpenChange, post, onSuccess }) => {
       <DialogContent className="bg-slate-900 border-slate-800 max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-white text-2xl" data-testid="post-dialog-title">{post ? 'Edit Post' : 'Create New Post'}</DialogTitle>
+          <DialogDescription className="text-slate-400">
+            {post ? 'Update your blog post details below' : 'Fill in the details to create a new blog post'}
+          </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
