@@ -12,6 +12,24 @@ const FlowerIcon = ({ className = "w-4 h-4" }) => (
   </svg>
 );
 
+// Falling Rose Petal Component
+const FallingPetal = ({ delay, duration, left }) => (
+  <div
+    className="absolute top-0 animate-fall opacity-80"
+    style={{
+      left: `${left}%`,
+      animationDelay: `${delay}s`,
+      animationDuration: `${duration}s`,
+    }}
+  >
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 5C12 7 10 10 10 13C10 16 12 18 15 20C18 18 20 16 20 13C20 10 18 7 15 5Z" fill="#E8C5C5" opacity="0.9"/>
+      <path d="M15 5C13 7 11 9 11 12C11 14 12.5 16 15 17.5C17.5 16 19 14 19 12C19 9 17 7 15 5Z" fill="#F4D4D4" opacity="0.7"/>
+      <circle cx="15" cy="15" r="2" fill="#C9A961" opacity="0.8"/>
+    </svg>
+  </div>
+);
+
 const Hero = () => {
   const [doorClicked, setDoorClicked] = useState(false);
   const [doorOpen, setDoorOpen] = useState(false);
