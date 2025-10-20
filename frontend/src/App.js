@@ -571,70 +571,70 @@ const PostDialog = ({ open, onOpenChange, post, onSuccess }) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-white border-amber-900/30 max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="bg-slate-900/95 border-purple-500/30 backdrop-blur-xl max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-amber-950 text-2xl" data-testid="post-dialog-title">{post ? 'Edit Post' : 'Create New Post'}</DialogTitle>
-          <DialogDescription className="text-amber-800">
+          <DialogTitle className="text-indigo-100 text-2xl" data-testid="post-dialog-title">{post ? 'Edit Post' : 'Create New Post'}</DialogTitle>
+          <DialogDescription className="text-indigo-300">
             {post ? 'Update your blog post details below' : 'Fill in the details to create a new blog post'}
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <Label className="text-amber-900">Title</Label>
+            <Label className="text-indigo-200">Title</Label>
             <Input
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="bg-amber-50 border-amber-300 text-amber-950"
+              className="bg-slate-800/50 border-purple-500/30 text-indigo-100"
               required
               data-testid="post-title-input"
             />
           </div>
           <div>
-            <Label className="text-amber-900">Slug (URL)</Label>
+            <Label className="text-indigo-200">Slug (URL)</Label>
             <Input
               value={formData.slug}
               onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-              className="bg-amber-50 border-amber-300 text-amber-950"
+              className="bg-slate-800/50 border-purple-500/30 text-indigo-100"
               required
               data-testid="post-slug-input"
             />
           </div>
           <div>
-            <Label className="text-amber-900">Excerpt</Label>
+            <Label className="text-indigo-200">Excerpt</Label>
             <Textarea
               value={formData.excerpt}
               onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-              className="bg-amber-50 border-amber-300 text-amber-950"
+              className="bg-slate-800/50 border-purple-500/30 text-indigo-100"
               required
               data-testid="post-excerpt-input"
             />
           </div>
           <div>
-            <Label className="text-amber-900">Content</Label>
+            <Label className="text-indigo-200">Content</Label>
             <Textarea
               value={formData.content}
               onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-              className="bg-amber-50 border-amber-300 text-amber-950 min-h-[200px]"
+              className="bg-slate-800/50 border-purple-500/30 text-indigo-100 min-h-[200px]"
               required
               data-testid="post-content-input"
             />
           </div>
           <div>
-            <Label className="text-amber-900">Image URL</Label>
+            <Label className="text-indigo-200">Image URL</Label>
             <Input
               value={formData.image_url}
               onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-              className="bg-amber-50 border-amber-300 text-amber-950"
+              className="bg-slate-800/50 border-purple-500/30 text-indigo-100"
               required
               data-testid="post-image-input"
             />
           </div>
           <div>
-            <Label className="text-amber-900">Category</Label>
+            <Label className="text-indigo-200">Category</Label>
             <Input
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-              className="bg-amber-50 border-amber-300 text-amber-950"
+              className="bg-slate-800/50 border-purple-500/30 text-indigo-100"
               required
               data-testid="post-category-input"
             />
