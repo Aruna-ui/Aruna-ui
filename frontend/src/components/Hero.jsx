@@ -73,6 +73,14 @@ const Hero = () => {
     }
   };
 
+  // Generate random petals
+  const petals = Array.from({ length: 25 }, (_, i) => ({
+    id: i,
+    delay: Math.random() * 2,
+    duration: 3 + Math.random() * 2,
+    left: Math.random() * 100,
+  }));
+
   return (
     <>
       {/* Announcement Banner */}
