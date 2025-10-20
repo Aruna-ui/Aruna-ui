@@ -51,13 +51,14 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen">
+      <Starfield />
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b border-amber-900/20">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/70 border-b border-purple-500/30">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <PenLine className="w-6 h-6 text-amber-900" />
-              <span className="text-2xl font-display text-amber-950">Aruna.S Writes</span>
+              <PenLine className="w-6 h-6 text-purple-400" />
+              <span className="text-2xl font-display text-indigo-100">Aruna.S Writes</span>
             </Link>
             <div className="flex items-center gap-6">
               <Link to="/" className="nav-link" data-testid="nav-home">Home</Link>
@@ -69,7 +70,7 @@ const HomePage = () => {
                   onClick={() => setShowAuth(true)}
                   variant="outline"
                   size="sm"
-                  className="border-amber-900 text-amber-900 hover:bg-amber-100"
+                  className="border-purple-500 text-purple-300 hover:bg-purple-500/20"
                   data-testid="login-btn"
                 >
                   <User className="w-4 h-4 mr-2" />
