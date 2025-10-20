@@ -230,12 +230,13 @@ const PostPage = () => {
 
   return (
     <div className="min-h-screen">
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b border-amber-900/20">
+      <Starfield />
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/70 border-b border-purple-500/30">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <PenLine className="w-6 h-6 text-amber-900" />
-              <span className="text-2xl font-display text-amber-950">Aruna.S Writes</span>
+              <PenLine className="w-6 h-6 text-purple-400" />
+              <span className="text-2xl font-display text-indigo-100">Aruna.S Writes</span>
             </Link>
             <Link to="/" className="nav-link" data-testid="back-home">← Back to Home</Link>
           </div>
