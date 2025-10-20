@@ -232,18 +232,18 @@ const PostPage = () => {
     <div className="min-h-screen">
       <Starfield />
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/70 border-b border-purple-500/30">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <PenLine className="w-6 h-6 text-purple-400" />
-              <span className="text-2xl font-display text-indigo-100">Aruna.S Writes</span>
+              <PenLine className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+              <span className="text-xl md:text-2xl font-display text-indigo-100">Aruna.S</span>
             </Link>
-            <Link to="/" className="nav-link" data-testid="back-home">← Back to Home</Link>
+            <Link to="/" className="nav-link text-sm md:text-base" data-testid="back-home">← Back</Link>
           </div>
         </div>
       </nav>
 
-      <article className="max-w-4xl mx-auto px-6 pt-32 pb-20">
+      <article className="max-w-4xl mx-auto px-4 md:px-6 pt-24 md:pt-32 pb-12 md:pb-20">
         <div className="mb-8">
           <span className="post-category" data-testid="article-category">{post.category}</span>
           <h1 className="article-title" data-testid="article-title">{post.title}</h1>
