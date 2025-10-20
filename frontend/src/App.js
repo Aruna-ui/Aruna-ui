@@ -651,12 +651,13 @@ const PostDialog = ({ open, onOpenChange, post, onSuccess }) => {
 const AboutPage = () => {
   return (
     <div className="min-h-screen">
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b border-amber-900/20">
+      <Starfield />
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/70 border-b border-purple-500/30">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <PenLine className="w-6 h-6 text-amber-900" />
-              <span className="text-2xl font-display text-amber-950">Aruna.S Writes</span>
+              <PenLine className="w-6 h-6 text-purple-400" />
+              <span className="text-2xl font-display text-indigo-100">Aruna.S Writes</span>
             </Link>
             <Link to="/" className="nav-link" data-testid="about-back-home">← Back to Home</Link>
           </div>
@@ -669,36 +670,36 @@ const AboutPage = () => {
             <img 
               src="https://customer-assets.emergentagent.com/job_3753420f-aaf4-4ba8-bc35-43e58ba6eb39/artifacts/qqg299lc_1703018909560.jpg" 
               alt="Aruna.S" 
-              className="w-48 h-48 rounded-full object-cover border-4 border-amber-900/30"
+              className="w-48 h-48 rounded-full object-cover border-4 border-purple-500/50 shadow-lg shadow-purple-500/50"
             />
           </div>
           <div>
-            <h1 className="text-5xl font-display text-amber-950 mb-4" data-testid="about-title">About Aruna.S</h1>
-            <p className="text-lg text-amber-800 leading-relaxed mb-4">
+            <h1 className="text-5xl font-display text-indigo-100 mb-4" data-testid="about-title">About Aruna.S</h1>
+            <p className="text-lg text-indigo-200 leading-relaxed mb-4">
               Author | Blogger | Banking Professional
             </p>
-            <p className="text-amber-700">
+            <p className="text-indigo-300">
               Based in Pune, India
             </p>
           </div>
         </div>
         
         <div className="prose prose-invert max-w-none space-y-6">
-          <p className="text-lg text-amber-950 leading-relaxed">
-            Aruna.S is an author based in Pune, where she lives with her two daughters. She is known for her books <span className="text-amber-900 font-semibold">Agarkas the King of Satan</span>, <span className="text-amber-900 font-semibold">The Whisper That Name Me</span>, and <span className="text-amber-900 font-semibold">Agarkas the Return of the King</span>.
+          <p className="text-lg text-indigo-100 leading-relaxed">
+            Aruna.S is an author based in Pune, where she lives with her two daughters. She is known for her books <span className="text-purple-400 font-semibold">Agarkas the King of Satan</span>, <span className="text-purple-400 font-semibold">The Whisper That Name Me</span>, and <span className="text-purple-400 font-semibold">Agarkas the Return of the King</span>.
           </p>
           
-          <p className="text-lg text-amber-950 leading-relaxed">
+          <p className="text-lg text-indigo-100 leading-relaxed">
             Alongside her literary career, Aruna.S is also a passionate blogger and is currently working on her fourth book. She balances her creative pursuits with a professional career, working in the banking sector.
           </p>
           
-          <p className="text-lg text-amber-950 leading-relaxed">
+          <p className="text-lg text-indigo-100 leading-relaxed">
             While her books explore worlds of fantasy and shadow, her blog bridges those fictional worlds with reality—sharing insights into her writing process, the sparks of inspiration found in daily life, and the chaotic, wonderful balancing act of being a mother, a banker, and a storyteller.
           </p>
           
-          <div className="mt-8 p-6 bg-white/90 rounded-lg border-2 border-amber-900/30 shadow-lg">
-            <h3 className="text-2xl font-display text-amber-900 mb-4">Published Works</h3>
-            <ul className="space-y-2 text-amber-950">
+          <div className="mt-8 p-6 bg-slate-900/80 rounded-lg border border-purple-500/30 shadow-lg backdrop-blur-xl">
+            <h3 className="text-2xl font-display text-purple-400 mb-4">Published Works</h3>
+            <ul className="space-y-2 text-indigo-100">
               <li>📚 <strong>Agarkas the King of Satan</strong></li>
               <li>📚 <strong>The Whisper That Name Me</strong></li>
               <li>📚 <strong>Agarkas the Return of the King</strong></li>
