@@ -98,9 +98,9 @@ const Hero = () => {
           animation: fall linear infinite;
         }
       `}</style>
-      {/* Announcement Banner */}
-      <div className="bg-cream-white/95 backdrop-blur-sm border-b border-gold/30 py-2 md:py-3 px-4 md:px-6 text-center">
-        <p className="text-charcoal text-xs md:text-sm">
+      {/* Announcement Banner - No white background */}
+      <div className="bg-black/60 backdrop-blur-sm border-b border-gold/30 py-2 md:py-3 px-4 md:px-6 text-center">
+        <p className="text-cream-white text-xs md:text-sm">
           New novel, a general fiction title, coming soon. Sign up for updates
         </p>
       </div>
