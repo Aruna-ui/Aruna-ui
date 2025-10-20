@@ -336,16 +336,16 @@ const AdminPage = () => {
 
   return (
     <div className="min-h-screen">
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/80 border-b border-slate-800">
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/95 border-b border-amber-900/20">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <PenLine className="w-6 h-6 text-rose-400" />
-              <span className="text-2xl font-display text-white">Aruna.S Writes</span>
+              <PenLine className="w-6 h-6 text-amber-900" />
+              <span className="text-2xl font-display text-amber-950">Aruna.S Writes</span>
             </Link>
             <div className="flex items-center gap-4">
-              <span className="text-slate-300">Welcome, {localStorage.getItem('username')}</span>
-              <Button onClick={handleLogout} variant="ghost" size="sm" className="text-rose-400" data-testid="logout-btn">
+              <span className="text-amber-800">Welcome, {localStorage.getItem('username')}</span>
+              <Button onClick={handleLogout} variant="ghost" size="sm" className="text-amber-900" data-testid="logout-btn">
                 <LogOut className="w-4 h-4 mr-2" />
                 Logout
               </Button>
@@ -356,7 +356,7 @@ const AdminPage = () => {
 
       <div className="max-w-7xl mx-auto px-6 pt-32 pb-20">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-display text-white" data-testid="admin-title">Manage Posts</h1>
+          <h1 className="text-4xl font-display text-amber-950" data-testid="admin-title">Manage Posts</h1>
           <Button onClick={() => setShowCreateDialog(true)} className="cta-button" data-testid="create-post-btn">
             <Plus className="w-5 h-5 mr-2" />
             Create New Post
