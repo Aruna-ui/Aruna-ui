@@ -142,7 +142,7 @@ const Hero = () => {
           </div>
         )}
 
-        {/* Clickable Door Overlay - Shows before click */}
+        {/* Clickable Door - Shows before click */}
         {!doorClicked && (
           <div className="absolute inset-0 z-20 flex items-center justify-center">
             <button
