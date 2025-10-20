@@ -658,53 +658,53 @@ const AboutPage = () => {
     <div className="min-h-screen">
       <Starfield />
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/70 border-b border-purple-500/30">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <PenLine className="w-6 h-6 text-purple-400" />
-              <span className="text-2xl font-display text-indigo-100">Aruna.S Writes</span>
+              <PenLine className="w-5 h-5 md:w-6 md:h-6 text-purple-400" />
+              <span className="text-xl md:text-2xl font-display text-indigo-100">Aruna.S</span>
             </Link>
-            <Link to="/" className="nav-link" data-testid="about-back-home">← Back to Home</Link>
+            <Link to="/" className="nav-link text-sm md:text-base" data-testid="about-back-home">← Back</Link>
           </div>
         </div>
       </nav>
 
-      <div className="max-w-4xl mx-auto px-6 pt-32 pb-20">
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="flex-shrink-0">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 pt-24 md:pt-32 pb-12 md:pb-20">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-8 md:mb-12">
+          <div className="flex-shrink-0 mx-auto md:mx-0">
             <img 
               src="https://customer-assets.emergentagent.com/job_3753420f-aaf4-4ba8-bc35-43e58ba6eb39/artifacts/qqg299lc_1703018909560.jpg" 
               alt="Aruna.S" 
-              className="w-48 h-48 rounded-full object-cover border-4 border-purple-500/50 shadow-lg shadow-purple-500/50"
+              className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-4 border-purple-500/50 shadow-lg shadow-purple-500/50"
             />
           </div>
-          <div>
-            <h1 className="text-5xl font-display text-indigo-100 mb-4" data-testid="about-title">About Aruna.S</h1>
-            <p className="text-lg text-indigo-200 leading-relaxed mb-4">
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl md:text-5xl font-display text-indigo-100 mb-3 md:mb-4" data-testid="about-title">About Aruna.S</h1>
+            <p className="text-base md:text-lg text-indigo-200 leading-relaxed mb-3 md:mb-4">
               Author | Blogger | Banking Professional
             </p>
-            <p className="text-indigo-300">
+            <p className="text-indigo-300 text-sm md:text-base">
               Based in Pune, India
             </p>
           </div>
         </div>
         
-        <div className="prose prose-invert max-w-none space-y-6">
-          <p className="text-lg text-indigo-100 leading-relaxed">
+        <div className="prose prose-invert max-w-none space-y-4 md:space-y-6">
+          <p className="text-base md:text-lg text-indigo-100 leading-relaxed">
             Aruna.S is an author based in Pune, where she lives with her two daughters. She is known for her books <span className="text-purple-400 font-semibold">Agarkas the King of Satan</span>, <span className="text-purple-400 font-semibold">The Whisper That Name Me</span>, and <span className="text-purple-400 font-semibold">Agarkas the Return of the King</span>.
           </p>
           
-          <p className="text-lg text-indigo-100 leading-relaxed">
+          <p className="text-base md:text-lg text-indigo-100 leading-relaxed">
             Alongside her literary career, Aruna.S is also a passionate blogger and is currently working on her fourth book. She balances her creative pursuits with a professional career, working in the banking sector.
           </p>
           
-          <p className="text-lg text-indigo-100 leading-relaxed">
+          <p className="text-base md:text-lg text-indigo-100 leading-relaxed">
             While her books explore worlds of fantasy and shadow, her blog bridges those fictional worlds with reality—sharing insights into her writing process, the sparks of inspiration found in daily life, and the chaotic, wonderful balancing act of being a mother, a banker, and a storyteller.
           </p>
           
-          <div className="mt-8 p-6 bg-slate-900/80 rounded-lg border border-purple-500/30 shadow-lg backdrop-blur-xl">
-            <h3 className="text-2xl font-display text-purple-400 mb-4">Published Works</h3>
-            <ul className="space-y-2 text-indigo-100">
+          <div className="mt-6 md:mt-8 p-4 md:p-6 bg-slate-900/80 rounded-lg border border-purple-500/30 shadow-lg backdrop-blur-xl">
+            <h3 className="text-xl md:text-2xl font-display text-purple-400 mb-3 md:mb-4">Published Works</h3>
+            <ul className="space-y-2 text-sm md:text-base text-indigo-100">
               <li>📚 <strong>Agarkas the King of Satan</strong></li>
               <li>📚 <strong>The Whisper That Name Me</strong></li>
               <li>📚 <strong>Agarkas the Return of the King</strong></li>
