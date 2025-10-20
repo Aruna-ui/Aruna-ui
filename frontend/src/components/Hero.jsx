@@ -128,6 +128,20 @@ const Hero = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
         </div>
 
+        {/* Falling Rose Petals */}
+        {showPetals && (
+          <div className="absolute inset-0 z-15 pointer-events-none overflow-hidden">
+            {petals.map((petal) => (
+              <FallingPetal
+                key={petal.id}
+                delay={petal.delay}
+                duration={petal.duration}
+                left={petal.left}
+              />
+            ))}
+          </div>
+        )}
+
         {/* Clickable Door Overlay - Shows before click */}
         {!doorClicked && (
           <div className="absolute inset-0 z-20 flex items-center justify-center">
