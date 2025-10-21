@@ -508,6 +508,215 @@ nav::before {
 
 /* Responsive Mobile & iOS Optimizations */
 @media (max-width: 768px) {
+
+/* Intro Sequence Styles */
+.intro-sequence {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.intro-slide {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 14, 39, 0.4),
+    rgba(10, 14, 39, 0.8)
+  );
+  z-index: 1;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+  animation: fadeInUp 1.2s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 
+    0 0 30px rgba(139, 92, 246, 0.8),
+    0 0 60px rgba(138, 43, 226, 0.6),
+    2px 2px 8px rgba(0, 0, 0, 0.9);
+  line-height: 1.2;
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 30px rgba(139, 92, 246, 0.8),
+      0 0 60px rgba(138, 43, 226, 0.6),
+      2px 2px 8px rgba(0, 0, 0, 0.9);
+  }
+  50% {
+    text-shadow: 
+      0 0 40px rgba(167, 139, 250, 1),
+      0 0 80px rgba(138, 43, 226, 0.8),
+      2px 2px 8px rgba(0, 0, 0, 0.9);
+  }
+}
+
+.intro-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #a78bfa;
+  margin-bottom: 3rem;
+  text-shadow: 
+    0 0 20px rgba(167, 139, 250, 0.8),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  animation: subtitleFloat 4s ease-in-out infinite;
+}
+
+@keyframes subtitleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.intro-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.8) 0%, rgba(168, 85, 247, 0.8) 100%);
+  border: 2px solid rgba(167, 139, 250, 0.6);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 30px rgba(139, 92, 246, 0.6),
+    0 8px 25px rgba(138, 43, 226, 0.4);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 1px;
+}
+
+.intro-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: buttonShine 3s ease-in-out infinite;
+}
+
+.intro-button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    0 0 40px rgba(167, 139, 250, 0.9),
+    0 12px 35px rgba(138, 43, 226, 0.6);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.9) 0%, rgba(139, 92, 246, 0.9) 100%);
+}
+
+.intro-button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Slide Indicators */
+.intro-indicators {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 3;
+}
+
+.intro-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(139, 92, 246, 0.5);
+  transition: all 0.3s ease;
+}
+
+.intro-indicator.active {
+  width: 40px;
+  border-radius: 6px;
+  background: rgba(139, 92, 246, 0.8);
+  border-color: #a78bfa;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+}
+
+/* Responsive Intro */
+@media (max-width: 768px) {
+  .intro-title {
+    font-size: 2.5rem;
+  }
+
+  .intro-subtitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .intro-button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .intro-content {
+    padding: 1rem;
+  }
+
+  .intro-indicators {
+    bottom: 2rem;
+  }
+}
+
+/* Responsive Mobile & iOS Optimizations */
+@media (max-width: 768px) {
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
