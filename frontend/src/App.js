@@ -741,6 +741,25 @@ const AboutPage = () => {
 };
 
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  // Check if user has seen intro before
+  useEffect(() => {
+    const hasSeenIntro = localStorage.getItem('hasSeenIntro');
+    if (hasSeenIntro) {
+      setShowIntro(false);
+    }
+  }, []);
+
+  const handleIntroComplete = () => {
+    localStorage.setItem('hasSeenIntro', 'true');
+    setShowIntro(false);
+  };
+
+  if (showIntro) {
+    return <IntroSequence onComplete={handleIntroComplete} />;
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
