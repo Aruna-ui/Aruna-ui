@@ -47,6 +47,52 @@ const HomePage = () => {
     }
   };
 
+  const handleLike = async (postId, postSlug) => {
+    const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '[]');
+    if (likedPosts.includes(postSlug)) {
+      toast.info('You already liked this post');
+      return;
+    }
+
+    try {
+      await axios.post(`${API}/posts/${postId}/like`);
+      likedPosts.push(postSlug);
+      localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
+      toast.success('Thanks for your feedback!');
+      fetchPosts(); // Refresh to show updated count
+    } catch (error) {
+      toast.error('Failed to like post');
+    }
+  };
+
+  const handleDislike = async (postId, postSlug) => {
+    const dislikedPosts = JSON.parse(localStorage.getItem('dislikedPosts') || '[]');
+    if (dislikedPosts.includes(postSlug)) {
+      toast.info('You already disliked this post');
+      return;
+    }
+
+    try {
+      await axios.post(`${API}/posts/${postId}/dislike`);
+      dislikedPosts.push(postSlug);
+      localStorage.setItem('dislikedPosts', JSON.stringify(dislikedPosts));
+      toast.success('Thanks for your feedback!');
+      fetchPosts(); // Refresh to show updated count
+    } catch (error) {
+      toast.error('Failed to dislike post');
+    }
+  };
+
+  const isLiked = (postSlug) => {
+    const likedPosts = JSON.parse(localStorage.getItem('likedPosts') || '[]');
+    return likedPosts.includes(postSlug);
+  };
+
+  const isDisliked = (postSlug) => {
+    const dislikedPosts = JSON.parse(localStorage.getItem('dislikedPosts') || '[]');
+    return dislikedPosts.includes(postSlug);
+  };
+
   const featuredPost = posts[0];
   const regularPosts = posts.slice(1);
 
