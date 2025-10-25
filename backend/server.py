@@ -78,6 +78,7 @@ class BlogPost(BaseModel):
     published: bool = True
     likes: int = 0
     dislikes: int = 0
+    views: int = 0
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
