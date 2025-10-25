@@ -284,10 +284,50 @@ const PostPage = () => {
         <div className="mb-8">
           <span className="post-category" data-testid="article-category">{post.category}</span>
           <h1 className="article-title" data-testid="article-title">{post.title}</h1>
-          <div className="flex items-center gap-4 text-indigo-200 text-sm mt-4">
+          <div className="flex flex-wrap items-center gap-4 text-indigo-200 text-sm mt-4">
             <span data-testid="article-author">By {post.author}</span>
             <span>•</span>
             <span data-testid="article-date">{new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span>•</span>
+            <span className="flex items-center gap-1" data-testid="article-views">
+              <Eye className="w-4 h-4" />
+              {post.views || 0} views
+            </span>
+            <span>•</span>
+            <div className="relative">
+              <button
+                onClick={() => setShowShareMenu(!showShareMenu)}
+                className="flex items-center gap-1 hover:text-purple-400 transition-colors"
+                data-testid="share-button"
+              >
+                <Share2 className="w-4 h-4" />
+                Share
+              </button>
+              {showShareMenu && (
+                <div className="share-menu" data-testid="share-menu">
+                  <button onClick={() => handleShare('facebook')} className="share-option" data-testid="share-facebook">
+                    <Facebook className="w-4 h-4" />
+                    Facebook
+                  </button>
+                  <button onClick={() => handleShare('twitter')} className="share-option" data-testid="share-twitter">
+                    <Twitter className="w-4 h-4" />
+                    Twitter
+                  </button>
+                  <button onClick={() => handleShare('linkedin')} className="share-option" data-testid="share-linkedin">
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </button>
+                  <button onClick={() => handleShare('email')} className="share-option" data-testid="share-email">
+                    <Mail className="w-4 h-4" />
+                    Email
+                  </button>
+                  <button onClick={() => handleShare('copy')} className="share-option" data-testid="share-copy">
+                    <LinkIcon className="w-4 h-4" />
+                    Copy Link
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
