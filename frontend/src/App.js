@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
-import { PenLine, Plus, Trash2, Edit, LogOut, User, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { PenLine, Plus, Trash2, Edit, LogOut, User, ThumbsUp, ThumbsDown, Share2, Eye, Facebook, Twitter, Linkedin, Link as LinkIcon, Mail } from 'lucide-react';
 import Starfield from '@/components/Starfield';
 import IntroSequence from '@/components/IntroSequence';
 import '@/App.css';
