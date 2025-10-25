@@ -220,6 +220,15 @@ async def get_post(slug: str):
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
     
+    # Increment view count
+    await db.posts.update_one(
+        {"slug": slug},
+        {"$inc": {"views": 1}}
+    )
+    
+    # Get updated post with new view count
+    post = await db.posts.find_one({"slug": slug}, {"_id": 0})
+    
     if isinstance(post['created_at'], str):
         post['created_at'] = datetime.fromisoformat(post['created_at'])
     if isinstance(post['updated_at'], str):
