@@ -169,6 +169,7 @@ const PostPage = () => {
   const [post, setPost] = useState(null);
   const [hasLiked, setHasLiked] = useState(false);
   const [hasDisliked, setHasDisliked] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -188,6 +189,41 @@ const PostPage = () => {
       console.error('Error fetching post:', error);
       toast.error('Post not found');
       navigate('/');
+    }
+  };
+
+  const handleShare = async (platform) => {
+    const url = window.location.href;
+    const title = post.title;
+    const text = post.excerpt;
+
+    const shareUrls = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+      twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(text + '\n\n' + url)}`,
+    };
+
+    if (platform === 'copy') {
+      try {
+        await navigator.clipboard.writeText(url);
+        toast.success('Link copied to clipboard!');
+        setShowShareMenu(false);
+      } catch (error) {
+        toast.error('Failed to copy link');
+      }
+    } else if (platform === 'native' && navigator.share) {
+      try {
+        await navigator.share({ title, text, url });
+        setShowShareMenu(false);
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.error('Error sharing:', error);
+        }
+      }
+    } else if (shareUrls[platform]) {
+      window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+      setShowShareMenu(false);
     }
   };
 
