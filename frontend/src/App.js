@@ -204,6 +204,28 @@ const HomePage = () => {
                     Read More →
                   </Button>
                 </div>
+                
+                {/* Feedback buttons on card */}
+                <div className="feedback-buttons mt-3">
+                  <button
+                    onClick={() => handleLike(post.id, post.slug)}
+                    className={`feedback-btn ${isLiked(post.slug) ? 'liked' : ''}`}
+                    disabled={isLiked(post.slug)}
+                    data-testid={`card-like-${post.slug}`}
+                  >
+                    <ThumbsUp className="w-4 h-4" />
+                    <span>{post.likes || 0}</span>
+                  </button>
+                  <button
+                    onClick={() => handleDislike(post.id, post.slug)}
+                    className={`feedback-btn ${isDisliked(post.slug) ? 'liked' : ''}`}
+                    disabled={isDisliked(post.slug)}
+                    data-testid={`card-dislike-${post.slug}`}
+                  >
+                    <ThumbsDown className="w-4 h-4" />
+                    <span>{post.dislikes || 0}</span>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
