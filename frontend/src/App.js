@@ -141,7 +141,13 @@ const HomePage = () => {
                 <h3 className="post-title" data-testid={`post-title-${post.slug}`}>{post.title}</h3>
                 <p className="post-excerpt" data-testid={`post-excerpt-${post.slug}`}>{post.excerpt}</p>
                 <div className="flex justify-between items-center mt-4">
-                  <span className="post-author" data-testid={`post-author-${post.slug}`}>by {post.author}</span>
+                  <div className="flex items-center gap-3 text-sm">
+                    <span className="post-author" data-testid={`post-author-${post.slug}`}>by {post.author}</span>
+                    <span className="flex items-center gap-1 text-indigo-400">
+                      <Eye className="w-3 h-3" />
+                      {post.views || 0}
+                    </span>
+                  </div>
                   <Button
                     onClick={() => navigate(`/post/${post.slug}`)}
                     variant="ghost"
