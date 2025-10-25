@@ -490,6 +490,10 @@ const AdminPage = () => {
                     <span>•</span>
                     <span>{new Date(post.created_at).toLocaleDateString()}</span>
                     <span>•</span>
+                    <span className="flex items-center gap-1">
+                      <Eye className="w-3 h-3" /> {post.views || 0}
+                    </span>
+                    <span>•</span>
                     <span className="flex items-center gap-2">
                       <ThumbsUp className="w-3 h-3" /> {post.likes || 0}
                       <ThumbsDown className="w-3 h-3 ml-1" /> {post.dislikes || 0}
