@@ -687,6 +687,62 @@ nav::before {
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
 }
 
+/* Share Menu Styles */
+.share-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  padding: 0.5rem;
+  min-width: 200px;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(138, 43, 226, 0.3),
+    0 0 20px rgba(139, 92, 246, 0.2);
+  z-index: 100;
+  animation: shareMenuFadeIn 0.3s ease-out;
+}
+
+@keyframes shareMenuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.share-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: #c7d2fe;
+  font-size: 0.875rem;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.share-option:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.share-option svg {
+  color: #a78bfa;
+}
+
 /* Responsive Mobile & iOS Optimizations */
 @media (max-width: 768px) {
   body {
